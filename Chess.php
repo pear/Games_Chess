@@ -25,7 +25,7 @@
  * (Standard Algebraic Notation) for describing individual moves is handled.  This
  * class can be used as a backend driver for playing chess, or for validating
  * and/or creating PGN files using the File_ChessPGN package.
- *
+rn *
  * Although this package is alpha, it is fully unit-tested.  The code works, but
  * the API is fluid, and may change dramatically as it is put into use and better
  * ways are found to use it.  When the API stabilizes, the stability will increase.
