@@ -210,6 +210,11 @@ define('GAMES_CHESS_ERROR_TOO_AMBIGUOUS', 32);
  */
 define('GAMES_CHESS_ERROR_NOPIECE_CANDOTHAT', 33);
 /**
+ * In loser's chess, and the current move does not capture a piece although
+ * capture is possible.
+ */
+define('GAMES_CHESS_ERROR_MOVE_MUST_CAPTURE', 34);
+/**
  * ABSTRACT parent class - use {@link Games_Chess_Standard} for a typical
  * chess game
  *
@@ -469,6 +474,21 @@ class Games_Chess {
     function getMoveList()
     {
         return $this->_moves;
+    }
+    
+    /**
+     * @return W|B|D|false winner of game, or draw, or false if still going
+     */
+    function gameOver()
+    {
+        $opposite = $this->_move == 'W' ? 'B' : 'W';
+        if ($this->inCheckmate()) {
+            return $opposite;
+        }
+        if ($this->inDraw()) {
+            return 'D';
+        }
+        return false;
     }
     
     /**
@@ -2087,6 +2107,8 @@ class Games_Chess {
                 '"%san%" does not resolve ambiguity between %piece%s on %squares%',
             GAMES_CHESS_ERROR_NOPIECE_CANDOTHAT =>
                 'There are no %color% pieces on the board that can do "%san%"',
+            GAMES_CHESS_ERROR_MOVE_MUST_CAPTURE =>
+                'Capture is possible, "%san%" does not capture',
         );
         $message = $messages[$code];
         foreach ($extra as $key => $value) {
