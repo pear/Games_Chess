@@ -56,16 +56,49 @@ class Games_Chess_TestCase_getCastleSquares extends PHPUnit_TestCase
         $this->assertTrue(false, "$errstr at line $errline");
     }
     
-    function test_getCastleSquares_1()
+    function test_getCastleSquares_w()
     {
         if (!$this->_methodExists('_getCastleSquares')) {
             return;
         }
+        if (!$this->_methodExists('resetGame')) {
+            return;
+        }
+        $this->board->resetGame();
         for ($i = ord('a'); $i <= ord('h'); $i++) {
             for ($j = 1; $j <= 8; $j++) {
                 $ret = $this->board->_getCastleSquares(chr($i) . $j);
-                $this->assertEquals(array(),
-                    $ret, 'Incorrect castle squares');
+                if (chr($i) . $j == 'e1') {
+                    $this->assertEquals(array('g1', 'c1'),
+                       $ret, 'Incorrect castle squares ' . chr($i) . $j);
+                } else {
+                    $this->assertEquals(array(),
+                        $ret, 'Incorrect castle squares ' . chr($i) . $j);
+                }
+            }
+        }
+    }
+    
+    function test_getCastleSquares_b()
+    {
+        if (!$this->_methodExists('_getCastleSquares')) {
+            return;
+        }
+        if (!$this->_methodExists('resetGame')) {
+            return;
+        }
+        $this->board->resetGame();
+        $this->board->_move = 'B';
+        for ($i = ord('a'); $i <= ord('h'); $i++) {
+            for ($j = 1; $j <= 8; $j++) {
+                $ret = $this->board->_getCastleSquares(chr($i) . $j);
+                if (chr($i) . $j == 'e8') {
+                    $this->assertEquals(array('g8', 'c8'),
+                       $ret, 'Incorrect castle squares ' . chr($i) . $j);
+                } else {
+                    $this->assertEquals(array(),
+                        $ret, 'Incorrect castle squares ' . chr($i) . $j);
+                }
             }
         }
     }
