@@ -21,7 +21,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     </maintainer>
   </maintainers>
   <release>
-    <version>0.4alpha</version>
+    <version>0.5alpha</version>
     <date>2003-10-26</date>
     <license>PHP License</license>
     <state>alpha</state>
@@ -80,19 +80,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     <filelist>
       <file role="php" baseinstalldir="Games" md5sum="078100603ccdd52076baafd8b5c9161c" name="Chess/Losers.php"/>
       <file role="php" baseinstalldir="Games" md5sum="ef46106e40f7f6da714b29142e8252e6" name="Chess/Standard.php"/>
-      <file role="data" baseinstalldir="Games" md5sum="fe78a8fb935097ecc63998c3ad54896c" name="Chess/CVS/Entries"/>
-      <file role="data" baseinstalldir="Games" md5sum="945208d258aeefd69f3fd02a32272a9f" name="Chess/CVS/Entries.Extra"/>
-      <file role="data" baseinstalldir="Games" md5sum="c21787cf0b16222af17a8d5e20cb6fed" name="Chess/CVS/Repository"/>
-      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="Chess/CVS/Root"/>
-      <file role="data" baseinstalldir="Games" md5sum="8201d16e9e66534dac09f27ca81bf710" name="CVS/Entries"/>
-      <file role="data" baseinstalldir="Games" md5sum="d5f8bfbdb2c6dcb87b2b3d527e2b2235" name="CVS/Entries.Extra"/>
-      <file role="data" baseinstalldir="Games" md5sum="252530f4e987776f8b55ae7dd4c4f061" name="CVS/Repository"/>
-      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="CVS/Root"/>
       <file role="data" baseinstalldir="Games" md5sum="8393cdbf229aee906aba80fbcccf1a97" name="examples/HTMLChess.php"/>
-      <file role="data" baseinstalldir="Games" md5sum="382bd10b87a84dcef21773e4f3655f87" name="examples/CVS/Entries"/>
-      <file role="data" baseinstalldir="Games" md5sum="f332342a7a1852344e14e4842b48e3c8" name="examples/CVS/Entries.Extra"/>
-      <file role="data" baseinstalldir="Games" md5sum="0f9d75f9c56a90ed8c9d198d24db7cff" name="examples/CVS/Repository"/>
-      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="examples/CVS/Root"/>
       <file role="data" baseinstalldir="Games" md5sum="a847ef7d029f5f9c608fa5166268437d" name="examples/images/B.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="c9ee061f36289f8faca053b5d9064562" name="examples/images/blank.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="41b6871dd5591a3ecb235fc6720a1818" name="examples/images/K.gif"/>
@@ -100,10 +88,6 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file role="data" baseinstalldir="Games" md5sum="e8dde345f489a7d3c5a76f018a94ba00" name="examples/images/P.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="3334b0e912084403dcf79fee727e62ca" name="examples/images/Q.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="f63487caff4a223b13fdab4384270b53" name="examples/images/R.gif"/>
-      <file role="data" baseinstalldir="Games" md5sum="a6f837c3b7553e4e6a866e216b8829c9" name="examples/images/CVS/Entries"/>
-      <file role="data" baseinstalldir="Games" md5sum="9a3ffd85a446a636d8b901cfb65e5561" name="examples/images/CVS/Entries.Extra"/>
-      <file role="data" baseinstalldir="Games" md5sum="247cdcc49e3ecda361dcc62d108f5ee7" name="examples/images/CVS/Repository"/>
-      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="examples/images/CVS/Root"/>
       <file role="data" baseinstalldir="Games" md5sum="8f9dd9b5e11b0d99673c3a08b26cab17" name="examples/images/dark/b.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="c9ee061f36289f8faca053b5d9064562" name="examples/images/dark/blank.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="ab32ae187ffe55910de5adaf895bcba4" name="examples/images/dark/k.gif"/>
@@ -111,10 +95,6 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file role="data" baseinstalldir="Games" md5sum="f43c43879224759e27d4283c0eb9c5ff" name="examples/images/dark/p.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="a5ab27171a3346b17ff59e05876234b4" name="examples/images/dark/q.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="ab04b1a7cbdbf94a25d2f1e778963225" name="examples/images/dark/r.gif"/>
-      <file role="data" baseinstalldir="Games" md5sum="67968e252b8ca0d2b031d0c495a86446" name="examples/images/dark/CVS/Entries"/>
-      <file role="data" baseinstalldir="Games" md5sum="e4d9b264d9076f817bd410898159c641" name="examples/images/dark/CVS/Entries.Extra"/>
-      <file role="data" baseinstalldir="Games" md5sum="c47f7305184857e22ab2c393531ea0fe" name="examples/images/dark/CVS/Repository"/>
-      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="examples/images/dark/CVS/Root"/>
       <file role="test" baseinstalldir="Games" md5sum="e662acf6f1a7953f7d8fc1b419e1642b" name="tests/Games_Chess_TestCase_addPiece.php"/>
       <file role="test" baseinstalldir="Games" md5sum="a436bd79f2dd06cd7cde253a783c9e43" name="tests/Games_Chess_TestCase_bugdxc3.php"/>
       <file role="test" baseinstalldir="Games" md5sum="6a165353721fedb15cddcbac4d596134" name="tests/Games_Chess_TestCase_bugEnPassant.php"/>
@@ -154,10 +134,6 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file role="test" baseinstalldir="Games" md5sum="00e5090950407f9b844887c0951dccba" name="tests/stylesheet.css"/>
       <file role="test" baseinstalldir="Games" md5sum="18869de6d8addeea037f20aa657eef62" name="tests/testsuite.php"/>
       <file role="test" baseinstalldir="Games" md5sum="e414efac9d52381d8a9836f444338611" name="tests/TestUnit.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="7fc2dae0fa240d836f5666552d6ae4f0" name="tests/CVS/Entries"/>
-      <file role="test" baseinstalldir="Games" md5sum="2dc691f626b0521e323aa529d1a2bdd1" name="tests/CVS/Entries.Extra"/>
-      <file role="test" baseinstalldir="Games" md5sum="6ed4b76ca87d2922108d13ae2af811c5" name="tests/CVS/Repository"/>
-      <file role="test" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="tests/CVS/Root"/>
       <file role="php" baseinstalldir="Games" md5sum="caa0873ad837417f687b7586482b3755" name="Chess.php">
         <replace type="package-info" from="@VER@" to="version"/>
       </file>
@@ -196,6 +172,15 @@ a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3
     </release>
     <release>
       <version>0.4alpha</version>
+      <date>2003-10-26</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>Added new module for Loser's chess (ICC wild 16)
+
+- added gameOver() method, returns color of winner, or D for draw, or false</notes>
+    </release>
+    <release>
+      <version>0.5alpha</version>
       <date>2003-10-26</date>
       <license>PHP License</license>
       <state>alpha</state>
