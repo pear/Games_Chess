@@ -2213,6 +2213,9 @@ class Games_Chess {
     {
         $state = get_object_vars($this);
         unset($state['_saveState']);
+        if (!is_array($this->_saveState)) {
+            $this->_saveState = array();
+        }
         array_push($this->_saveState, $state);
     }
     

@@ -342,7 +342,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_pawnmove_invalid1()
     {
         $ret = $this->board->_parseMove('a9');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"a9" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -350,7 +350,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_pawnmove_invalid2()
     {
         $ret = $this->board->_parseMove('q8');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"q8" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -358,7 +358,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_pawnmove_invalid3()
     {
         $ret = $this->board->_parseMove('aa8');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"aa8" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -366,7 +366,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_pawnmove_invalid4()
     {
         $ret = $this->board->_parseMove('a88');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"a88" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -374,7 +374,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_pawnmove_invalid5()
     {
         $ret = $this->board->_parseMove('qxh8');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"qxh8" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -382,7 +382,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_pawnmove_invalid6()
     {
         $ret = $this->board->_parseMove('axj8');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"axj8" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -390,7 +390,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_pawnmove_invalid7()
     {
         $ret = $this->board->_parseMove('h8=K');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"h8=K" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -398,7 +398,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_piecemove_invalid1()
     {
         $ret = $this->board->_parseMove('Qj4');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"Qj4" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -406,7 +406,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_piecemove_invalid2()
     {
         $ret = $this->board->_parseMove('Lf4');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"Lf4" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -414,7 +414,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_piecemove_invalid3()
     {
         $ret = $this->board->_parseMove('Kxu4');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"Kxu4" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }
@@ -422,7 +422,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function test_piecemove_invalid4()
     {
         $ret = $this->board->_parseMove('Kaxh4');
-        $this->assertEquals('pear_error', get_class($ret), 'no error');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"Kaxh4" is not a valid algebraic move', $ret->getMessage(),
             'invalid error message');
     }

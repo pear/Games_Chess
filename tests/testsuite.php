@@ -24,12 +24,12 @@ $title = 'PhpUnit test run, Games_Chess package';
 <body>
 <h1><?php echo $title; ?></h1>
       <p>
-	This page runs all the phpUnit self-tests, and produces nice HTML output.
+    This page runs all the phpUnit self-tests, and produces nice HTML output.
       </p>
       <p>
-	Unlike typical test run, <strong>expect many test cases to
-	  fail</strong>.  Exactly those with <code>pass</code> in their name
-	should succeed.
+    Unlike typical test run, <strong>expect many test cases to
+      fail</strong>.  Exactly those with <code>pass</code> in their name
+    should succeed.
       </p>
       <p>
       For each test we display both the test result -- <span
@@ -45,32 +45,32 @@ $title = 'PhpUnit test run, Games_Chess package';
       </p>
       
 <h2>Tests</h2>
-	<?php
-	$testcases = array(
-    	    'Games_Chess_TestCase_getDiagonal',
-    	    'Games_Chess_TestCase_getRookSquares',
-    	    'Games_Chess_TestCase_getKnightSquares',
-    	    'Games_Chess_TestCase_getKingSquares',
-    	    'Games_Chess_TestCase_getCastleSquares',
-    	    'Games_Chess_TestCase_parseMove',
-    	    'Games_Chess_TestCase_addPiece',
-    	    'Games_Chess_TestCase_parseFen',
-    	    'Games_Chess_TestCase_getAllPieceLocations',
-    	    'Games_Chess_TestCase_getPossibleKnightMoves',
-    	    'Games_Chess_TestCase_getPossibleBishopMoves',
-    	    'Games_Chess_TestCase_getPossibleRookMoves',
-    	    'Games_Chess_TestCase_getPossibleQueenMoves',
-    	    'Games_Chess_TestCase_getPossibleKingMoves',
-    	    'Games_Chess_TestCase_getPossiblePawnMoves',
-    	    'Games_Chess_TestCase_getPossibleMoves',
-    	    'Games_Chess_TestCase_getPossibleChecks',
-    	    'Games_Chess_TestCase_inCheck',
-    	    'Games_Chess_TestCase_inCheckMate',
-    	    'Games_Chess_TestCase_squareToPiece',
-    	    'Games_Chess_TestCase_getAllPieceSquares',
-    	    'Games_Chess_TestCase_convertSquareToSAN',
-    	    'Games_Chess_TestCase_getSquareFromParsedMove',
-    	    'Games_Chess_TestCase_movePiece',
+    <?php
+    $testcases = array(
+            'Games_Chess_TestCase_getDiagonal',
+            'Games_Chess_TestCase_getRookSquares',
+            'Games_Chess_TestCase_getKnightSquares',
+            'Games_Chess_TestCase_getKingSquares',
+            'Games_Chess_TestCase_getCastleSquares',
+            'Games_Chess_TestCase_parseMove',
+            'Games_Chess_TestCase_addPiece',
+            'Games_Chess_TestCase_parseFen',
+            'Games_Chess_TestCase_getAllPieceLocations',
+            'Games_Chess_TestCase_getPossibleKnightMoves',
+            'Games_Chess_TestCase_getPossibleBishopMoves',
+            'Games_Chess_TestCase_getPossibleRookMoves',
+            'Games_Chess_TestCase_getPossibleQueenMoves',
+            'Games_Chess_TestCase_getPossibleKingMoves',
+            'Games_Chess_TestCase_getPossiblePawnMoves',
+            'Games_Chess_TestCase_getPossibleMoves',
+            'Games_Chess_TestCase_getPossibleChecks',
+            'Games_Chess_TestCase_inCheck',
+            'Games_Chess_TestCase_inCheckMate',
+            'Games_Chess_TestCase_squareToPiece',
+            'Games_Chess_TestCase_getAllPieceSquares',
+            'Games_Chess_TestCase_convertSquareToSAN',
+            'Games_Chess_TestCase_getSquareFromParsedMove',
+            'Games_Chess_TestCase_movePiece',
             'Games_Chess_TestCase_moveAlgebraic',
             'Games_Chess_TestCase_moveSAN',
             'Games_Chess_TestCase_validMove',
@@ -88,21 +88,21 @@ $title = 'PhpUnit test run, Games_Chess package';
             'Games_Chess_TestCase_bugEnPassant',
             'Games_Chess_TestCase_bugdxc3',
             'Games_Chess_TestCase_bugpromotion',
-	);
+    );
 
-	
-	$suite = new PHPUnit_TestSuite();
+    
+    $suite = new PHPUnit_TestSuite();
 
-	foreach ($testcases as $testcase) {
-    	    include_once $testcase . '.php';
+    foreach ($testcases as $testcase) {
+            include_once $testcase . '.php';
             $suite->addTestSuite($testcase);
-	}
+    }
 
-	$listener = new HTML_TestListener();
+    $listener = new HTML_TestListener();
         $result = TestUnit::run($suite, $listener);
-	$result->removeListener($listener);
-	$result->report();
+    $result->removeListener($listener);
+    $result->report();
 
-	?>
+    ?>
 </body>
 </html>

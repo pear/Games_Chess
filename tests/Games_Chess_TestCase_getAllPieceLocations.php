@@ -71,7 +71,7 @@ class Games_Chess_TestCase_getAllPieceLocations extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->getPieceLocations('White');
-        $this->assertEquals('pear_error', get_class($err), 'no error returned');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error returned');
         $this->assertEquals('"WHITE" is not a valid piece color, try W or B',
             $err->getMessage(), 'wrong error message');
     }

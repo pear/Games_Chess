@@ -207,7 +207,7 @@ class Games_Chess_TestCase_getSquareFromParsedMove extends PHPUnit_TestCase
         $this->board->addPiece('W', 'Q', 'e4');
         $a = $this->board->_parseMove('Qh4');
         $err = $this->board->_getSquareFromParsedMove(current($a));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('"Qh4" does not resolve ambiguity between Queens on h2 e4',
             $err->getMessage(),
@@ -229,7 +229,7 @@ class Games_Chess_TestCase_getSquareFromParsedMove extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'h2');
         $a = $this->board->_parseMove('Ka1');
         $err = $this->board->_getSquareFromParsedMove(current($a));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There are no White pieces on the board that can do "Ka1"',
             $err->getMessage(),

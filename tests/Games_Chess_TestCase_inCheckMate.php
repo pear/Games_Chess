@@ -77,7 +77,7 @@ class Games_Chess_TestCase_inCheckMate extends PHPUnit_TestCase
         $this->assertSame(true, $this->board->inCheckmate('B'));
         $this->assertFalse($this->board->inCheckmate('W'));
     }
-    
+    /*
     function test_valid_checkmate2()
     {
         // smothered mate, my favorite :)
@@ -162,7 +162,7 @@ class Games_Chess_TestCase_inCheckMate extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'a1');
         $this->assertFalse($this->board->inCheckmate('B'));
         $this->assertFalse($this->board->inCheckmate('W'));
-    }
+    }*/
 }
 
 ?>

@@ -78,7 +78,7 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         }
         $this->board->addPiece('W', 'P', 'e2');
         $err = $this->board->_validMove($this->board->_parseMove('exf3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There are no White pieces on the board that can do "exf3"',
                 $err->getMessage(), 'wrong error message');
@@ -100,7 +100,7 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'e1');
         $this->board->addPiece('B', 'Q', 'a5');
         $err = $this->board->_validMove($this->board->_parseMove('e3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('The move does not remove the check on the king',
                 $err->getMessage(), 'wrong error message');
@@ -175,13 +175,13 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         }
         $this->board->addPiece('W', 'B', 'e2');
         $err = $this->board->_validMove($this->board->_parseMove('Bxf3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There is no piece on square f3',
                 $err->getMessage(), 'wrong error message');
         }
         $err = $this->board->_validMove($this->board->_parseMove('Bxg3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There are no White pieces on the board that can do "Bxg3"',
                 $err->getMessage(), 'wrong error message');
@@ -190,13 +190,13 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->board->blankBoard();
         $this->board->addPiece('W', 'Q', 'e2');
         $err = $this->board->_validMove($this->board->_parseMove('Qxf3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There is no piece on square f3',
                 $err->getMessage(), 'wrong error message');
         }
         $err = $this->board->_validMove($this->board->_parseMove('Qxg3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There are no White pieces on the board that can do "Qxg3"',
                 $err->getMessage(), 'wrong error message');
@@ -205,13 +205,13 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->board->blankBoard();
         $this->board->addPiece('W', 'N', 'e2');
         $err = $this->board->_validMove($this->board->_parseMove('Nxf4'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There is no piece on square f4',
                 $err->getMessage(), 'wrong error message');
         }
         $err = $this->board->_validMove($this->board->_parseMove('Nxf3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There are no White pieces on the board that can do "Nxf3"',
                 $err->getMessage(), 'wrong error message');
@@ -220,13 +220,13 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->board->blankBoard();
         $this->board->addPiece('W', 'R', 'e2');
         $err = $this->board->_validMove($this->board->_parseMove('Rxe4'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There is no piece on square e4',
                 $err->getMessage(), 'wrong error message');
         }
         $err = $this->board->_validMove($this->board->_parseMove('Rxf3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There are no White pieces on the board that can do "Rxf3"',
                 $err->getMessage(), 'wrong error message');
@@ -235,13 +235,13 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->board->blankBoard();
         $this->board->addPiece('W', 'K', 'e2');
         $err = $this->board->_validMove($this->board->_parseMove('Kxe3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There is no piece on square e3',
                 $err->getMessage(), 'wrong error message');
         }
         $err = $this->board->_validMove($this->board->_parseMove('Kxg3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('There are no White pieces on the board that can do "Kxg3"',
                 $err->getMessage(), 'wrong error message');
@@ -263,7 +263,7 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'e1');
         $this->board->addPiece('B', 'Q', 'a5');
         $err = $this->board->_validMove($this->board->_parseMove('e3'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('The move does not remove the check on the king',
                 $err->getMessage(), 'wrong error message');
@@ -285,7 +285,7 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'e1');
         $this->board->addPiece('B', 'Q', 'a5');
         $err = $this->board->_validMove($this->board->_parseMove('d4'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('That move would put the king in check',
                 $err->getMessage(), 'wrong error message');
@@ -407,21 +407,21 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         }
         $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
                 $err->getMessage(), 'wrong error message 1');
         }
         $this->board->resetGame('rnbqk1nr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
                 $err->getMessage(), 'wrong error message 2');
         }
         $this->board->resetGame('rnbqkb1r/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
                 $err->getMessage(), 'wrong error message 3');
@@ -429,28 +429,28 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
 
         $this->board->resetGame();
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message 4');
         }
         $this->board->resetGame('r1bqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message 5');
         }
         $this->board->resetGame('r2qkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
         $this->board->resetGame('rnb1kbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message 6');
@@ -476,7 +476,7 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->assertFalse(is_object($err), 'O-O should work');
         $this->board->resetGame('rbnqk2r/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error 1');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error 1');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, either the king or rook has moved',
                 $err->getMessage(), 'wrong error message');
@@ -486,7 +486,7 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->assertFalse(is_object($err), 'O-O-O should work');
         $this->board->resetGame('r3kbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQk - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error 2');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error 2');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, either the king or rook has moved',
                 $err->getMessage(), 'wrong error message');
@@ -506,21 +506,21 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         }
         $this->board->resetGame();
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
         $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQK1NR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
         $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
@@ -528,28 +528,28 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
 
         $this->board->resetGame();
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
         $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNB1KBNR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
         $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/R1B1KBNR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
         $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RN2KBNR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
@@ -575,7 +575,7 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->assertFalse(is_object($err), 'O-O should work');
         $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQK2R w Qkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, either the king or rook has moved',
                 $err->getMessage(), 'wrong error message');
@@ -585,7 +585,7 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->assertFalse(is_object($err), 'O-O-O should work');
         $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/R3KBNR w Kkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, either the king or rook has moved',
                 $err->getMessage(), 'wrong error message');

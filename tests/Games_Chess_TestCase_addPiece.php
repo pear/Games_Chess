@@ -399,13 +399,13 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
             $this->assertSame($err, true, $i);
         }
         $err = $this->board->addPiece('W', 'P', 'a4');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many White Pawns', $err->getMessage(), 'wrong message');
         
         $err = $this->board->addPiece('W', 'Q', 'a4');
         $this->assertSame($err, true, 'Qa4');
         $err = $this->board->addPiece('W', 'Q', 'a5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many White Queens', $err->getMessage(), 'wrong message');
         
         $err = $this->board->addPiece('W', 'R', 'a6');
@@ -413,7 +413,7 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
         $err = $this->board->addPiece('W', 'R', 'a7');
         $this->assertSame($err, true, 'Ra7');
         $err = $this->board->addPiece('W', 'R', 'a5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many White Rooks', $err->getMessage(), 'wrong message');
         
         $err = $this->board->addPiece('W', 'N', 'b6');
@@ -421,7 +421,7 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
         $err = $this->board->addPiece('W', 'N', 'b7');
         $this->assertSame($err, true, 'Nb7');
         $err = $this->board->addPiece('W', 'N', 'b5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many White Knights', $err->getMessage(), 'wrong message');
         
         $err = $this->board->addPiece('W', 'B', 'c6');
@@ -429,13 +429,13 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
         $err = $this->board->addPiece('W', 'B', 'c7');
         $this->assertSame($err, true, 'Bc7');
         $err = $this->board->addPiece('W', 'B', 'c5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many White Bishops', $err->getMessage(), 'wrong message');
         
         $err = $this->board->addPiece('W', 'K', 'd6');
         $this->assertSame($err, true, 'Kd6');
         $err = $this->board->addPiece('W', 'K', 'c5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many White Kings', $err->getMessage(), 'wrong message');
     }
     
@@ -449,13 +449,13 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
             $this->assertSame($err, true, $i);
         }
         $err = $this->board->addPiece('B', 'P', 'a4');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many Black Pawns', $err->getMessage(), 'Wrong message');
         
         $err = $this->board->addPiece('B', 'Q', 'a4');
         $this->assertSame($err, true, 'Qa4');
         $err = $this->board->addPiece('B', 'Q', 'a5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many Black Queens', $err->getMessage(), 'Wrong message');
         
         $err = $this->board->addPiece('B', 'R', 'a6');
@@ -463,7 +463,7 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
         $err = $this->board->addPiece('B', 'R', 'a7');
         $this->assertSame($err, true, 'Ra7');
         $err = $this->board->addPiece('B', 'R', 'a5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many Black Rooks', $err->getMessage(), 'Wrong message');
         
         $err = $this->board->addPiece('B', 'N', 'b6');
@@ -471,7 +471,7 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
         $err = $this->board->addPiece('B', 'N', 'b7');
         $this->assertSame($err, true, 'Nb7');
         $err = $this->board->addPiece('B', 'N', 'b5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many Black Knights', $err->getMessage(), 'Wrong message');
         
         $err = $this->board->addPiece('B', 'B', 'c6');
@@ -479,13 +479,13 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
         $err = $this->board->addPiece('B', 'B', 'c7');
         $this->assertSame($err, true, 'Bc7');
         $err = $this->board->addPiece('B', 'B', 'c5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many Black Bishops', $err->getMessage(), 'Wrong message');
         
         $err = $this->board->addPiece('B', 'K', 'd6');
         $this->assertSame($err, true, 'Kd6');
         $err = $this->board->addPiece('B', 'K', 'c5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Too many Black Kings', $err->getMessage(), 'Wrong message');
     }
     
@@ -497,14 +497,14 @@ class Games_Chess_TestCase_addPiece extends PHPUnit_TestCase
         $err = $this->board->addPiece('W', 'P', 'a4');
         $this->assertSame($err, true, 'Pa4');
         $err = $this->board->addPiece('B', 'P', 'a4');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Pawn already occupies square a4, cannot be replaced by Pawn',
             $err->getMessage(), 'Wrong message');
 
         $err = $this->board->addPiece('W', 'N', 'a5');
         $this->assertSame($err, true, 'Pa4');
         $err = $this->board->addPiece('B', 'B', 'a5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error!');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error!');
         $this->assertEquals('Knight already occupies square a5, cannot be replaced by Bishop',
             $err->getMessage(), 'Wrong message');
     }

@@ -71,7 +71,7 @@ class Games_Chess_TestCase_getPossibleKnightMoves extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->getPossibleKnightMoves('a1', 'Q');
-        $this->assertEquals('pear_error', get_class($err), 'no error returned');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error returned');
         $this->assertEquals('"Q" is not a valid piece color, try W or B',
             $err->getMessage(), 'wrong error message');
     }
@@ -82,7 +82,7 @@ class Games_Chess_TestCase_getPossibleKnightMoves extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->getPossibleKnightMoves('a9', 'B');
-        $this->assertEquals('pear_error', get_class($err), 'no error returned');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error returned');
         $this->assertEquals('"a9" is not a valid square, must be between a1 and h8',
             $err->getMessage(), 'wrong error message');
     }

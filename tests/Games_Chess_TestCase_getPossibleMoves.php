@@ -71,7 +71,7 @@ class Games_Chess_TestCase_getPossibleMoves extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->getPossibleMoves('P', 'a1', 'Q');
-        $this->assertEquals('pear_error', get_class($err), 'no error returned');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error returned');
         $this->assertEquals('"Q" is not a valid piece color, try W or B',
             $err->getMessage(), 'wrong error message');
     }
@@ -82,7 +82,7 @@ class Games_Chess_TestCase_getPossibleMoves extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->getPossibleMoves('P', 'a9', 'B');
-        $this->assertEquals('pear_error', get_class($err), 'no error returned');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error returned');
         $this->assertEquals('"a9" is not a valid square, must be between a1 and h8',
             $err->getMessage(), 'wrong error message');
     }
@@ -93,7 +93,7 @@ class Games_Chess_TestCase_getPossibleMoves extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->getPossibleMoves('T', 'a8', 'B');
-        $this->assertEquals('pear_error', get_class($err), 'no error returned');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error returned');
         $this->assertEquals('"T" is not a valid piece, must be P, Q, R, N, K or B',
             $err->getMessage(), 'wrong error message');
     }

@@ -81,7 +81,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('hello');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "hello" has 1 fields, 6 is required', $err->getMessage(), 'wrong message');
     }
     
@@ -91,7 +91,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('1 2 3 4  5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "1 2 3 4  5" has an empty field at index 4', $err->getMessage(), 'wrong message');
     }
     
@@ -101,7 +101,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('1$ 2 3 4 5 6');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "1$ 2 3 4 5 6" the character "$" is not a valid piece, separator or number', $err->getMessage(), 'wrong message');
     }
     
@@ -111,7 +111,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('RKQBPRNNRQ 2 3 4 5 6');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "RKQBPRNNRQ 2 3 4 5 6" has too many pieces for a chessboard', $err->getMessage(), 'wrong message');
     }
     
@@ -121,7 +121,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('RKQBPRNN/RQ 2 3 4 5 6');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "RKQBPRNN/RQ 2 3 4 5 6" has too few pieces for a chessboard', $err->getMessage(), 'wrong message');
     }
     
@@ -131,7 +131,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR 2 3 4 5 6');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR 2 3 4 5 6" has invalid to-move indicator, must be "w" or "b"', $err->getMessage(), 'wrong message');
     }
     
@@ -141,7 +141,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w QKQKQ 4 5 6');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w QKQKQ 4 5 6" the castling indicator (KQkq) is too long', $err->getMessage(), 'wrong message');
     }
     
@@ -151,7 +151,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w QKqw 4 5 6');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w QKqw 4 5 6" the castling indicator "w" is invalid', $err->getMessage(), 'wrong message');
     }
     
@@ -161,7 +161,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq 4 5 6');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq 4 5 6" the en passant square indicator "4" is invalid', $err->getMessage(), 'wrong message');
     }
     
@@ -171,7 +171,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - a 6');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - a 6" the half-move ply count "a" is not a number', $err->getMessage(), 'wrong message');
     }
     
@@ -181,7 +181,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 5 a');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 5 a" the move number "a" is not a number', $err->getMessage(), 'wrong message');
     }
     
@@ -191,7 +191,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('rnbqkppp/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 5 5');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "rnbqkppp/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 5 5" Too many Black Pawns', $err->getMessage(), 'wrong message');
     }
     
@@ -201,7 +201,7 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_parseFen('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQk d1 0 1');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('Invalid FEN - "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQk d1 0 1" the en passant square indicator "d1" is invalid', $err->getMessage(), 'wrong message');
     }
     

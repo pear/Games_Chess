@@ -171,7 +171,7 @@ class Games_Chess_TestCase_moveSAN extends PHPUnit_TestCase
         $err = $this->board->addPiece('W', 'P', 'e4');
         $this->assertFalse(is_object($err), 'adding W pawn failed');
         $err = $this->board->moveSAN('exd5');
-        $this->assertEquals('pear_error', get_class($err), 'capturing worked?');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'capturing worked?');
         if (is_object($err)) {
             $this->assertEquals('There are no White pieces on the board that can do "exd5"',
                 $err->message, 'wrong message');
@@ -265,7 +265,7 @@ class Games_Chess_TestCase_moveSAN extends PHPUnit_TestCase
         $err = $this->board->addPiece('B', 'N', 'e4');
         $this->assertFalse(is_object($err), 'adding W knight failed');
         $err = $this->board->moveSAN('Nxf6');
-        $this->assertEquals('pear_error', get_class($err), 'capturing worked?');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'capturing worked?');
         if (is_object($err)) {
             $this->assertEquals('There is no piece on square f6',
                 $err->message, 'wrong message');
@@ -381,7 +381,9 @@ class Games_Chess_TestCase_moveSAN extends PHPUnit_TestCase
         $this->assertFalse(is_object($err), 'adding W king failed');
         $err = $this->board->moveSAN('O-O');
         $this->assertFalse(is_object($err), 'castling kingside failed');
-        $this->assertEquals($err->message,'');
+        if (is_object($err)) {
+            $this->assertEquals($err->message,'');
+        }
         $this->assertTrue($this->board->_BCastleQ, 'BQ cleared');
         $this->assertTrue($this->board->_BCastleK, 'BK cleared');
         $this->assertFalse($this->board->_WCastleQ, 'WQ not cleared');
@@ -412,7 +414,9 @@ class Games_Chess_TestCase_moveSAN extends PHPUnit_TestCase
         $this->assertFalse(is_object($err), 'adding B king failed');
         $err = $this->board->moveSAN('O-O');
         $this->assertFalse(is_object($err), 'castling kingside failed');
-        $this->assertEquals($err->message,'');
+        if (is_object($err)) {
+            $this->assertEquals($err->message,'');
+        }
         $this->assertTrue($this->board->_WCastleQ, 'WQ cleared');
         $this->assertTrue($this->board->_WCastleK, 'WK cleared');
         $this->assertFalse($this->board->_BCastleQ, 'BQ not cleared');
@@ -442,7 +446,9 @@ class Games_Chess_TestCase_moveSAN extends PHPUnit_TestCase
         $this->assertFalse(is_object($err), 'adding W king failed');
         $err = $this->board->moveSAN('O-O-O');
         $this->assertFalse(is_object($err), 'castling kingside failed');
-        $this->assertEquals($err->message,'');
+        if (is_object($err)) {
+            $this->assertEquals($err->message,'');
+        }
         $this->assertTrue($this->board->_BCastleQ, 'BQ cleared');
         $this->assertTrue($this->board->_BCastleK, 'BK cleared');
         $this->assertFalse($this->board->_WCastleQ, 'WQ not cleared');
@@ -473,7 +479,9 @@ class Games_Chess_TestCase_moveSAN extends PHPUnit_TestCase
         $this->assertFalse(is_object($err), 'adding B king failed');
         $err = $this->board->moveSAN('O-O-O');
         $this->assertFalse(is_object($err), 'castling kingside failed');
-        $this->assertEquals($err->message,'');
+        if (is_object($err)) {
+            $this->assertEquals($err->message,'');
+        }
         $this->assertTrue($this->board->_WCastleQ, 'WQ cleared');
         $this->assertTrue($this->board->_WCastleK, 'WK cleared');
         $this->assertFalse($this->board->_BCastleQ, 'BQ not cleared');

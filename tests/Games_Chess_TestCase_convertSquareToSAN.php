@@ -86,7 +86,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_convertSquareToSAN('a1', 'a3', 'T');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('"T" is not a valid promotion piece, must be Q, R, N or B',
             $err->getMessage(), 'wrong error message');
     }
@@ -97,7 +97,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_convertSquareToSAN('a9', 'a3', 'R');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('"a9" is not a valid square, must be between a1 and h8',
             $err->getMessage(), 'wrong error message');
     }
@@ -108,7 +108,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_convertSquareToSAN('a1', 'a9', 'R');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('"a9" is not a valid square, must be between a1 and h8',
             $err->getMessage(), 'wrong error message');
     }
@@ -119,7 +119,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
             return;
         }
         $err = $this->board->_convertSquareToSAN('a1', 'a3', 'R');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('There is no piece on square a1',
             $err->getMessage(), 'wrong error message');
     }
@@ -134,7 +134,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         }
         $this->board->addPiece('B', 'R', 'a1');
         $err = $this->board->_convertSquareToSAN('a1', 'a3', 'R');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on a1 is not your piece',
             $err->getMessage(), 'wrong error message');
     }
@@ -149,7 +149,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         }
         $this->board->addPiece('W', 'R', 'a1');
         $err = $this->board->_convertSquareToSAN('a1', 'b3', 'R');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on a1 cannot move to b3',
             $err->getMessage(), 'wrong error message');
     }
@@ -681,7 +681,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'e1');
         $this->board->addPiece('W', 'R', 'h1');
         $err = $this->board->_convertSquareToSAN('e1', 'g1');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on e1 cannot move to g1',
             $err->getMessage(), 'wrong error message');
     }
@@ -702,7 +702,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'e1');
         $this->board->addPiece('W', 'R', 'a1');
         $err = $this->board->_convertSquareToSAN('e1', 'c1');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on e1 cannot move to c1',
             $err->getMessage(), 'wrong error message');
     }
@@ -723,7 +723,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'e2');
         $this->board->addPiece('W', 'R', 'h1');
         $err = $this->board->_convertSquareToSAN('e2', 'g1');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on e2 cannot move to g1',
             $err->getMessage(), 'wrong error message');
     }
@@ -744,7 +744,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('W', 'K', 'e2');
         $this->board->addPiece('W', 'R', 'a1');
         $err = $this->board->_convertSquareToSAN('e2', 'c1');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on e2 cannot move to c1',
             $err->getMessage(), 'wrong error message');
     }
@@ -766,7 +766,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('B', 'K', 'e8');
         $this->board->addPiece('B', 'R', 'h8');
         $err = $this->board->_convertSquareToSAN('e8', 'g8');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on e8 cannot move to g8',
             $err->getMessage(), 'wrong error message');
     }
@@ -788,7 +788,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('B', 'K', 'e8');
         $this->board->addPiece('B', 'R', 'a8');
         $err = $this->board->_convertSquareToSAN('e8', 'c8');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on e8 cannot move to c8',
             $err->getMessage(), 'wrong error message');
     }
@@ -810,7 +810,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('B', 'K', 'e7');
         $this->board->addPiece('B', 'R', 'h8');
         $err = $this->board->_convertSquareToSAN('e7', 'g8');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on e7 cannot move to g8',
             $err->getMessage(), 'wrong error message');
     }
@@ -832,7 +832,7 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('B', 'K', 'e7');
         $this->board->addPiece('B', 'R', 'a8');
         $err = $this->board->_convertSquareToSAN('e7', 'c8');
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'not an error');
         $this->assertEquals('The piece on e7 cannot move to c8',
             $err->getMessage(), 'wrong error message');
     }
