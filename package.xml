@@ -21,18 +21,18 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     </maintainer>
   </maintainers>
   <release>
-    <version>0.3</version>
-    <date>2003-10-09</date>
+    <version>0.4alpha</version>
+    <date>2003-10-26</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>Fixed a few bugs:
+    <notes>Added new module for Loser's chess (ICC wild 16)
 
-- example works in Mozilla now
-- promotion was endless loop in example
-- promotion didn't change the pawn to the promoted piece</notes>
+- added gameOver() method, returns color of winner, or D for draw, or false</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
     </deps>
+    <provides type="class" name="Games_Chess_Losers" extends="Games_Chess_Standard" />
+    <provides type="function" name="Games_Chess_Losers::gameOver" />
     <provides type="class" name="Games_Chess_Standard" extends="Games_Chess" />
     <provides type="function" name="Games_Chess_Standard::blankBoard" />
     <provides type="function" name="Games_Chess_Standard::addPiece" />
@@ -48,6 +48,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     <provides type="function" name="Games_Chess::moveSAN" />
     <provides type="function" name="Games_Chess::moveSquare" />
     <provides type="function" name="Games_Chess::getMoveList" />
+    <provides type="function" name="Games_Chess::gameOver" />
     <provides type="function" name="Games_Chess::inCheckMate" />
     <provides type="function" name="Games_Chess::inStaleMate" />
     <provides type="function" name="Games_Chess::inDraw" />
@@ -77,8 +78,21 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     <provides type="function" name="Games_Chess::commitTransaction" />
     <provides type="function" name="Games_Chess::rollbackTransaction" />
     <filelist>
-      <file role="php" baseinstalldir="Games" md5sum="b0f33976a66ffe3ce56b13d676120bdb" name="Chess/Standard.php"/>
-      <file role="data" baseinstalldir="Games" md5sum="b61133218ad94b329fe2bae6bbc1dfd0" name="examples/HTMLChess.php"/>
+      <file role="php" baseinstalldir="Games" md5sum="078100603ccdd52076baafd8b5c9161c" name="Chess/Losers.php"/>
+      <file role="php" baseinstalldir="Games" md5sum="ef46106e40f7f6da714b29142e8252e6" name="Chess/Standard.php"/>
+      <file role="data" baseinstalldir="Games" md5sum="fe78a8fb935097ecc63998c3ad54896c" name="Chess/CVS/Entries"/>
+      <file role="data" baseinstalldir="Games" md5sum="945208d258aeefd69f3fd02a32272a9f" name="Chess/CVS/Entries.Extra"/>
+      <file role="data" baseinstalldir="Games" md5sum="c21787cf0b16222af17a8d5e20cb6fed" name="Chess/CVS/Repository"/>
+      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="Chess/CVS/Root"/>
+      <file role="data" baseinstalldir="Games" md5sum="8201d16e9e66534dac09f27ca81bf710" name="CVS/Entries"/>
+      <file role="data" baseinstalldir="Games" md5sum="d5f8bfbdb2c6dcb87b2b3d527e2b2235" name="CVS/Entries.Extra"/>
+      <file role="data" baseinstalldir="Games" md5sum="252530f4e987776f8b55ae7dd4c4f061" name="CVS/Repository"/>
+      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="CVS/Root"/>
+      <file role="data" baseinstalldir="Games" md5sum="8393cdbf229aee906aba80fbcccf1a97" name="examples/HTMLChess.php"/>
+      <file role="data" baseinstalldir="Games" md5sum="382bd10b87a84dcef21773e4f3655f87" name="examples/CVS/Entries"/>
+      <file role="data" baseinstalldir="Games" md5sum="f332342a7a1852344e14e4842b48e3c8" name="examples/CVS/Entries.Extra"/>
+      <file role="data" baseinstalldir="Games" md5sum="0f9d75f9c56a90ed8c9d198d24db7cff" name="examples/CVS/Repository"/>
+      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="examples/CVS/Root"/>
       <file role="data" baseinstalldir="Games" md5sum="a847ef7d029f5f9c608fa5166268437d" name="examples/images/B.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="c9ee061f36289f8faca053b5d9064562" name="examples/images/blank.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="41b6871dd5591a3ecb235fc6720a1818" name="examples/images/K.gif"/>
@@ -86,6 +100,10 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file role="data" baseinstalldir="Games" md5sum="e8dde345f489a7d3c5a76f018a94ba00" name="examples/images/P.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="3334b0e912084403dcf79fee727e62ca" name="examples/images/Q.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="f63487caff4a223b13fdab4384270b53" name="examples/images/R.gif"/>
+      <file role="data" baseinstalldir="Games" md5sum="a6f837c3b7553e4e6a866e216b8829c9" name="examples/images/CVS/Entries"/>
+      <file role="data" baseinstalldir="Games" md5sum="9a3ffd85a446a636d8b901cfb65e5561" name="examples/images/CVS/Entries.Extra"/>
+      <file role="data" baseinstalldir="Games" md5sum="247cdcc49e3ecda361dcc62d108f5ee7" name="examples/images/CVS/Repository"/>
+      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="examples/images/CVS/Root"/>
       <file role="data" baseinstalldir="Games" md5sum="8f9dd9b5e11b0d99673c3a08b26cab17" name="examples/images/dark/b.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="c9ee061f36289f8faca053b5d9064562" name="examples/images/dark/blank.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="ab32ae187ffe55910de5adaf895bcba4" name="examples/images/dark/k.gif"/>
@@ -93,46 +111,54 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file role="data" baseinstalldir="Games" md5sum="f43c43879224759e27d4283c0eb9c5ff" name="examples/images/dark/p.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="a5ab27171a3346b17ff59e05876234b4" name="examples/images/dark/q.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="ab04b1a7cbdbf94a25d2f1e778963225" name="examples/images/dark/r.gif"/>
-      <file role="test" baseinstalldir="Games" md5sum="dbe2b883686266a921ed5aa95fca4fb7" name="tests/Games_Chess_TestCase_addPiece.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="30231b4d643f818e5f0ead01371b7d8f" name="tests/Games_Chess_TestCase_bugdxc3.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="a9bcaa43e5ba76decb4261e28cc50bd0" name="tests/Games_Chess_TestCase_bugEnPassant.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="90e03398c85fa6ffb4c261ebb0053d82" name="tests/Games_Chess_TestCase_bugpromotion.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="fe04c3bf4ba73de3ab3e26ed0ad72399" name="tests/Games_Chess_TestCase_convertSquareToSAN.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="446933f068d59ee06211ca03d5ee17fd" name="tests/Games_Chess_TestCase_getAllPieceLocations.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="da6198dd89ad23323699ad754ce2f21e" name="tests/Games_Chess_TestCase_getAllPieceSquares.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="b48ca050375a6da62047f1bfde9bb178" name="tests/Games_Chess_TestCase_getDiagonal.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="2f7334000c8300a398fba346f66870fa" name="tests/Games_Chess_TestCase_getDiagonalColor.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="a283ed506f61ee73e1accb534a6dfdfe" name="tests/Games_Chess_TestCase_getKingSquares.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="bbdc2a5bb2112fbb66efb9ec7438ee37" name="tests/Games_Chess_TestCase_getKnightSquares.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="57b4550d312be4f791284b03d45dc1c1" name="tests/Games_Chess_TestCase_getPathToKing.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="9b7700cd2d996c1e7bcfd40d99f87f46" name="tests/Games_Chess_TestCase_getPieceTypes.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="02e355d9c8401238bf13c50d01bda2a5" name="tests/Games_Chess_TestCase_getPossibleBishopMoves.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="737aad18a9d45e90d713d428ecb67f1a" name="tests/Games_Chess_TestCase_getPossibleChecks.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="a5819f518f040b2ef4b38aec55109d66" name="tests/Games_Chess_TestCase_getPossibleKingMoves.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="d4e9786c481d828047c63a2c96ab92cd" name="tests/Games_Chess_TestCase_getPossibleKnightMoves.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="c57cb42129dc3f1a6c64ef15940cbfb9" name="tests/Games_Chess_TestCase_getPossibleMoves.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="16514f8d85e2f25d94f0cde2a43b1f6c" name="tests/Games_Chess_TestCase_getPossiblePawnMoves.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="980598768a2c1d558e059ff5c1071638" name="tests/Games_Chess_TestCase_getPossibleQueenMoves.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="bf4f5667b11ec902580f3a39c7cf7d4e" name="tests/Games_Chess_TestCase_getPossibleRookMoves.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="e99c2d964b6f746691fb093d75e896be" name="tests/Games_Chess_TestCase_getRookSquares.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="8d139f32b795b37b685264f7389a9a30" name="tests/Games_Chess_TestCase_getSquareFromParsedMove.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="ac10c2c951e7a195dcefc712b90fe4c0" name="tests/Games_Chess_TestCase_inBasicDraw.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="df060933b0debed2dcb475dd751b663d" name="tests/Games_Chess_TestCase_inCheck.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="9748a36097fef330ba10a2e58797dac5" name="tests/Games_Chess_TestCase_inCheckMate.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="f8db06b8283cbe867d096b6ba68ab02f" name="tests/Games_Chess_TestCase_inStaleMate.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="0ba061b10dfd7d0e7e37cb3efc43bdf3" name="tests/Games_Chess_TestCase_interposeOrCapture.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="fae3fc256b54af980467a847680f6b29" name="tests/Games_Chess_TestCase_moveAlgebraic.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="99d8684b534f2fafd72a2adae7894a30" name="tests/Games_Chess_TestCase_movePiece.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="fb37cc2e8f48e1dd1d4a80b42dab5ab5" name="tests/Games_Chess_TestCase_moveSAN.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="4c07b576b45aa67d42f403ded7540427" name="tests/Games_Chess_TestCase_parseFen.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="96a8c3869dabc58c55c8d11d72677f5f" name="tests/Games_Chess_TestCase_parseMove.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="56f365eca6f284141b46cab5bff38006" name="tests/Games_Chess_TestCase_squareToPiece.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="d78339f1379b6494757b35d23d448495" name="tests/Games_Chess_TestCase_validMove.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="8bbdae3a8342f16df5ac4b77b8ad585c" name="tests/HTML_TestListener.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="4ffb9e95c0e9ee80b1ca71f1a833ba95" name="tests/stylesheet.css"/>
-      <file role="test" baseinstalldir="Games" md5sum="1359793fd6b7a178b3aec92ce5824f51" name="tests/testsuite.php"/>
-      <file role="test" baseinstalldir="Games" md5sum="5dc8e2fdd74c593e87e60c7dcba3b251" name="tests/TestUnit.php"/>
-      <file role="php" baseinstalldir="Games" md5sum="91f6118591d50db7de9a06d576605cfd" name="Chess.php">
+      <file role="data" baseinstalldir="Games" md5sum="67968e252b8ca0d2b031d0c495a86446" name="examples/images/dark/CVS/Entries"/>
+      <file role="data" baseinstalldir="Games" md5sum="e4d9b264d9076f817bd410898159c641" name="examples/images/dark/CVS/Entries.Extra"/>
+      <file role="data" baseinstalldir="Games" md5sum="c47f7305184857e22ab2c393531ea0fe" name="examples/images/dark/CVS/Repository"/>
+      <file role="data" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="examples/images/dark/CVS/Root"/>
+      <file role="test" baseinstalldir="Games" md5sum="e662acf6f1a7953f7d8fc1b419e1642b" name="tests/Games_Chess_TestCase_addPiece.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="a436bd79f2dd06cd7cde253a783c9e43" name="tests/Games_Chess_TestCase_bugdxc3.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="6a165353721fedb15cddcbac4d596134" name="tests/Games_Chess_TestCase_bugEnPassant.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="af6ad473dc7a2ff8c7c7da5f9bc2008c" name="tests/Games_Chess_TestCase_bugpromotion.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="0fc78f51224055ca35fdf6cc9ff10484" name="tests/Games_Chess_TestCase_convertSquareToSAN.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="e9dcd5b962ea3db8cdbab80d2aaa49da" name="tests/Games_Chess_TestCase_getAllPieceLocations.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="1c04016669b392607b07e576fadc4f33" name="tests/Games_Chess_TestCase_getAllPieceSquares.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="b7b5a857d94b3c0e56ff4666c09b8d83" name="tests/Games_Chess_TestCase_getDiagonal.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="c1a63923cdf5ae246d68b0e386790b87" name="tests/Games_Chess_TestCase_getDiagonalColor.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="e57aabf5669a304cf3fee338ecffdcc1" name="tests/Games_Chess_TestCase_getKingSquares.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="66f0e0a1a9a1eef56455d737f04998d0" name="tests/Games_Chess_TestCase_getKnightSquares.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="82d16550f91202a7ff427f73db383157" name="tests/Games_Chess_TestCase_getPathToKing.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="4896b5fd2de622bfdacbbf402c7e3fa0" name="tests/Games_Chess_TestCase_getPieceTypes.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="9e632225380c454a4c88d8ad2b4cbcfb" name="tests/Games_Chess_TestCase_getPossibleBishopMoves.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="e16d2256265474b6c59800982c318783" name="tests/Games_Chess_TestCase_getPossibleChecks.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="9af8a9549625cbeca6902f1fa4227fb8" name="tests/Games_Chess_TestCase_getPossibleKingMoves.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="dac625b426c09f9396cb050bd48b8c55" name="tests/Games_Chess_TestCase_getPossibleKnightMoves.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="07a77d8bc20936cdfbdbf4fbbabdde99" name="tests/Games_Chess_TestCase_getPossibleMoves.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="50f91ecfd3dbfe33501cec85ba80695c" name="tests/Games_Chess_TestCase_getPossiblePawnMoves.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="d49b651b94c1c1b5bc16820e5bbfa359" name="tests/Games_Chess_TestCase_getPossibleQueenMoves.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="4b8d1061d62c4ef5294295643e4e8125" name="tests/Games_Chess_TestCase_getPossibleRookMoves.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="028bd1da4767ddd3c62c6a7da4b5d843" name="tests/Games_Chess_TestCase_getRookSquares.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="d08825327be1e66035fb00ca617b4acd" name="tests/Games_Chess_TestCase_getSquareFromParsedMove.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="2eff603926926d3d7447838f11c2d76e" name="tests/Games_Chess_TestCase_inBasicDraw.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="49778bfade565bbe5338937f1fa3c516" name="tests/Games_Chess_TestCase_inCheck.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="53b79575bf712e10d9b90b8e30f26bb5" name="tests/Games_Chess_TestCase_inCheckMate.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="982f6aecd9585464647ddf36bfd1e11d" name="tests/Games_Chess_TestCase_inStaleMate.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="848ab93211aa8ec16e9ba58176183cfb" name="tests/Games_Chess_TestCase_interposeOrCapture.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="76f558d95c8b87ab418422aa3449e792" name="tests/Games_Chess_TestCase_moveAlgebraic.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="9c872285db40bebbc899d14d77ff392c" name="tests/Games_Chess_TestCase_movePiece.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="21b45511243c22f35e41d06d456ff4eb" name="tests/Games_Chess_TestCase_moveSAN.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="9322b498ff8f887e071d58d5bba6ea97" name="tests/Games_Chess_TestCase_parseFen.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="8ced54ba49bb0ab0e6a06c84d61e8f4b" name="tests/Games_Chess_TestCase_parseMove.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="f966b7cacdf3b28f5e58d4a1a48a7427" name="tests/Games_Chess_TestCase_squareToPiece.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="a3c866af9d8708280004b4176c9267b8" name="tests/Games_Chess_TestCase_validMove.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="5b3da8e748e4be3505aec0955394483e" name="tests/HTML_TestListener.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="00e5090950407f9b844887c0951dccba" name="tests/stylesheet.css"/>
+      <file role="test" baseinstalldir="Games" md5sum="18869de6d8addeea037f20aa657eef62" name="tests/testsuite.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="e414efac9d52381d8a9836f444338611" name="tests/TestUnit.php"/>
+      <file role="test" baseinstalldir="Games" md5sum="7fc2dae0fa240d836f5666552d6ae4f0" name="tests/CVS/Entries"/>
+      <file role="test" baseinstalldir="Games" md5sum="2dc691f626b0521e323aa529d1a2bdd1" name="tests/CVS/Entries.Extra"/>
+      <file role="test" baseinstalldir="Games" md5sum="6ed4b76ca87d2922108d13ae2af811c5" name="tests/CVS/Repository"/>
+      <file role="test" baseinstalldir="Games" md5sum="ef48c54df33fb0ab776fbf7b43cc7f56" name="tests/CVS/Root"/>
+      <file role="php" baseinstalldir="Games" md5sum="caa0873ad837417f687b7586482b3755" name="Chess.php">
         <replace type="package-info" from="@VER@" to="version"/>
       </file>
       <file role="doc" baseinstalldir="Games" md5sum="d471bf1c3b38de5e83f8c0bda73e7e8a" name="LICENSE"/>
@@ -167,6 +193,15 @@ a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3
 - example works in Mozilla now
 - promotion was endless loop in example
 - promotion didn't change the pawn to the promoted piece</notes>
+    </release>
+    <release>
+      <version>0.4alpha</version>
+      <date>2003-10-26</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>Added new module for Loser's chess (ICC wild 16)
+
+- added gameOver() method, returns color of winner, or D for draw, or false</notes>
     </release>
   </changelog>
 </package>
