@@ -49,7 +49,7 @@ class Games_Chess_Losers_TestCase_capturePossible extends PHPUnit_TestCase
     function _methodExists($name) 
     {
         $test = $name;
-        if (version_compare(phpversion(), '4.3.7', '<=')) {
+        if (version_compare(phpversion(), '5.0.0', '<=')) {
             $test = strtolower($name);
         }
         if (in_array($test, get_class_methods($this->board))) {

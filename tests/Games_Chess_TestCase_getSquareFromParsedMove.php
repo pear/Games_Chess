@@ -49,7 +49,7 @@ class Games_Chess_TestCase_getSquareFromParsedMove extends PHPUnit_TestCase
     function _methodExists($name) 
     {
         $test = $name;
-        if (version_compare(phpversion(), '4.3.7', '<=')) {
+        if (version_compare(phpversion(), '5.0.0', '<=')) {
             $test = strtolower($name);
         }
         if (in_array($test, get_class_methods($this->board))) {
@@ -97,7 +97,7 @@ class Games_Chess_TestCase_getSquareFromParsedMove extends PHPUnit_TestCase
         if (!$this->_methodExists('resetGame')) {
             return;
         }
-        $this->board->resetGame('rnbqkbnr/1pp1p2p/2P5/p2P1ppQ/8/8/PP1P1PPP/RNB1KBNR w KQkq - 2 6');
+        $this->board->resetGame('rnbqkbnr/1pp1p2p/2P5/p2P1ppQ/8/8/PP1P1PP1/RNB1KBNR w KQkq - 2 6');
         $a = $this->board->_parseMove('Qh4');
         $err = $this->board->_getSquareFromParsedMove(current($a));
         $this->assertEquals('h5', $err, 'wrong queen square');

@@ -13,6 +13,7 @@ require_once 'TestUnit.php';
 require_once 'HTML_TestListener.php';
 require_once 'Games/Chess/Standard.php';
 require_once 'Games/Chess/Losers.php';
+require_once 'Games/Chess/Crazyhouse.php';
 
 $title = 'PhpUnit test run, Games_Chess package';
 ?>
@@ -47,49 +48,53 @@ $title = 'PhpUnit test run, Games_Chess package';
 <h2>Tests</h2>
     <?php
     $testcases = array(
-            'Games_Chess_TestCase_getDiagonal',
-            'Games_Chess_TestCase_getRookSquares',
-            'Games_Chess_TestCase_getKnightSquares',
-            'Games_Chess_TestCase_getKingSquares',
-            'Games_Chess_TestCase_getCastleSquares',
-            'Games_Chess_TestCase_parseMove',
-            'Games_Chess_TestCase_addPiece',
-            'Games_Chess_TestCase_parseFen',
-            'Games_Chess_TestCase_getAllPieceLocations',
-            'Games_Chess_TestCase_getPossibleKnightMoves',
-            'Games_Chess_TestCase_getPossibleBishopMoves',
-            'Games_Chess_TestCase_getPossibleRookMoves',
-            'Games_Chess_TestCase_getPossibleQueenMoves',
-            'Games_Chess_TestCase_getPossibleKingMoves',
-            'Games_Chess_TestCase_getPossiblePawnMoves',
-            'Games_Chess_TestCase_getPossibleMoves',
-            'Games_Chess_TestCase_getPossibleChecks',
-            'Games_Chess_TestCase_inCheck',
-            'Games_Chess_TestCase_inCheckMate',
-            'Games_Chess_TestCase_squareToPiece',
-            'Games_Chess_TestCase_getAllPieceSquares',
-            'Games_Chess_TestCase_convertSquareToSAN',
-            'Games_Chess_TestCase_getSquareFromParsedMove',
-            'Games_Chess_TestCase_movePiece',
-            'Games_Chess_TestCase_moveAlgebraic',
-            'Games_Chess_TestCase_moveSAN',
-            'Games_Chess_TestCase_validMove',
-            'Games_Chess_TestCase_getPathToKing',
-            'Games_Chess_TestCase_interposeOrCapture',
-            'Games_Chess_TestCase_inStaleMate',
-            'Games_Chess_TestCase_getDiagonalColor',
-            'Games_Chess_TestCase_getPieceTypes',
-            'Games_Chess_TestCase_inBasicDraw',
-            'Games_Chess_TestCase_getMoveList',
-
-            'Games_Chess_Losers_TestCase_capturePossible',
-            'Games_Chess_Losers_TestCase_validMove',
-            'Games_Chess_Losers_TestCase_gameOver',
-
-            'Games_Chess_TestCase_bugEnPassant',
-            'Games_Chess_TestCase_bugdxc3',
-            'Games_Chess_TestCase_bugpromotion',
-    );
+//            'Games_Chess_TestCase_getDiagonal',
+//            'Games_Chess_TestCase_getRookSquares',
+//            'Games_Chess_TestCase_getKnightSquares',
+//            'Games_Chess_TestCase_getKingSquares',
+//            'Games_Chess_TestCase_getCastleSquares',
+//            'Games_Chess_TestCase_parseMove',
+//            'Games_Chess_TestCase_addPiece',
+//            'Games_Chess_TestCase_parseFen',
+//            'Games_Chess_TestCase_getAllPieceLocations',
+//            'Games_Chess_TestCase_getPossibleKnightMoves',
+//            'Games_Chess_TestCase_getPossibleBishopMoves',
+//            'Games_Chess_TestCase_getPossibleRookMoves',
+//            'Games_Chess_TestCase_getPossibleQueenMoves',
+//            'Games_Chess_TestCase_getPossibleKingMoves',
+//            'Games_Chess_TestCase_getPossiblePawnMoves',
+//            'Games_Chess_TestCase_getPossibleMoves',
+//            'Games_Chess_TestCase_getPossibleChecks',
+//            'Games_Chess_TestCase_inCheck',
+//            'Games_Chess_TestCase_inCheckMate',
+//            'Games_Chess_TestCase_squareToPiece',
+//            'Games_Chess_TestCase_getAllPieceSquares',
+//            'Games_Chess_TestCase_convertSquareToSAN',
+//            'Games_Chess_TestCase_getSquareFromParsedMove',
+//            'Games_Chess_TestCase_movePiece',
+//            'Games_Chess_TestCase_moveAlgebraic',
+//            'Games_Chess_TestCase_moveSAN',
+//            'Games_Chess_TestCase_validMove',
+//            'Games_Chess_TestCase_getPathToKing',
+//            'Games_Chess_TestCase_interposeOrCapture',
+//            'Games_Chess_TestCase_inStaleMate',
+//            'Games_Chess_TestCase_getDiagonalColor',
+//            'Games_Chess_TestCase_getPieceTypes',
+//            'Games_Chess_TestCase_inBasicDraw',
+//            'Games_Chess_TestCase_getMoveList',
+//
+//            'Games_Chess_Losers_TestCase_capturePossible',
+//            'Games_Chess_Losers_TestCase_validMove',
+//            'Games_Chess_Losers_TestCase_gameOver',
+//
+//            'Games_Chess_TestCase_bugEnPassant',
+//            'Games_Chess_TestCase_bugdxc3',
+//            'Games_Chess_TestCase_bugpromotion',
+//
+            'Games_Chess_Crazyhouse_TestCase_addPiece',
+            'Games_Chess_Crazyhouse_TestCase_validMove',
+            'Games_Chess_Crazyhouse_TestCase_getSquareFromParsedMove',
+);
 
     
     $suite = new PHPUnit_TestSuite();

@@ -44,7 +44,7 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
     function _methodExists($name) 
     {
         $test = $name;
-        if (version_compare(phpversion(), '4.3.7', '<=')) {
+        if (version_compare(phpversion(), '5.0.0', '<=')) {
             $test = strtolower($name);
         }
         if (in_array($test, get_class_methods($this->board))) {
@@ -424,6 +424,52 @@ class Games_Chess_TestCase_parseMove extends PHPUnit_TestCase
         $ret = $this->board->_parseMove('Kaxh4');
         $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
         $this->assertEquals('"Kaxh4" is not a valid algebraic move', $ret->getMessage(),
+            'invalid error message');
+    }
+
+    function test_placement_move1()
+    {
+        $ret = $this->board->_parseMove('P@a2');
+        $this->assertEquals(array(GAMES_CHESS_PIECEPLACEMENT =>
+            array(
+                'piece' => 'P',
+                'square' => 'a2'
+            )), $ret, 'P@a2');
+        $ret = $this->board->_parseMove('Q@h7');
+        $this->assertEquals(array(GAMES_CHESS_PIECEPLACEMENT =>
+            array(
+                'piece' => 'Q',
+                'square' => 'h7'
+            )), $ret, 'Q@h7');
+        $ret = $this->board->_parseMove('B@f8');
+        $this->assertEquals(array(GAMES_CHESS_PIECEPLACEMENT =>
+            array(
+                'piece' => 'B',
+                'square' => 'f8'
+            )), $ret, 'B@f8');
+        $ret = $this->board->_parseMove('N@g3');
+        $this->assertEquals(array(GAMES_CHESS_PIECEPLACEMENT =>
+            array(
+                'piece' => 'N',
+                'square' => 'g3'
+            )), $ret, 'P@a2');
+        $ret = $this->board->_parseMove('R@b1');
+        $this->assertEquals(array(GAMES_CHESS_PIECEPLACEMENT =>
+            array(
+                'piece' => 'R',
+                'square' => 'b1'
+            )), $ret, 'R@b1');
+    }
+
+    function test_placepawn_backrank()
+    {
+        $ret = $this->board->_parseMove('P@a1');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
+        $this->assertEquals('Placing a piece on the first or back rank is illegal (P@a1)', $ret->getMessage(),
+            'invalid error message');
+        $ret = $this->board->_parseMove('P@a8');
+        $this->assertEquals('pear_error', strtolower(get_class($ret)), 'no error');
+        $this->assertEquals('Placing a piece on the first or back rank is illegal (P@a8)', $ret->getMessage(),
             'invalid error message');
     }
 }
