@@ -22,7 +22,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
   </maintainers>
   <release>
     <version>0.7alpha</version>
-    <date>2004-02-14</date>
+    <date>2004-02-15</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>Added a new driver for crazyhouse chess (Wild 23 on ICC)
@@ -59,6 +59,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
         </dir> <!-- examples/images -->
        </dir> <!-- examples -->
        <dir name="tests">
+        <file role="test" name="Games_Chess_Losers_TestCase_capturePossible.php"/>
         <file role="test" name="Games_Chess_TestCase_addPiece.php"/>
         <file role="test" name="Games_Chess_TestCase_bugdxc3.php"/>
         <file role="test" name="Games_Chess_TestCase_bugEnPassant.php"/>
@@ -164,7 +165,7 @@ a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3
     </release>
     <release>
       <version>0.7alpha</version>
-      <date>2004-02-14</date>
+      <date>2004-02-15</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>Added a new driver for crazyhouse chess (Wild 23 on ICC)

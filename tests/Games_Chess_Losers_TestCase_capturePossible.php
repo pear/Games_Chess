@@ -61,11 +61,164 @@ class Games_Chess_Losers_TestCase_capturePossible extends PHPUnit_TestCase
         $this->assertTrue(false, "$errstr at line $errline, $errfile");
     }
     
-    function test_invalid_1()
+    function test_invalid_w1()
     {
         if (!$this->_methodExists('_capturePossible')) {
             return;
         }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->addPiece('W', 'B', 'c1');
+        $this->assertFalse($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_invalid_w2()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->addPiece('W', 'B', 'c1');
+        $this->board->addPiece('B', 'B', 'c2');
+        $this->assertFalse($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_invalid_w3()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->addPiece('W', 'N', 'c1');
+        $this->board->addPiece('W', 'B', 'd2');
+        $this->assertFalse($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_valid_w1()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->addPiece('W', 'N', 'c1');
+        $this->board->addPiece('B', 'B', 'd3');
+        $this->assertTrue($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_valid_w2()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->addPiece('W', 'K', 'e1');
+        $this->board->addPiece('B', 'B', 'f1');
+        $this->assertTrue($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_invalid_wcastle()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->addPiece('W', 'K', 'e1');
+        $this->board->addPiece('B', 'B', 'g1');
+        $this->assertFalse($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_invalid_b1()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'B', 'c1');
+        $this->assertFalse($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_invalid_b2()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'B', 'c1');
+        $this->board->addPiece('W', 'B', 'c2');
+        $this->assertFalse($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_invalid_b3()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'N', 'c1');
+        $this->board->addPiece('B', 'B', 'd2');
+        $this->assertFalse($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_valid_b1()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'N', 'c1');
+        $this->board->addPiece('W', 'B', 'd3');
+        $this->assertTrue($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_valid_b2()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'K', 'e1');
+        $this->board->addPiece('W', 'B', 'f1');
+        $this->assertTrue($this->board->_capturePossible(), 'nope');
+    }
+    
+    function test_invalid_bcastle()
+    {
+        if (!$this->_methodExists('_capturePossible')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'K', 'e1');
+        $this->board->addPiece('W', 'B', 'g1');
+        $this->assertFalse($this->board->_capturePossible(), 'nope');
     }
 }
 

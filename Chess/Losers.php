@@ -25,7 +25,7 @@
 /**
  * The parent class
  */
-require_once 'Games/Chess.php';
+require_once 'Games/Chess/Standard.php';
 
 /**
  * Losers chess game
@@ -51,12 +51,13 @@ class Games_Chess_Losers extends Games_Chess_Standard {
                 continue;
             }
             if ($name{0} == $this->_move) {
+                // don't return castle move shortcuts
                 if ($name{1} == 'P') {
                     $allmoves = array_merge($allmoves,
-                        $this->getPossibleMoves($loc[1], $loc[0], $this->_move));
+                        $this->getPossibleMoves($loc[1], $loc[0], $this->_move, false));
                 } else {
                     $allmoves = array_merge($allmoves,
-                        $this->getPossibleMoves($name{1}, $loc, $this->_move));
+                        $this->getPossibleMoves($name{1}, $loc, $this->_move, false));
                 }
             }
         }
