@@ -214,6 +214,18 @@ define('GAMES_CHESS_ERROR_NOPIECE_CANDOTHAT', 33);
  */
 define('GAMES_CHESS_ERROR_MOVE_MUST_CAPTURE', 34);
 /**
+ * When piece placement is attempted, but no pieces exist to be placed
+ */
+define('GAMES_CHESS_ERROR_NOPIECES_TOPLACE', 35);
+/**
+ * When piece placement is attempted, but there is a piece on the desired square already
+ */
+define('GAMES_CHESS_ERROR_PIECEINTHEWAY', 36);
+/**
+ * When a pawn placement on the back rank does not include a promotion, this error is used
+ */
+define('GAMES_CHESS_ERROR_MUSTPROMOTE', 37);
+/**
  * ABSTRACT parent class - use {@link Games_Chess_Standard} for a typical
  * chess game
  *
@@ -924,6 +936,21 @@ class Games_Chess {
                 'square' => $match[4],
             );
             return array(GAMES_CHESS_PIECEMOVE => $res);
+        } elseif (preg_match('/^([QRBNP])@([a-h][1-8])$/', $move, $match)) {
+            $res = array(
+                'piece' => $match[1],
+                'square' => $match[2],
+                'promote' => false,
+            );
+            return array(GAMES_CHESS_PIECEPLACEMENT => $res);
+        // error
+        } elseif (preg_match('/^([P])@([a-h][18])=([QRBN])$/', $move, $match)) {
+            $res = array(
+                'piece' => $match[1],
+                'square' => $match[2],
+                'promote' => $match[3]
+            );
+            return array(GAMES_CHESS_PIECEPLACEMENT => $res);
         // error
         } else {
             return $this->raiseError(GAMES_CHESS_ERROR_INVALID_SAN,
@@ -2179,6 +2206,12 @@ class Games_Chess {
                 'There are no %color% pieces on the board that can do "%san%"',
             GAMES_CHESS_ERROR_MOVE_MUST_CAPTURE =>
                 'Capture is possible, "%san%" does not capture',
+            GAMES_CHESS_ERROR_NOPIECES_TOPLACE =>
+                'There are no captured %color% %piece%s available to place',
+            GAMES_CHESS_ERROR_PIECEINTHEWAY =>
+                'There is already a piece on %square%, cannot place another there',
+            GAMES_CHESS_ERROR_MUSTPROMOTE =>
+                'Placing a piece on the back rank requires promotion, use %san%=Q or any of R, N, B, Q',
         );
         $message = $messages[$code];
         foreach ($extra as $key => $value) {

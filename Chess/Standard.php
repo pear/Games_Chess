@@ -703,7 +703,7 @@ class Games_Chess_Standard extends Games_Chess {
             array('san' => $san,
                   'color' => $color));
     }
-    
+
     /**
      * Get the location of the king
      *
