@@ -1,5 +1,6 @@
 <?php
 require_once 'Games/Chess/Standard.php';
+require_once 'Games/Chess/Losers.php';
 
 // hack control
 if (!isset($_GET['start']) || !is_string($_GET['start'])) {
@@ -71,9 +72,10 @@ class visualboard
     /**
      * Initializes {@link $moves, $board}
      */
-    function visualboard($fen = false)
+    function visualboard($fen = false, $type = 'Standard')
     {
-        $this->_board = new Games_Chess_Standard;
+        $board = 'Games_Chess_' . $type;
+        $this->_board = new $board;
         $this->_board->resetGame($fen);
     }
     
@@ -286,21 +288,30 @@ promote('<?php print $this->promote[0] . "', '" . $this->promote[1]; ?>');
         }
         echo '</table>';
 
-        if ($stalemate = $this->_board->inStalemate())
-        {
-            print "<h1>STALEMATE</h1>";
-        } elseif ($draw = $this->_board->inDraw())
-        {
-            print "<h1>DRAW</h1>";
-        }
-        if ($this->_board->inCheckmate())
-        {
-            print "<h1>CHECKMATE!</h1>";
+        $side = $this->_board->toMove() == 'W' ? 'White' : 'Black';
+        $gameOver = $this->_board->gameOver();
+        if ($gameOver) {
+            $winner = $gameOver == 'W' ? 'White' : 'Black';
+            if ($stalemate = $this->_board->inStalemate())
+            {
+                print "<h1>STALEMATE</h1>";
+            } elseif ($draw = $this->_board->inDraw())
+            {
+                print "<h1>DRAW</h1>";
+            } elseif ($this->_board->inCheckmate()) {
+                if (get_class($this->_board) != 'games_chess_standard') {
+                    $winner = $side;
+                } else {
+                    $winner = ($side == 'White') ? 'Black' : 'White';
+                }
+                print "<h1>CHECKMATE! $winner WINS!</h1>";
+            } else {
+                print "<h1>$winner WINS!</h1>";
+            }
         }
 
-        $side = ($this->_board->toMove() == 'W') ? 'White' : 'Black';
 ?><form action="<?php echo $_SERVER['PHP_SELF'].'?'.session_name().'='.session_id() ?>" name="chess" id="chess">
-<?php         if (!$checkmate && !$stalemate && !$draw) { echo "<b>{$side} to move</b><br>";
+<?php         if (!$gameOver) { echo "<b>{$side} to move</b><br>";
  ?>
 from <input type="text" name="start" size="2" maxlength="2"> to <input type="text" name="goto" size="2" maxlength="2">
 <input type="submit" name="newmove" value="New move"><br>
@@ -309,7 +320,7 @@ Reset with new FEN: <input type="text" name="FEN" size="70"><br>
 <br><input type="reset"><br>
 <?php $this->castlebutton(); } ?><br><br>
 
-<input type="submit" name="newgame" value="New Game"></form><?php if (!$checkmate && !$stalemate && !$draw) { ?>
+<input type="submit" name="newgame" value="New Game"><input type="submit" name="newlosergame" value="New Losers Game"></form><?php if (!$gameOver) { ?>
 for a friend to join, click here <a href="mailto:example@example.com?Subject=Join my chess game!&Body=<?php
 echo htmlentities("go to <a href=\"http://" . $_SERVER['SERVER_NAME'] . $_SERVER['PHP_SELF'] . 
 "?mygame=".session_id()."\">Here</a> to play me in chess! http://$_SERVER[SERVER_NAME]$_SERVER[PHP_SELF]?mygame=" .
@@ -358,7 +369,14 @@ session_id()); ?>">Email my friend</a>
 setup_game('mygame','x');
 $x = $_SESSION['x'];
 $fen = isset($_GET['FEN']) ? $_GET['FEN'] : false;
-if (!isset($x) || isset($_GET['newgame']) || $fen) $x = new visualboard($fen);
+if (!isset($x) || isset($_GET['newgame']) || $fen
+      || isset($_GET['newlosergame'])) {
+    if (isset($_GET['newlosergame'])) {
+        $x = new visualboard($fen, 'Losers');
+    } else {
+        $x = new visualboard($fen, 'Standard');
+    }
+}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
