@@ -50,6 +50,7 @@ $title = 'PhpUnit test run, Games_Chess package';
     	    'Games_Chess_TestCase_getRookSquares',
     	    'Games_Chess_TestCase_getKnightSquares',
     	    'Games_Chess_TestCase_getKingSquares',
+    	    'Games_Chess_TestCase_getCastleSquares',
     	    'Games_Chess_TestCase_parseMove',
     	    'Games_Chess_TestCase_addPiece',
     	    'Games_Chess_TestCase_parseFen',

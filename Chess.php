@@ -1319,12 +1319,13 @@ class Games_Chess {
      * @param K|P|Q|R|B|N Piece name
      * @param string [a-h][1-8] algebraic location of the piece
      * @param B|W color of the piece
+     * @param boolean Whether to return shortcut king moves for castling
      * @return array|PEAR_Error
      * @throws GAMES_CHESS_ERROR_INVALID_COLOR
      * @throws GAMES_CHESS_ERROR_INVALID_SQUARE
      * @throws GAMES_CHESS_ERROR_INVALID_PIECE
      */
-    function getPossibleMoves($piece, $square, $color = null)
+    function getPossibleMoves($piece, $square, $color = null, $returnCastleMoves = true)
     {
         if (is_null($color)) {
             $color = $this->_move;
@@ -1345,7 +1346,7 @@ class Games_Chess {
         }
         switch ($piece) {
             case 'K' :
-                return $this->getPossibleKingMoves($square, $color);
+                return $this->getPossibleKingMoves($square, $color, $returnCastleMoves);
             break;
             case 'Q' :
                 return $this->getPossibleQueenMoves($square, $color);
@@ -1604,17 +1605,21 @@ class Games_Chess {
     function _getCastleSquares($square)
     {
         $ret = array();
-        if ($square == 'e1' && $this->_WCastleK) {
-            $ret[] = 'g1';
-        }
-        if ($square == 'e1' && $this->_WCastleQ) {
-            $ret[] = 'c1';
-        }
-        if ($square == 'e8' && $this->_BCastleK) {
-            $ret[] = 'g8';
-        }
-        if ($square == 'e8' && $this->_BCastleQ) {
-            $ret[] = 'c8';
+        if ($this->_move == 'W') {
+            if ($square == 'e1' && $this->_WCastleK) {
+                $ret[] = 'g1';
+            }
+            if ($square == 'e1' && $this->_WCastleQ) {
+                $ret[] = 'c1';
+            }
+
+        } else {
+            if ($square == 'e8' && $this->_BCastleK) {
+                $ret[] = 'g8';
+            }
+            if ($square == 'e8' && $this->_BCastleQ) {
+                $ret[] = 'c8';
+            }
         }
         return $ret;
     }
@@ -1971,7 +1976,7 @@ class Games_Chess {
      * @return array
      * @since 0.7alpha castling is possible by moving the king to the destination square
      */
-    function getPossibleKingMoves($square, $color = null)
+    function getPossibleKingMoves($square, $color = null, $returnCastleMoves = true)
     {
         if (is_null($color)) {
             $color = $this->_move;
@@ -1985,9 +1990,11 @@ class Games_Chess {
             return $this->raiseError(GAMES_CHESS_ERROR_INVALID_SQUARE,
                 array('square' => $square));
         }
-        $newret = array();
+        $newret = $castleret = array();
         $ret = $this->_getKingSquares($square);
-        $castleret = $this->_getCastleSquares($square);
+        if ($returnCastleMoves) {
+            $castleret = $this->_getCastleSquares($square);
+        }
         $mypieces = $this->getPieceLocations($color);
         foreach ($ret as $square) {
             if (!in_array($square, $mypieces)) {

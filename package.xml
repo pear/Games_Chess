@@ -22,7 +22,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
   </maintainers>
   <release>
     <version>0.7alpha</version>
-    <date>2004-02-10</date>
+    <date>2004-02-14</date>
     <license>PHP License</license>
     <state>alpha</state>
     <notes>Added a new driver for crazyhouse chess (Wild 23 on ICC)
@@ -66,6 +66,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
         <file role="test" name="Games_Chess_TestCase_convertSquareToSAN.php"/>
         <file role="test" name="Games_Chess_TestCase_getAllPieceLocations.php"/>
         <file role="test" name="Games_Chess_TestCase_getAllPieceSquares.php"/>
+        <file role="test" name="Games_Chess_TestCase_getCastleSquares.php"/>
         <file role="test" name="Games_Chess_TestCase_getDiagonal.php"/>
         <file role="test" name="Games_Chess_TestCase_getDiagonalColor.php"/>
         <file role="test" name="Games_Chess_TestCase_getKingSquares.php"/>
@@ -163,7 +164,7 @@ a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3
     </release>
     <release>
       <version>0.7alpha</version>
-      <date>2004-02-10</date>
+      <date>2004-02-14</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>Added a new driver for crazyhouse chess (Wild 23 on ICC)

@@ -387,9 +387,9 @@ class Games_Chess_Standard extends Games_Chess {
             }
             if ($name{0} == $color) {
                 if ($name{1} == 'P') {
-                    $ret[$name] = $this->getPossibleMoves($loc[1], $loc[0], $color);
+                    $ret[$name] = $this->getPossibleMoves($loc[1], $loc[0], $color, false);
                 } else {
-                    $ret[$name] = $this->getPossibleMoves($name{1}, $loc, $color);
+                    $ret[$name] = $this->getPossibleMoves($name{1}, $loc, $color, false);
                 }
             }
         }
