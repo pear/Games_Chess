@@ -60,6 +60,21 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->errorOccured = true;
         $this->assertTrue(false, "$errstr at line $errline, $errfile");
     }
+
+    function PEARerrorHandler($error) {
+        $this->assertEquals($this->_expectedCode, $error->getCode(),
+            $this->_testMethod . ' ' . $this->errorCodeToString($this->_expectedCode)
+            . ' actual: ' . $this->errorCodeToString($error->getCode()));
+        $this->assertEquals($this->_expectedMessage, $error->getMessage(), $this->_testMethod);
+        $this->errorThrown = 'true';
+    }
+    
+    function expectPEARError($method, $msg, $code = null)
+    {
+        $this->_expectedMessage = $msg;
+        $this->_expectedCode = $code;
+        $this->_testMethod = $method;
+    }
     
     function test_invalid_promote()
     {
@@ -566,6 +581,256 @@ class Games_Chess_TestCase_convertSquareToSAN extends PHPUnit_TestCase
         $this->board->addPiece('B', 'R', 'a6');
         $err = $this->board->_convertSquareToSAN('a5', 'a6');
         $this->assertEquals('Kxa6', $err, 'wrong SAN');
+    }
+    
+    function test_valid_new_kingcastleW1()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_WCastleK = true;
+        $this->board->addPiece('W', 'K', 'e1');
+        $this->board->addPiece('W', 'R', 'h1');
+        $err = $this->board->_convertSquareToSAN('e1', 'g1');
+        $this->assertEquals('O-O', $err, 'wrong SAN');
+    }
+    
+    function test_valid_new_kingcastleW2()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_WCastleQ = true;
+        $this->board->addPiece('W', 'K', 'e1');
+        $this->board->addPiece('W', 'R', 'a1');
+        $err = $this->board->_convertSquareToSAN('e1', 'c1');
+        $this->assertEquals('O-O-O', $err, 'wrong SAN');
+    }
+    
+    function test_valid_new_kingcastleB1()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_BCastleK = true;
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'K', 'e8');
+        $this->board->addPiece('B', 'R', 'h8');
+        $err = $this->board->_convertSquareToSAN('e8', 'g8');
+        $this->assertEquals('O-O', $err, 'wrong SAN');
+    }
+    
+    function test_valid_new_kingcastleB2()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_BCastleQ = true;
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'K', 'e8');
+        $this->board->addPiece('B', 'R', 'a8');
+        $err = $this->board->_convertSquareToSAN('e8', 'c8');
+        $this->assertEquals('O-O-O', $err, 'wrong SAN');
+    }
+    
+    function test_invalid_new_kingcastleW1()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_WCastleK = false;
+        $this->board->addPiece('W', 'K', 'e1');
+        $this->board->addPiece('W', 'R', 'h1');
+        $err = $this->board->_convertSquareToSAN('e1', 'g1');
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('The piece on e1 cannot move to g1',
+            $err->getMessage(), 'wrong error message');
+    }
+    
+    function test_invalid_new_kingcastleW2()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_WCastleQ = false;
+        $this->board->addPiece('W', 'K', 'e1');
+        $this->board->addPiece('W', 'R', 'a1');
+        $err = $this->board->_convertSquareToSAN('e1', 'c1');
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('The piece on e1 cannot move to c1',
+            $err->getMessage(), 'wrong error message');
+    }
+    
+    function test_invalid_new_kingcastleW3()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_WCastleK = true;
+        $this->board->addPiece('W', 'K', 'e2');
+        $this->board->addPiece('W', 'R', 'h1');
+        $err = $this->board->_convertSquareToSAN('e2', 'g1');
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('The piece on e2 cannot move to g1',
+            $err->getMessage(), 'wrong error message');
+    }
+    
+    function test_invalid_new_kingcastleW4()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_WCastleQ = true;
+        $this->board->addPiece('W', 'K', 'e2');
+        $this->board->addPiece('W', 'R', 'a1');
+        $err = $this->board->_convertSquareToSAN('e2', 'c1');
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('The piece on e2 cannot move to c1',
+            $err->getMessage(), 'wrong error message');
+    }
+    
+    function test_invalid_new_kingcastleB1()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_BCastleK = false;
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'K', 'e8');
+        $this->board->addPiece('B', 'R', 'h8');
+        $err = $this->board->_convertSquareToSAN('e8', 'g8');
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('The piece on e8 cannot move to g8',
+            $err->getMessage(), 'wrong error message');
+    }
+    
+    function test_invalid_new_kingcastleB2()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_BCastleQ = false;
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'K', 'e8');
+        $this->board->addPiece('B', 'R', 'a8');
+        $err = $this->board->_convertSquareToSAN('e8', 'c8');
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('The piece on e8 cannot move to c8',
+            $err->getMessage(), 'wrong error message');
+    }
+    
+    function test_invalid_new_kingcastleB3()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_BCastleK = true;
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'K', 'e7');
+        $this->board->addPiece('B', 'R', 'h8');
+        $err = $this->board->_convertSquareToSAN('e7', 'g8');
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('The piece on e7 cannot move to g8',
+            $err->getMessage(), 'wrong error message');
+    }
+    
+    function test_invalid_new_kingcastleB4()
+    {
+        if (!$this->_methodExists('_convertSquareToSAN')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        $this->board->blankBoard();
+        $this->board->_WCastleQ = true;
+        $this->board->_move = 'B';
+        $this->board->addPiece('B', 'K', 'e7');
+        $this->board->addPiece('B', 'R', 'a8');
+        $err = $this->board->_convertSquareToSAN('e7', 'c8');
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('The piece on e7 cannot move to c8',
+            $err->getMessage(), 'wrong error message');
     }
 }
 
