@@ -62,7 +62,12 @@ placement of pieces on back ranks is legal, but was not allowed</notes>
        </dir> <!-- examples -->
        <dir name="tests">
         <file role="test" name="Games_Chess_Crazyhouse_TestCase_addPiece.php"/>
+        <file role="test" name="Games_Chess_Crazyhouse_TestCase_getAllPieceSquares.php"/>
+        <file role="test" name="Games_Chess_Crazyhouse_TestCase_getPossibleChecks.php"/>
         <file role="test" name="Games_Chess_Crazyhouse_TestCase_getSquareFromParsedMove.php"/>
+        <file role="test" name="Games_Chess_Crazyhouse_TestCase_inCheck.php"/>
+        <file role="test" name="Games_Chess_Crazyhouse_TestCase_moveSAN.php"/>
+        <file role="test" name="Games_Chess_Crazyhouse_TestCase_squareToPiece.php"/>
         <file role="test" name="Games_Chess_Crazyhouse_TestCase_validMove.php"/>
         <file role="test" name="Games_Chess_Losers_TestCase_capturePossible.php"/>
         <file role="test" name="Games_Chess_Losers_TestCase_gameOver.php"/>

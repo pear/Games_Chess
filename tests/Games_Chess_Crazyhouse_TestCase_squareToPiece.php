@@ -13,7 +13,7 @@
  * @package Games_Chess
  */
 
-class Games_Chess_TestCase_bug2018 extends PHPUnit_TestCase
+class Games_Chess_Crazyhouse_TestCase_squareToPiece extends PHPUnit_TestCase
 {
     /**
      * A Games_Chess_Standard object
@@ -21,7 +21,7 @@ class Games_Chess_TestCase_bug2018 extends PHPUnit_TestCase
      */
     var $board;
 
-    function Games_Chess_TestCase_bug2018($name)
+    function Games_Chess_Crazyhouse_TestCase_squareToPiece($name)
     {
         $this->PHPUnit_TestCase($name);
     }
@@ -32,7 +32,7 @@ class Games_Chess_TestCase_bug2018 extends PHPUnit_TestCase
         $this->errorOccured = false;
         set_error_handler(array(&$this, 'errorHandler'));
 
-        $this->board = new Games_Chess_Standard();
+        $this->board = new Games_Chess_Crazyhouse();
         $this->board->blankBoard();
     }
 
@@ -65,26 +65,40 @@ class Games_Chess_TestCase_bug2018 extends PHPUnit_TestCase
         $this->assertTrue(false, "$errstr at line $errline, $errfile");
     }
     
-    function test_bug2018()
+    function test_valid_empty()
     {
-        if (!$this->_methodExists('moveSAN')) {
+        if (!$this->_methodExists('_squareToPiece')) {
+            return;
+        }
+        $this->assertFalse($this->board->_squareToPiece('a1'));
+    }
+    
+    function test_valid_piece()
+    {
+        if (!$this->_methodExists('_squareToPiece')) {
             return;
         }
         if (!$this->_methodExists('resetGame')) {
             return;
         }
-        $this->board->resetGame('rnk2Bn1/p1p1Ppp1/bp6/1P6/6r1/7p/P1PP1PPP/RN2K1NR w KQ - 0 0');
-        $this->board->moveSAN('e8=Q');
-        $this->board->moveSAN('Kb7');
-        $this->board->moveSAN('bxa6');
-        $this->board->moveSAN('Kxa6');
-        $this->board->moveSAN('Bb4');
-        $this->board->moveSAN('Rg5');
-        $this->board->moveSAN('a4');
-        $this->board->moveSAN('Rg6');
-        $this->board->moveSAN('a5');
-        $this->board->moveSAN('Rg5');
-        $this->board->moveSAN('Qc8');
+        $this->board->resetGame();
+        $this->assertEquals(array('color' => 'W', 'piece' => 'R'),
+            $this->board->_squareToPiece('a1'), 'wrong piece/color');
+    }
+    
+    function test_valid_pawn()
+    {
+        if (!$this->_methodExists('_squareToPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        $this->board->addPiece('W', 'R', 'a5');
+        $this->board->addPiece('W', 'R', 'a6');
+        $this->board->addPiece('W', 'R', 'a3');
+        $this->assertEquals(array('color' => 'W', 'piece' => 'R'),
+            $this->board->_squareToPiece('a3'), 'wrong piece/color');
     }
 }
 

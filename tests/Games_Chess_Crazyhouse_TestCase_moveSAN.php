@@ -13,7 +13,7 @@
  * @package Games_Chess
  */
 
-class Games_Chess__Crazyhouse_TestCase_moveSAN extends PHPUnit_TestCase
+class Games_Chess_Crazyhouse_TestCase_moveSAN extends PHPUnit_TestCase
 {
     /**
      * A Games_Chess_Standard object
@@ -498,12 +498,59 @@ class Games_Chess__Crazyhouse_TestCase_moveSAN extends PHPUnit_TestCase
             return;
         }
         $this->board->resetGame();
+        $err = $this->board->moveSAN('P@d5');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error');
+        if (is_a($err, 'pear_error')) {
+            $this->assertEquals(GAMES_CHESS_ERROR_NOPIECES_TOPLACE, $err->getCode());
+            $this->assertEquals('There are no captured Black Pawns available to place', $err->getMessage());
+        }
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error');
+        $this->board->moveSAN('e4');
+        $this->board->moveSAN('d5');
+        $this->board->moveSAN('exd5');
+        $this->board->moveSAN('Qxd5');
+        $err = $this->board->moveSAN('P@d5');
+        $this->assertEquals('pear_error', strtolower(get_class($err)), 'no error');
+        if (is_a($err, 'pear_error')) {
+            $this->assertEquals(GAMES_CHESS_ERROR_PIECEINTHEWAY, $err->getCode());
+            $this->assertEquals('There is already a piece on d5, cannot place another there', $err->getMessage());
+        }
+    }
+
+    function test_placepiece_valid()
+    {
+        if (!$this->_methodExists('moveSAN')) {
+            return;
+        }
+        $this->board->resetGame();
         $this->board->moveSAN('e4');
         $this->board->moveSAN('d5');
         $this->board->moveSAN('exd5');
         $this->board->moveSAN('Qxd5');
         $err = $this->board->moveSAN('P@e4');
         $this->assertFalse(strtolower(get_class($err)) == 'pear_error');
+        $this->board->moveSAN('Nf6');
+        $this->board->moveSAN('exd5');
+        $err = $this->board->moveSAN('P@e4'); // try black
+        $this->assertFalse(strtolower(get_class($err)) == 'pear_error');
+        $err = $this->board->moveSAN('Q@e3');
+        $this->assertFalse(strtolower(get_class($err)) == 'pear_error');
+        $this->board->moveSAN('Nc6');
+        $this->board->moveSAN('dxc6');
+        $this->board->moveSAN('e6');
+        $this->board->moveSAN('cxb7');
+        $this->board->moveSAN('Bxb7');
+        $err = $this->board->moveSAN('P@a4');
+        $this->assertFalse(strtolower(get_class($err)) == 'pear_error');
+        $this->board->moveSAN('h4');
+        $err = $this->board->moveSAN('P@a5');
+        $this->assertFalse(strtolower(get_class($err)) == 'pear_error');
+        $err = $this->board->moveSAN('P@h5');
+        $this->assertEquals('pear_error', strtolower(get_class($err)));
+        if (is_a($err, 'pear_error')) {
+            $this->assertEquals(GAMES_CHESS_ERROR_NOPIECES_TOPLACE, $err->getCode());
+            $this->assertEquals('There are no captured Black Pawns available to place', $err->getMessage());
+        }
     }
 }
 
