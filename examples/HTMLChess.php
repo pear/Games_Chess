@@ -75,7 +75,11 @@ class visualboard
     {
         $board = 'Games_Chess_' . $type;
         $this->_board = new $board;
-        $this->_board->resetGame($fen);
+        $err = $this->_board->resetGame($fen);
+        if ($this->_board->isError($err)) {
+            echo '<b>' .$err->getMessage() . '</b><br />';
+            $this->_board->resetGame();
+        }
     }
     
     /**
@@ -252,16 +256,16 @@ promote('<?php print $this->promote[0] . "', '" . $this->promote[1]; ?>');
 
 
             if ($piece) {
-        		if (file_exists($imagepath . '/' . strtoupper($piece) . '.gif')) {
-        			if ($piece != strtoupper($piece)) {
-        				$image = 'dark/' . $piece . '.gif';
-        			} else {
-        				$image = $piece . '.gif';
-        			}
+                if (file_exists($imagepath . '/' . strtoupper($piece) . '.gif')) {
+                    if ($piece != strtoupper($piece)) {
+                        $image = 'dark/' . $piece . '.gif';
+                    } else {
+                        $image = $piece . '.gif';
+                    }
                     $imgsize = GetImageSize($imagepath . DIRECTORY_SEPARATOR . $image);
-        			echo '<img src="images/' . $image . '" border="0" width="' . $imgsize[0] .
+                    echo '<img src="images/' . $image . '" border="0" width="' . $imgsize[0] .
                          '" height="' . $imgsize[1] . '" alt="'. $piece . '">';
-        		} else {
+                } else {
                     echo $piece;
                 }
             } else {
@@ -272,7 +276,7 @@ promote('<?php print $this->promote[0] . "', '" . $this->promote[1]; ?>');
                         $image = 'dark/blank.gif';
                     }
                     $imgsize = GetImageSize($imagepath . DIRECTORY_SEPARATOR . $image);
-        			echo '<img src="images/' . $image . '" border="0" width="' . $imgsize[0] .
+                    echo '<img src="images/' . $image . '" border="0" width="' . $imgsize[0] .
                          '" height="' . $imgsize[1] . '" alt="'. $piece . '">';
                 } else {
                     echo '&nbsp;';

@@ -21,66 +21,20 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     </maintainer>
   </maintainers>
   <release>
-    <version>0.5alpha</version>
-    <date>2003-10-26</date>
+    <version>0.6alpha</version>
+    <date>2003-12-28</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>Added new module for Loser's chess (ICC wild 16)
+    <notes>bugfix release
 
-- added gameOver() method, returns color of winner, or D for draw, or false</notes>
+- fixed #158: total screwup in example if SAN entered in FEN box</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
     </deps>
-    <provides type="class" name="Games_Chess_Losers" extends="Games_Chess_Standard" />
-    <provides type="function" name="Games_Chess_Losers::gameOver" />
-    <provides type="class" name="Games_Chess_Standard" extends="Games_Chess" />
-    <provides type="function" name="Games_Chess_Standard::blankBoard" />
-    <provides type="function" name="Games_Chess_Standard::addPiece" />
-    <provides type="function" name="Games_Chess_Standard::toArray" />
-    <provides type="function" name="Games_Chess_Standard::inCheck" />
-    <provides type="function" name="Games_Chess_Standard::isBishop" />
-    <provides type="function" name="Games_Chess_Standard::isRook" />
-    <provides type="function" name="Games_Chess_Standard::isPawn" />
-    <provides type="function" name="Games_Chess_Standard::isKing" />
-    <provides type="class" name="Games_Chess" />
-    <provides type="function" name="Games_Chess::blankBoard" />
-    <provides type="function" name="Games_Chess::resetGame" />
-    <provides type="function" name="Games_Chess::moveSAN" />
-    <provides type="function" name="Games_Chess::moveSquare" />
-    <provides type="function" name="Games_Chess::getMoveList" />
-    <provides type="function" name="Games_Chess::gameOver" />
-    <provides type="function" name="Games_Chess::inCheckMate" />
-    <provides type="function" name="Games_Chess::inStaleMate" />
-    <provides type="function" name="Games_Chess::inDraw" />
-    <provides type="function" name="Games_Chess::inRepetitionDraw" />
-    <provides type="function" name="Games_Chess::in50MoveDraw" />
-    <provides type="function" name="Games_Chess::inBasicDraw" />
-    <provides type="function" name="Games_Chess::renderFen" />
-    <provides type="function" name="Games_Chess::addPiece" />
-    <provides type="function" name="Games_Chess::toArray" />
-    <provides type="function" name="Games_Chess::isPromoteMove" />
-    <provides type="function" name="Games_Chess::toMove" />
-    <provides type="function" name="Games_Chess::canCastleKingside" />
-    <provides type="function" name="Games_Chess::canCastleQueenside" />
-    <provides type="function" name="Games_Chess::getPossibleMoves" />
-    <provides type="function" name="Games_Chess::getPieceLocations" />
-    <provides type="function" name="Games_Chess::getPossibleKnightMoves" />
-    <provides type="function" name="Games_Chess::getPossibleBishopMoves" />
-    <provides type="function" name="Games_Chess::getPossibleRookMoves" />
-    <provides type="function" name="Games_Chess::getPossibleQueenMoves" />
-    <provides type="function" name="Games_Chess::getPossiblePawnMoves" />
-    <provides type="function" name="Games_Chess::getPossibleKingMoves" />
-    <provides type="function" name="Games_Chess::getDiagonalColor" />
-    <provides type="function" name="Games_Chess::raiseError" />
-    <provides type="function" name="Games_Chess::getMessage" />
-    <provides type="function" name="Games_Chess::isError" />
-    <provides type="function" name="Games_Chess::startTransaction" />
-    <provides type="function" name="Games_Chess::commitTransaction" />
-    <provides type="function" name="Games_Chess::rollbackTransaction" />
     <filelist>
       <file role="php" baseinstalldir="Games" md5sum="078100603ccdd52076baafd8b5c9161c" name="Chess/Losers.php"/>
       <file role="php" baseinstalldir="Games" md5sum="ef46106e40f7f6da714b29142e8252e6" name="Chess/Standard.php"/>
-      <file role="data" baseinstalldir="Games" md5sum="8393cdbf229aee906aba80fbcccf1a97" name="examples/HTMLChess.php"/>
+      <file role="data" baseinstalldir="Games" name="examples/HTMLChess.php"/>
       <file role="data" baseinstalldir="Games" md5sum="a847ef7d029f5f9c608fa5166268437d" name="examples/images/B.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="c9ee061f36289f8faca053b5d9064562" name="examples/images/blank.gif"/>
       <file role="data" baseinstalldir="Games" md5sum="41b6871dd5591a3ecb235fc6720a1818" name="examples/images/K.gif"/>
@@ -134,7 +88,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file role="test" baseinstalldir="Games" md5sum="00e5090950407f9b844887c0951dccba" name="tests/stylesheet.css"/>
       <file role="test" baseinstalldir="Games" md5sum="18869de6d8addeea037f20aa657eef62" name="tests/testsuite.php"/>
       <file role="test" baseinstalldir="Games" md5sum="e414efac9d52381d8a9836f444338611" name="tests/TestUnit.php"/>
-      <file role="php" baseinstalldir="Games" md5sum="caa0873ad837417f687b7586482b3755" name="Chess.php">
+      <file role="php" baseinstalldir="Games" name="Chess.php">
         <replace type="package-info" from="@VER@" to="version"/>
       </file>
       <file role="doc" baseinstalldir="Games" md5sum="d471bf1c3b38de5e83f8c0bda73e7e8a" name="LICENSE"/>

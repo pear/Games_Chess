@@ -35,7 +35,6 @@
  * {@link http://www.chessclub.com} as CelloJi, look me up sometime :).  Don't
  * worry, I'm not very good.
  * @todo implement special class Games_Chess_Chess960 for Fischer Random Chess
- * @todo implement special class Games_Chess_Losers for ICC Loser's chess wild variant
  * @todo implement special class Games_Chess_Wild23 for ICC Wild variant 23
  * @author Gregory Beaver <cellog@php.net>
  * @copyright 2003
