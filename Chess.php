@@ -936,7 +936,14 @@ class Games_Chess {
                 'square' => $match[4],
             );
             return array(GAMES_CHESS_PIECEMOVE => $res);
-        } elseif (preg_match('/^([QRBNP])@([a-h][2-7])$/', $move, $match)) {
+        } elseif (preg_match('/^([QRBN])@([a-h][1-8])$/', $move, $match)) {
+            $res = array(
+                'piece' => $match[1],
+                'square' => $match[2],
+            );
+            return array(GAMES_CHESS_PIECEPLACEMENT => $res);
+        // error
+        } elseif (preg_match('/^([P])@([a-h][2-7])$/', $move, $match)) {
             $res = array(
                 'piece' => $match[1],
                 'square' => $match[2],

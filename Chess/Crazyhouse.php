@@ -104,6 +104,39 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
     function blankBoard()
     {
         Games_Chess::blankBoard();
+        $this->_pieces =
+        array(
+            'W' =>
+                array(
+                    'P' =>
+                        array(),
+                    'B' =>
+                        array(),
+                    'N' =>
+                        array(),
+                    'Q' =>
+                        array(),
+                    'R' =>
+                        array(),
+                    'K' =>
+                        array(),
+                ),
+            'B' =>
+                array(
+                    'P' =>
+                        array(),
+                    'B' =>
+                        array(),
+                    'N' =>
+                        array(),
+                    'Q' =>
+                        array(),
+                    'R' =>
+                        array(),
+                    'K' =>
+                        array(),
+                ),
+        );
     }
 
     /**
@@ -263,7 +296,7 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
         if ($type == GAMES_CHESS_PIECEPLACEMENT) {
             if (!$this->_captured[$this->_move][$info['piece']]) {
                 return $this->raiseError(GAMES_CHESS_ERROR_NOPIECES_TOPLACE,
-                    array('color' => $this->_move, 'piece' => $info['piece']));
+                    array('color' => $this->_move == 'W' ? 'B' : 'W', 'piece' => $info['piece']));
             }
             if ($this->_board[$info['square']] != $info['square']) {
                 return $this->raiseError(GAMES_CHESS_ERROR_PIECEINTHEWAY,
@@ -390,8 +423,8 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
         switch ($parsedmove['piece']) {
             case 'K' :
                 if (in_array($parsedmove['square'],
-                    $this->getPossibleKingMoves($this->_pieces[$color]['K'][0], $color))) {
-                    return $this->_pieces[$color]['K'][0];
+                    $this->getPossibleKingMoves($king = $this->_getKing($color), $color))) {
+                    return $king;
                 }
             break;
             case 'Q' :
@@ -563,8 +596,14 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
     function _getKing($color = null)
     {
         if (!is_null($color)) {
+            if (!isset($this->_pieces[$color]['K'][0])) {
+                return false;
+            }
             return $this->_pieces[$color]['K'][0];
         } else {
+            if (!isset($this->_pieces[$this->_move]['K'][0])) {
+                return false;
+            }
             return $this->_pieces[$this->_move]['K'][0];
         }
     }
@@ -601,6 +640,20 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
                 $this->_pieces[$piece{0}][$piece{1}][$piece{2}][1] == 'N');
     }
 
+   /**
+     * Determine whether a piece name is a king
+     *
+     * This does NOT take an algebraic square as the argument, but the contents
+     * of _board[algebraic square]
+     * @param string
+     * @return boolean
+     * @access protected
+     */
+    function isKing($piecename)
+    {
+        return $piecename{1} == 'K';
+    }
+
     /**
      * Determine whether a piece name is a queen
      *
@@ -624,9 +677,8 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      * of _board[algebraic square]
      * @param string
      * @return boolean
-     * @access protected
      */
-    function _isBishop($piece)
+    function isBishop($piece)
     {
         return $piece{1} == 'B' ||
             ($piece{1} == 'P' &&
@@ -640,9 +692,8 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      * of _board[algebraic square]
      * @param string
      * @return boolean
-     * @access protected
      */
-    function _isRook($piece)
+    function isRook($piece)
     {
         return $piece{1} == 'R' ||
             ($piece{1} == 'P' &&
@@ -656,9 +707,8 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      * of _board[algebraic square]
      * @param string
      * @return boolean
-     * @access protected
      */
-    function _isPawn($piece)
+    function isPawn($piece)
     {
         return $piece{1} == 'P' &&
                 $this->_pieces[$piece{0}][$piece{1}][$piece{2}][1] == 'P';
