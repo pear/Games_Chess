@@ -448,7 +448,7 @@ class Games_Chess_Standard extends Games_Chess {
             $newto = $this->_pieces[$this->_board[$from]];
             if (is_array($newto)) {
                 $newto[0] = $to;
-                if ($to{1} == '8' || $to{1} == '1') {
+                if ($promote && ($to{1} == '8' || $to{1} == '1')) {
                     $newto[1] = $promote;
                 }
             } else {
