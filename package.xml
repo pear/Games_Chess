@@ -21,11 +21,11 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     </maintainer>
   </maintainers>
   <release>
-    <version>0.7alpha</version>
-    <date>2004-02-15</date>
+    <version>0.7.0</version>
+    <date>2004-04-19</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>Added a new driver for crazyhouse chess (Wild 23 on ICC)
+    <notes>PHP 5 compatibility
 
 - Castling is now possible by moving the king to the destination square</notes>
     <deps>
@@ -166,11 +166,11 @@ a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3
 - fixed #158: total screwup in example if SAN entered in FEN box</notes>
     </release>
     <release>
-      <version>0.7alpha</version>
-      <date>2004-02-15</date>
+      <version>0.7.0</version>
+      <date>2004-04-19</date>
       <license>PHP License</license>
       <state>alpha</state>
-      <notes>Added a new driver for crazyhouse chess (Wild 23 on ICC)
+      <notes>PHP 5 compatibility
 
 - Castling is now possible by moving the king to the destination square</notes>
     </release>
