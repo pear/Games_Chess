@@ -2,6 +2,10 @@
 require_once 'Games/Chess/Standard.php';
 require_once 'Games/Chess/Losers.php';
 
+if (!version_compare(phpversion(), '4.2.0', '>=')) {
+    die('Requires PHP version 4.2.0 or greater');
+}
+
 // hack control
 if (!isset($_GET['start']) || !is_string($_GET['start'])) {
     $_GET['start'] = '';
@@ -302,7 +306,7 @@ promote('<?php print $this->promote[0] . "', '" . $this->promote[1]; ?>');
             {
                 print "<h1>DRAW</h1>";
             } elseif ($this->_board->inCheckmate()) {
-                if (get_class($this->_board) != 'games_chess_standard') {
+                if (!is_a($this->_board, 'games_chess_standard')) {
                     $winner = $side;
                 } else {
                     $winner = ($side == 'White') ? 'Black' : 'White';
