@@ -58,7 +58,11 @@ class Games_Chess_TestCase_parseFen extends PHPUnit_TestCase
 
     function _methodExists($name) 
     {
-        if (in_array(strtolower($name), get_class_methods($this->board))) {
+        $test = $name;
+        if (version_compare(phpversion(), '4.3.7', '<=')) {
+            $test = strtolower($name);
+        }
+        if (in_array($test, get_class_methods($this->board))) {
             return true;
         }
         $this->assertTrue(false, 'method '. $name . ' not implemented in ' . get_class($this->board));
