@@ -90,6 +90,7 @@ $title = 'PhpUnit test run, Games_Chess package';
 //            'Games_Chess_TestCase_bugEnPassant',
 //            'Games_Chess_TestCase_bugdxc3',
 //            'Games_Chess_TestCase_bugpromotion',
+//            'Games_Chess_TestCase_bug2018',
 //
             'Games_Chess_Crazyhouse_TestCase_addPiece',
             'Games_Chess_Crazyhouse_TestCase_validMove',
