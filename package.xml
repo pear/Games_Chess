@@ -21,13 +21,11 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     </maintainer>
   </maintainers>
   <release>
-    <version>0.7.0</version>
-    <date>2004-04-19</date>
+    <version>0.7.1</version>
+    <date>2004-04-12</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>PHP 5 compatibility
-
-- Castling is now possible by moving the king to the destination square</notes>
+    <notes>Add the ability to retrieve the move list with check/checkmate annotations</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
     </deps>
@@ -74,6 +72,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
         <file role="test" name="Games_Chess_TestCase_getDiagonalColor.php"/>
         <file role="test" name="Games_Chess_TestCase_getKingSquares.php"/>
         <file role="test" name="Games_Chess_TestCase_getKnightSquares.php"/>
+        <file role="test" name="Games_Chess_TestCase_getMoveList.php"/>
         <file role="test" name="Games_Chess_TestCase_getPathToKing.php"/>
         <file role="test" name="Games_Chess_TestCase_getPieceTypes.php"/>
         <file role="test" name="Games_Chess_TestCase_getPossibleBishopMoves.php"/>
@@ -167,12 +166,19 @@ a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3
     </release>
     <release>
       <version>0.7.0</version>
-      <date>2004-04-19</date>
+      <date>2004-04-09</date>
       <license>PHP License</license>
       <state>alpha</state>
       <notes>PHP 5 compatibility
 
 - Castling is now possible by moving the king to the destination square</notes>
+    </release>
+    <release>
+      <version>0.7.1</version>
+      <date>2004-04-12</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>Add the ability to retrieve the move list with check/checkmate annotations</notes>
     </release>
   </changelog>
 </package>

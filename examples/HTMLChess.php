@@ -338,7 +338,7 @@ session_id()); ?>">Email my friend</a>
 <?php }
         
         echo "<blockquote>Current position FEN: <strong>$fen</strong></blockquote>";
-        $moves = $this->_board->getMoveList();
+        $moves = $this->_board->getMoveList(true);
         echo '<table border="1"><th colspan="3" align="center">Moves</th><tr>' .
              '<td>#</td><td>White</td><td>Black</td></tr>';
         foreach($moves as $num => $moveset) {

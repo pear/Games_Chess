@@ -80,6 +80,7 @@ $title = 'PhpUnit test run, Games_Chess package';
             'Games_Chess_TestCase_getDiagonalColor',
             'Games_Chess_TestCase_getPieceTypes',
             'Games_Chess_TestCase_inBasicDraw',
+            'Games_Chess_TestCase_getMoveList',
 
             'Games_Chess_Losers_TestCase_capturePossible',
             'Games_Chess_Losers_TestCase_validMove',

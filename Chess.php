@@ -304,6 +304,20 @@ class Games_Chess {
      */
     var $_moves = array();
     /**
+     * Moves in SAN format for easy write-out to a PGN file, with check/checkmate annotations appended
+     *
+     * The format is:
+     * <pre>
+     * array(
+     *  movenumber => array(White move, Black move),
+     *  movenumber => array(White move, Black move),
+     * )
+     * </pre>
+     * @var array
+     * @access private
+     */
+    var $_movesWithCheck = array();
+    /**
      * Store every position from the game, used to determine draw by repetition
      *
      * If the exact same position is encountered three times, then it is a draw
@@ -377,6 +391,7 @@ class Games_Chess {
             if (!$this->isError($err = $this->_validMove($parsedMove))) {
                 list($key, $parsedMove) = each($parsedMove);
                 $this->_moves[$this->_moveNumber][($this->_move == 'W') ? 0 : 1] = $move;
+                $oldMoveNumber = $this->_moveNumber;
                 $this->_moveNumber += ($this->_move == 'W') ? 0 : 1;
                 $this->_halfMoves++;
                 if ($key == GAMES_CHESS_CASTLE) {
@@ -429,6 +444,13 @@ class Games_Chess {
                         }
                     }
                 }
+                $moveWithCheck = $move;
+                if ($this->inCheckMate(($this->_move == 'W') ? 'B' : 'W')) {
+                    $moveWithCheck .= '#';
+                } elseif ($this->inCheck(($this->_move == 'W') ? 'B' : 'W')) {
+                    $moveWithCheck .= '+';
+                }
+                $this->_movesWithCheck[$oldMoveNumber][($this->_move == 'W') ? 0 : 1] = $moveWithCheck;
                 $this->_move = ($this->_move == 'W' ? 'B' : 'W');
                 
                 // increment the position counter for this position
@@ -468,10 +490,15 @@ class Games_Chess {
      * Get the list of moves in Standard Algebraic Notation
      *
      * Can be used to populate a PGN file.
+     * @param boolean If true, then moves that check will be postfixed with "+" and checkmate with "#"
+     *                as in Nf3+ or Qxg7#
      * @return array
      */
-    function getMoveList()
+    function getMoveList($withChecks = false)
     {
+        if ($withChecks) {
+            return $this->_movesWithCheck;
+        }
         return $this->_moves;
     }
     
