@@ -21,11 +21,12 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     </maintainer>
   </maintainers>
   <release>
-    <version>0.8.0</version>
+    <version>0.8.1</version>
     <date>2004-07-10</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>Add &quot;Crazyhouse&quot; variant, and vastly improve the example's javascript</notes>
+    <notes>Fix 2 bugs: draw is not allowed except by stalemate, and pawn placement on the
+first or last ranks is not allowed (#1838, #1839)</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
     </deps>
@@ -187,6 +188,14 @@ a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3
       <license>PHP License</license>
       <state>alpha</state>
       <notes>Add &quot;Crazyhouse variant&quot;</notes>
+    </release>
+    <release>
+      <version>0.8.1</version>
+      <date>2004-07-10</date>
+      <license>PHP License</license>
+      <state>alpha</state>
+      <notes>Fix 2 bugs: draw is not allowed except by stalemate, and pawn placement on the
+first or last ranks is not allowed (#1838, #1839)</notes>
     </release>
   </changelog>
 </package>

@@ -222,18 +222,8 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
             if (!$this->isError($err = $this->_validMove($parsedMove))) {
                 $p = $parsedMove[GAMES_CHESS_PIECEPLACEMENT]['piece'];
                 $sq = $parsedMove[GAMES_CHESS_PIECEPLACEMENT]['square'];
-                $promote = $parsedMove[GAMES_CHESS_PIECEPLACEMENT]['promote'];
-                if ($p == 'P' && $sq{1} == ($this->_move == 'W' ? 8 : 1)) {
-                    if (!$promote) {
-                        return $this->raiseError(GAMES_CHESS_ERROR_MUSTPROMOTE,
-                            array('san' => "P@$sq"));
-                    }
-                }
                 $this->_captured[$this->_move][$p]--;
                 $set = ($p == 'P') ? array($sq, 'P') : $sq;
-                if ($promote) {
-                    $set[1] = $promote;
-                }
                 $this->_pieces[$this->_move][$p][] = $set;
                 $this->_board[$sq] = $this->_move . $p .
                     (count($this->_pieces[$this->_move][$p]) - 1);
@@ -930,6 +920,34 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
             break;
         }
         return true;
+    }
+
+    /**
+     * Basic draw is impossible in crazyhouse, because it is always possible
+     * to place another piece
+     * @return false
+     */
+    function inBasicDraw()
+    {
+        return false;
+    }
+
+    /**
+     * Repetition draw is not allowed in crazyhouse
+     * @return false
+     */
+    function inRepetitionDraw()
+    {
+        return false;
+    }
+
+    /**
+     * 50 move draw is not allowed in crazyhouse
+     * @return false
+     */
+    function in50MoveDraw()
+    {
+        return false;
     }
 }
 ?>

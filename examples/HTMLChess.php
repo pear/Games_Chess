@@ -175,34 +175,14 @@ function doPlacement(piece)
         document.forms[0].SAN.value = piece + "@" + square;
         document.forms[0].start.value = "";
         document.forms[0]["goto"].value = "";
-        if (square.charAt(1) == "<?php echo $this->_board->toMove() == 'W' ? 8 : 1; ?>") {
-            if (confirm("promote to Queen?"))
-            {
-                document.forms[0].SAN.value += "=Q";
-            } else 
-            {
-                if (confirm("promote to Rook?"))
-                {
-                    document.forms[0].SAN.value += "=R";
-                } else
-                {
-                    if (confirm("promote to Knight?"))
-                    {
-                        document.forms[0].SAN.value += "=N";
-                    } else
-                    {
-                        if (confirm("promote to Bishop?"))
-                        {
-                            document.forms[0].SAN.value += "=B";
-                        } else
-                        {
-                            document.forms[0].SAN.value += "=Q";
-                        }
-                    }
-                }
-            }
+        if (square.charAt(1) == "1" || square.charAt(1) == "8") {
+            document.forms[0].SAN.value = '';
+            document.forms[0].start.value = "";
+            document.forms[0]["goto"].value = "";
+            alert("Cannot place a pawn on the first or last rank");
+        } else {
+            document.forms[0].submit();
         }
-        document.forms[0].submit();
     }
 }
 //-->

@@ -222,9 +222,9 @@ define('GAMES_CHESS_ERROR_NOPIECES_TOPLACE', 35);
  */
 define('GAMES_CHESS_ERROR_PIECEINTHEWAY', 36);
 /**
- * When a pawn placement on the back rank does not include a promotion, this error is used
+ * When a pawn placement on the first or back rank is attempted
  */
-define('GAMES_CHESS_ERROR_MUSTPROMOTE', 37);
+define('GAMES_CHESS_ERROR_CANT_PLACE_18', 37);
 /**
  * ABSTRACT parent class - use {@link Games_Chess_Standard} for a typical
  * chess game
@@ -936,21 +936,15 @@ class Games_Chess {
                 'square' => $match[4],
             );
             return array(GAMES_CHESS_PIECEMOVE => $res);
-        } elseif (preg_match('/^([QRBNP])@([a-h][1-8])$/', $move, $match)) {
+        } elseif (preg_match('/^([QRBNP])@([a-h][2-7])$/', $move, $match)) {
             $res = array(
                 'piece' => $match[1],
                 'square' => $match[2],
-                'promote' => false,
             );
             return array(GAMES_CHESS_PIECEPLACEMENT => $res);
         // error
-        } elseif (preg_match('/^([P])@([a-h][18])=([QRBN])$/', $move, $match)) {
-            $res = array(
-                'piece' => $match[1],
-                'square' => $match[2],
-                'promote' => $match[3]
-            );
-            return array(GAMES_CHESS_PIECEPLACEMENT => $res);
+        } elseif (preg_match('/^([P])@([a-h][18])$/', $move, $match)) {
+            return $this->raiseError(GAMES_CHESS_ERROR_CANT_PLACE_18, array('san' => $move));
         // error
         } else {
             return $this->raiseError(GAMES_CHESS_ERROR_INVALID_SAN,
@@ -2210,8 +2204,8 @@ class Games_Chess {
                 'There are no captured %color% %piece%s available to place',
             GAMES_CHESS_ERROR_PIECEINTHEWAY =>
                 'There is already a piece on %square%, cannot place another there',
-            GAMES_CHESS_ERROR_MUSTPROMOTE =>
-                'Placing a piece on the back rank requires promotion, use %san%=Q or any of R, N, B, Q',
+            GAMES_CHESS_ERROR_CANT_PLACE_18 =>
+                'Placing a piece on the first or back rank is illegal (%san%)',
         );
         $message = $messages[$code];
         foreach ($extra as $key => $value) {
