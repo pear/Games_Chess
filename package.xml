@@ -21,12 +21,12 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     </maintainer>
   </maintainers>
   <release>
-    <version>0.8.1</version>
+    <version>0.8.2</version>
     <date>2004-07-10</date>
     <license>PHP License</license>
     <state>alpha</state>
-    <notes>Fix 2 bugs: draw is not allowed except by stalemate, and pawn placement on the
-first or last ranks is not allowed (#1838, #1839)</notes>
+    <notes>Add test cases for Crazyhouse, fix hidden bug:
+placement of pieces on back ranks is legal, but was not allowed</notes>
     <deps>
       <dep type="php" rel="ge" version="4.2.0" optional="no"/>
     </deps>
@@ -35,6 +35,8 @@ first or last ranks is not allowed (#1838, #1839)</notes>
        <dir name="Chess">
         <file role="php" name="Crazyhouse.php"/>
         <file role="php" name="Losers.php"/>
+        <file role="php" name="Player.php"/>
+        <file role="php" name="Result.php"/>
         <file role="php" name="Standard.php"/>
        </dir> <!-- Chess -->
        <dir name="examples">
@@ -59,6 +61,9 @@ first or last ranks is not allowed (#1838, #1839)</notes>
         </dir> <!-- examples/images -->
        </dir> <!-- examples -->
        <dir name="tests">
+        <file role="test" name="Games_Chess_Crazyhouse_TestCase_addPiece.php"/>
+        <file role="test" name="Games_Chess_Crazyhouse_TestCase_getSquareFromParsedMove.php"/>
+        <file role="test" name="Games_Chess_Crazyhouse_TestCase_validMove.php"/>
         <file role="test" name="Games_Chess_Losers_TestCase_capturePossible.php"/>
         <file role="test" name="Games_Chess_Losers_TestCase_gameOver.php"/>
         <file role="test" name="Games_Chess_Losers_TestCase_validMove.php"/>
@@ -66,6 +71,7 @@ first or last ranks is not allowed (#1838, #1839)</notes>
         <file role="test" name="Games_Chess_TestCase_bugdxc3.php"/>
         <file role="test" name="Games_Chess_TestCase_bugEnPassant.php"/>
         <file role="test" name="Games_Chess_TestCase_bugpromotion.php"/>
+        <file role="test" name="Games_Chess_TestCase_bug2018.php"/>
         <file role="test" name="Games_Chess_TestCase_convertSquareToSAN.php"/>
         <file role="test" name="Games_Chess_TestCase_getAllPieceLocations.php"/>
         <file role="test" name="Games_Chess_TestCase_getAllPieceSquares.php"/>
@@ -196,6 +202,14 @@ a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3
       <state>alpha</state>
       <notes>Fix 2 bugs: draw is not allowed except by stalemate, and pawn placement on the
 first or last ranks is not allowed (#1838, #1839)</notes>
+    </release>
+    <release>
+     <version>0.8.2</version>
+     <date>2004-07-10</date>
+     <license>PHP License</license>
+     <state>alpha</state>
+     <notes>Add test cases for Crazyhouse, fix hidden bug:
+placement of pieces on back ranks is legal, but was not allowed</notes>
     </release>
   </changelog>
 </package>
