@@ -80,7 +80,7 @@ class Games_Chess_Losers extends Games_Chess_Standard {
     
     /**
      * Validate a move
-     * @param array parsed move array from {@link _parsedMove()}
+     * @param array parsed move array from {@link _parseMove()}
      * @return true|PEAR_Error
      * @throws GAMES_CHESS_ERROR_MOVE_MUST_CAPTURE
      * @access protected
@@ -91,10 +91,13 @@ class Games_Chess_Losers extends Games_Chess_Standard {
         if ($this->_capturePossible() &&
               ($type == GAMES_CHESS_CASTLE ||
               $this->_board[$info['square']] == $info['square'])) {
+            if ($type == GAMES_CHESS_CASTLE) {
+                $san = $info == 'K' ? 'O-O' : 'O-O-O';
+            } else {
+                $san = $info['piece'] . $info['disambiguate'] . $info['takes'] . $info['square'];
+            }
             return $this->raiseError(GAMES_CHESS_ERROR_MOVE_MUST_CAPTURE,
-                      array('san' => $info['piece'] .
-                            $info['disambiguate'] . $info['takes']
-                            . $info['square']));
+                      array('san' => $san));
         }
         return parent::_validMove($move);
     }

@@ -82,6 +82,8 @@ $title = 'PhpUnit test run, Games_Chess package';
             'Games_Chess_TestCase_inBasicDraw',
 
             'Games_Chess_Losers_TestCase_capturePossible',
+            'Games_Chess_Losers_TestCase_validMove',
+            'Games_Chess_Losers_TestCase_gameOver',
 
             'Games_Chess_TestCase_bugEnPassant',
             'Games_Chess_TestCase_bugdxc3',

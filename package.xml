@@ -60,6 +60,8 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
        </dir> <!-- examples -->
        <dir name="tests">
         <file role="test" name="Games_Chess_Losers_TestCase_capturePossible.php"/>
+        <file role="test" name="Games_Chess_Losers_TestCase_gameOver.php"/>
+        <file role="test" name="Games_Chess_Losers_TestCase_validMove.php"/>
         <file role="test" name="Games_Chess_TestCase_addPiece.php"/>
         <file role="test" name="Games_Chess_TestCase_bugdxc3.php"/>
         <file role="test" name="Games_Chess_TestCase_bugEnPassant.php"/>

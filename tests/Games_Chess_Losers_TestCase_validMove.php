@@ -401,28 +401,26 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         if (!$this->_methodExists('resetGame')) {
             return;
         }
-        $this->board->resetGame();
-        $this->board->_move = 'B';
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
-                $err->getMessage(), 'wrong error message');
+                $err->getMessage(), 'wrong error message 1');
         }
-        $this->board->_moveAlgebraic('f8', 'e4');
+        $this->board->resetGame('rnbqk1nr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
-                $err->getMessage(), 'wrong error message');
+                $err->getMessage(), 'wrong error message 2');
         }
-        $this->board->_moveAlgebraic('e4', 'f8');
-        $this->board->_moveAlgebraic('g8', 'e4');
+        $this->board->resetGame('rnbqkb1r/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
-                $err->getMessage(), 'wrong error message');
+                $err->getMessage(), 'wrong error message 3');
         }
 
         $this->board->resetGame();
@@ -430,29 +428,28 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
-                $err->getMessage(), 'wrong error message');
+                $err->getMessage(), 'wrong error message 4');
         }
-        $this->board->_moveAlgebraic('d8', 'e4');
+        $this->board->resetGame('r1bqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
+        $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
+        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        if (is_object($err)) {
+            $this->assertEquals('Can\'t castle queenside, pieces are in the way',
+                $err->getMessage(), 'wrong error message 5');
+        }
+        $this->board->resetGame('r2qkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
-        $this->board->_moveAlgebraic('c8', 'e5');
+        $this->board->resetGame('rnb1kbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
-                $err->getMessage(), 'wrong error message');
-        }
-        $this->board->_moveAlgebraic('e5', 'c8');
-        $this->board->_moveAlgebraic('b8', 'h4');
-        $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
-        if (is_object($err)) {
-            $this->assertEquals('Can\'t castle queenside, pieces are in the way',
-                $err->getMessage(), 'wrong error message');
+                $err->getMessage(), 'wrong error message 6');
         }
     }
 
@@ -470,27 +467,22 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         if (!$this->_methodExists('_moveAlgebraic')) {
             return;
         }
-        $this->board->resetGame();
-        $this->board->_move = 'B';
-        $this->board->_moveAlgebraic('f8', 'e4');
-        $this->board->_moveAlgebraic('g8', 'e5');
+        $this->board->resetGame('rbnqk2r/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
         $this->assertFalse(is_object($err), 'O-O should work');
-        $this->board->_BCastleK = false;
+        $this->board->resetGame('rbnqk2r/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', get_class($err), 'not an error 1');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, either the king or rook has moved',
                 $err->getMessage(), 'wrong error message');
         }
-        $this->board->_moveAlgebraic('d8', 'e4');
-        $this->board->_moveAlgebraic('c8', 'e5');
-        $this->board->_moveAlgebraic('b8', 'e3');
+        $this->board->resetGame('r3kbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertFalse(is_object($err), 'O-O-O should work');
-        $this->board->_BCastleQ = false;
+        $this->board->resetGame('r3kbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR b KQk - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
-        $this->assertEquals('pear_error', get_class($err), 'not an error');
+        $this->assertEquals('pear_error', get_class($err), 'not an error 2');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, either the king or rook has moved',
                 $err->getMessage(), 'wrong error message');
@@ -515,15 +507,14 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
-        $this->board->_moveAlgebraic('f1', 'e4');
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQK1NR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
-        $this->board->_moveAlgebraic('e4', 'f1');
-        $this->board->_moveAlgebraic('g1', 'e4');
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKB1R w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
@@ -538,22 +529,21 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
-        $this->board->_moveAlgebraic('d1', 'e4');
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNB1KBNR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
-        $this->board->_moveAlgebraic('c1', 'e5');
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/R1B1KBNR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle queenside, pieces are in the way',
                 $err->getMessage(), 'wrong error message');
         }
-        $this->board->_moveAlgebraic('e5', 'c1');
-        $this->board->_moveAlgebraic('b1', 'h4');
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RN2KBNR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
@@ -576,24 +566,20 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         if (!$this->_methodExists('_moveAlgebraic')) {
             return;
         }
-        $this->board->resetGame();
-        $this->board->_moveAlgebraic('f1', 'e4');
-        $this->board->_moveAlgebraic('g1', 'e5');
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQK2R w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
         $this->assertFalse(is_object($err), 'O-O should work');
-        $this->board->_WCastleK = false;
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQK2R w Qkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
             $this->assertEquals('Can\'t castle kingside, either the king or rook has moved',
                 $err->getMessage(), 'wrong error message');
         }
-        $this->board->_moveAlgebraic('d1', 'e4');
-        $this->board->_moveAlgebraic('c1', 'e5');
-        $this->board->_moveAlgebraic('b1', 'e3');
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/R3KBNR w KQkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertFalse(is_object($err), 'O-O-O should work');
-        $this->board->_WCastleQ = false;
+        $this->board->resetGame('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/R3KBNR w Kkq - 0 1');
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertEquals('pear_error', get_class($err), 'not an error');
         if (is_object($err)) {
@@ -702,6 +688,46 @@ class Games_Chess_Losers_TestCase_validMove extends PHPUnit_TestCase
         $this->board->_move = 'B';
         $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
         $this->assertFalse(is_object($err), 'error returned');
+    }
+    
+    function test_invalid_must_capture_w()
+    {
+        if (!$this->_methodExists('_validMove')) {
+            return;
+        }
+        if (!$this->_methodExists('_parseMove')) {
+            return;
+        }
+        if (!$this->_methodExists('addPiece')) {
+            return;
+        }
+        if (!$this->_methodExists('blankBoard')) {
+            return;
+        }
+        if (!$this->_methodExists('resetGame')) {
+            return;
+        }
+        $this->board->resetGame('rnbqkbnr/pppppppp/B7/8/8/8/PPPPPPPP/RN1QKBNR w KQkq - 0 1');
+        $err = $this->board->_validMove($this->board->_parseMove('Bxb7'));
+        $this->assertFalse(is_object($err), 'error returned');
+        $err = $this->board->_validMove($this->board->_parseMove('Nf3'));
+        $this->assertTrue(is_object($err), 'no error returned');
+        if (is_object($err)) {
+            $this->assertEquals('Capture is possible, "Nf3" does not capture',
+                $err->getMessage(), 'wrong error message');
+        }
+        $err = $this->board->_validMove($this->board->_parseMove('O-O'));
+        $this->assertTrue(is_object($err), 'no error returned');
+        if (is_object($err)) {
+            $this->assertEquals('Capture is possible, "O-O" does not capture',
+                $err->getMessage(), 'wrong error message');
+        }
+        $err = $this->board->_validMove($this->board->_parseMove('O-O-O'));
+        $this->assertTrue(is_object($err), 'no error returned');
+        if (is_object($err)) {
+            $this->assertEquals('Capture is possible, "O-O-O" does not capture',
+                $err->getMessage(), 'wrong error message');
+        }
     }
 }
 
