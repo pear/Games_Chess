@@ -1253,6 +1253,14 @@ class Games_Chess {
             return $this->raiseError(GAMES_CHESS_ERROR_CANT_MOVE_THAT_WAY,
                 array('from' => $from, 'to' => $to));
         }
+        if ($piece['piece'] == 'K' && !in_array($to, $this->_getKingSquares($from))) {
+            // this is a castling attempt
+            if ($to{0} == 'g') {
+                return 'O-O';
+            } else {
+                return 'O-O-O';
+            }
+        }
         $others = array();
         if ($piece['piece'] != 'K' && $piece['piece'] != 'P') {
             $others = $this->_getAllPieceSquares($piece['piece'],
@@ -1582,6 +1590,33 @@ class Games_Chess {
             return array_values($squares);
         }
         return $squares;
+    }
+    
+    /**
+     * Get a list of all the squares a king could castle to on an empty board
+     *
+     * WARNING: assumes valid input
+     * @param string [a-h][1-8]
+     * @return array
+     * @access protected
+     * @since 0.7alpha
+     */
+    function _getCastleSquares($square)
+    {
+        $ret = array();
+        if ($square == 'e1' && $this->_WCastleK) {
+            $ret[] = 'g1';
+        }
+        if ($square == 'e1' && $this->_WCastleQ) {
+            $ret[] = 'c1';
+        }
+        if ($square == 'e8' && $this->_BCastleK) {
+            $ret[] = 'g8';
+        }
+        if ($square == 'e8' && $this->_BCastleQ) {
+            $ret[] = 'c8';
+        }
+        return $ret;
     }
     
     /**
@@ -1934,6 +1969,7 @@ class Games_Chess {
      * @param string [a-h][1-8] Location of piece
      * @param W|B color of piece, or null to use current piece to move
      * @return array
+     * @since 0.7alpha castling is possible by moving the king to the destination square
      */
     function getPossibleKingMoves($square, $color = null)
     {
@@ -1951,13 +1987,14 @@ class Games_Chess {
         }
         $newret = array();
         $ret = $this->_getKingSquares($square);
+        $castleret = $this->_getCastleSquares($square);
         $mypieces = $this->getPieceLocations($color);
         foreach ($ret as $square) {
             if (!in_array($square, $mypieces)) {
                 $newret[] = $square;
             }
         }
-        return $newret;
+        return array_merge($newret, $castleret);
     }
     
     /**
