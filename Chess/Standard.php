@@ -857,7 +857,17 @@ class Games_Chess_Standard extends Games_Chess {
             $allmoves = $this->getPossibleMoves($name, $value, $color);
             foreach($squares as $square) {
                 if (in_array($square, $allmoves)) {
-                    return true;
+                    // try the move, see if we're still in check
+                    // if so, then the piece is pinned and cannot move
+                    $this->startTransaction();
+                    $this->_move = $color;
+                    $this->moveSquare($value, $square);
+                    $this->_move = $color;
+                    $stillchecked = $this->inCheck($color);
+                    $this->rollbackTransaction();
+                    if (!$stillchecked) {
+                        return true;
+                    }
                 }
             }
         }

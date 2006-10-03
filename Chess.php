@@ -354,7 +354,22 @@ class Games_Chess {
      * @access private
      */
     var $_lastMove = false;
-    
+
+    function &factory($type = 'Standard')
+    {
+        if (!class_exists("Games_Chess_$type")) {
+            @include_once 'Games/Chess/' . ucfirst(strtolower($type)) . '.php';
+        }
+        if (class_exists("Games_Chess_$type")) {
+            $type = "Games_Chess_$type";
+            $a = new $type;
+            return $a;
+        } else {
+            $a = false;
+            return $a;
+        }
+    }
+
     /**
      * Create a blank chessboard with no pieces on it
      */
@@ -2279,7 +2294,31 @@ class Games_Chess {
         }
         array_push($this->_saveState, $state);
     }
-    
+
+    /**
+     * Set the state of the chess game
+     *
+     * WARNING: this resets the state without any validation.
+     * @param array
+     */
+    function setState($state)
+    {
+        foreach($state as $name => $value) {
+            $this->$name = $value;
+        }
+    }
+
+    /**
+     * Get the current state of the chess game
+     *
+     * Use this in conjunction with setState
+     * @param array
+     */
+    function getState()
+    {
+        return get_object_vars($this);
+    }
+
     /**
      * Remove any possibility of undo.
      */
