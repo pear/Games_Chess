@@ -64,7 +64,7 @@ class Games_Chess_TestCase_inCheckMate extends PHPUnit_TestCase
         $this->errorOccured = true;
         $this->assertTrue(false, "$errstr at line $errline, $errfile");
     }
-    
+
     function test_valid_checkmate1()
     {
         if (!$this->_methodExists('inCheckMate')) {
@@ -74,6 +74,20 @@ class Games_Chess_TestCase_inCheckMate extends PHPUnit_TestCase
             return;
         }
         $this->board->resetGame('rnbqkbnr/1pp1p2p/2P5/p2P1ppQ/8/8/PP1P1PPP/RNB1KBNR b KQkq - 2 6');
+        $this->assertSame(true, $this->board->inCheckmate('B'));
+        $this->assertFalse($this->board->inCheckmate('W'));
+    }
+
+    function test_bug7565()
+    {
+        if (!$this->_methodExists('inCheckMate')) {
+            return;
+        }
+        if (!$this->_methodExists('resetGame')) {
+            return;
+        }
+        $this->board->resetGame('1r2k3/p1pbb1p1/2p5/5p1r/N1Q5/5N2/PPP2PPP/R3R1K1 w - - 2 20');
+        $this->board->moveSAN('Qg8');
         $this->assertSame(true, $this->board->inCheckmate('B'));
         $this->assertFalse($this->board->inCheckmate('W'));
     }
