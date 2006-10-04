@@ -1951,10 +1951,10 @@ class Games_Chess {
     function getPossibleQueenMoves($square, $color = null)
     {
         $a = $this->getPossibleRookMoves($square, $color);
-        $b = $this->getPossibleBishopMoves($square, $color);
         if ($this->isError($a)) {
             return $a;
         }
+        $b = $this->getPossibleBishopMoves($square, $color);
         if ($this->isError($b)) {
             return $b;
         }
