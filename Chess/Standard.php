@@ -861,7 +861,9 @@ class Games_Chess_Standard extends Games_Chess {
                     // if so, then the piece is pinned and cannot move
                     $this->startTransaction();
                     $this->_move = $color;
-                    $this->moveSquare($value, $square);
+                    PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
+                    $ret = $this->moveSquare($value, $square);
+                    PEAR::popErrorHandling(PEAR_ERROR_RETURN);
                     $this->_move = $color;
                     $stillchecked = $this->inCheck($color);
                     $this->rollbackTransaction();

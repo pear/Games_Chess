@@ -567,7 +567,9 @@ class Games_Chess {
         foreach ($moves as $escape) {
             $this->startTransaction();
             $this->_move = $color;
+            PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
             $this->moveSquare($king, $escape);
+            PEAR::popErrorHandling();
             $this->_move = $color;
             $stillchecked = $this->inCheck($color);
             $this->rollbackTransaction();
