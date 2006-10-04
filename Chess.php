@@ -1027,7 +1027,9 @@ class Games_Chess {
                 case "B" :
                 case "N" :
                 case "P" :
+                    PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
                     $err = $this->addPiece('W', $c, $loc);
+                    PEAR::popErrorHandling();
                     if ($this->isError($err)) {
                         if ($err->getCode() == GAMES_CHESS_ERROR_MULTIPIECE) {
                             return $this->raiseError(GAMES_CHESS_ERROR_FEN_MULTIPIECE,
@@ -1043,7 +1045,9 @@ class Games_Chess {
                 case "b" :
                 case "n" :
                 case "p" :
+                    PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
                     $err = $this->addPiece('B', strtoupper($c), $loc);
+                    PEAR::popErrorHandling();
                     if ($this->isError($err)) {
                         if ($err->getCode() == GAMES_CHESS_ERROR_MULTIPIECE) {
                             return $this->raiseError(GAMES_CHESS_ERROR_FEN_MULTIPIECE,
