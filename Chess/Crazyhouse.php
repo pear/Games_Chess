@@ -723,6 +723,25 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      */
     function _interposeOrCapture($squares, $color)
     {
+        foreach ($squares as $square) {
+            // if any squares are unoccupied, and we can place a piece,
+            // then it is possible to interpose through piece placement
+            if (!$this->_squareToPiece($square)) {
+                foreach ($this->_captured[$color] as $name => $count) {
+                    if (!$count) {
+                        continue;
+                    }
+                    if ($name == 'P') {
+                        // can't place on 1 or 8
+                        if ($square[1] == '1' || $square[1] == '8') {
+                            continue;
+                        }
+                    }
+                    return true;
+                }
+            }
+        }
+        // placement is not possible, try regular interpose/capture
         foreach ($this->_pieces[$color] as $name => $pieces) {
             if ($name == 'K') {
                 continue;

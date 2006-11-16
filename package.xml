@@ -33,7 +33,9 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
   <api>alpha</api>
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
- <notes>convert all unit tests to .phpt format
+ <notes>
+  convert all unit tests to .phpt format
+  allow placement move to interpose in a check for Crazyhouse variant
  </notes>
  <contents>
   <dir baseinstalldir="Games" name="/">
@@ -643,7 +645,9 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
    </stability>
    <date>2006-11-15</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>convert all unit tests to .phpt format
+   <notes>
+    convert all unit tests to .phpt format
+    allow placement move to interpose in a check for Crazyhouse variant
    </notes>
   </release>
   <release>
