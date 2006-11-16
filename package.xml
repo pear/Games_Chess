@@ -22,10 +22,10 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
   <email>cellog@php.net</email>
   <active>yes</active>
  </lead>
- <date>2006-11-15</date>
+ <date>2006-11-16</date>
  <time>23:42:10</time>
  <version>
-  <release>0.9.1</release>
+  <release>0.9.2</release>
   <api>0.9.1</api>
  </version>
  <stability>
@@ -34,9 +34,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
  </stability>
  <license uri="http://www.php.net/license">PHP License</license>
  <notes>
-  fix Bug #7565: should be checkmate but isnt showing as such
-  convert all unit tests to .phpt format
-  allow placement move to interpose in a check for Crazyhouse variant
+  fix bugs in Crazyhouse discovered in unit testing
  </notes>
  <contents>
   <dir baseinstalldir="Games" name="/">
@@ -638,6 +636,21 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
   <release>
    <version>
     <release>0.9.2</release>
+    <api>0.9.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-11-16</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+    fix bugs in Crazyhouse discovered in unit testing
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.1</release>
     <api>0.9.1</api>
    </version>
    <stability>

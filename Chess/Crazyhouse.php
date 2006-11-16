@@ -40,6 +40,10 @@ require_once 'Games/Chess/Standard.php';
  */
 class Games_Chess_Crazyhouse extends Games_Chess_Standard {
     /**
+     * Captured piece count.
+     * 
+     * Each sub-array consists of pieces owned by the color, so
+     * 'W' (white) has captured the pieces in the 'W' sub-array
      * @var array
      */
     var $_captured =
@@ -619,6 +623,9 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      */
     function _getPiece($piece)
     {
+        if (!isset($this->_pieces[$piece{0}][$piece{1}][$piece{2}])) {
+            return false;
+        }
         return $piece{1} == 'P' ?
             $this->_pieces[$piece{0}][$piece{1}][$piece{2}][0] :
             $this->_pieces[$piece{0}][$piece{1}][$piece{2}];
@@ -968,11 +975,34 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
             case 'N' :
             case 'R' :
             case 'Q' :
-                $this->_pieces[$color][$type][] = $square;
-                $this->_board[$square] = $color . $type .
-                    (count($this->_pieces[$color][$type]) - 1);
+                $addas = $this->_canAddPiece($type, $color);
+                if (!$addas) {
+                    return $this->raiseError(GAMES_CHESS_ERROR_MULTIPIECE,
+                        array('color' => $color, 'piece' => $type));
+                }
+                if ($addas[0] == 'P') {
+                    $add = array($square, $type);
+                } else {
+                    $add = $square;
+                }
+                if ($addas[1] == 2) {
+                    // using a captured piece to place, so decrease captured count
+                    $this->_captured[$color][$type]--;
+                }
+                $this->_pieces[$color][$addas[0]][] = $add;
+                $this->_board[$square] = $color . $addas[0] .
+                    (count($this->_pieces[$color][$addas[0]]) - 1);
             break;
             case 'P' :
+                $addas = $this->_canAddPiece($type, $color);
+                if (!$addas) {
+                    return $this->raiseError(GAMES_CHESS_ERROR_MULTIPIECE,
+                        array('color' => $color, 'piece' => $type));
+                }
+                if ($addas[1] == 2) {
+                    // using a captured pawn to place, so decrease captured count
+                    $this->_captured[$color]['P']--;
+                }
                 // handle regular pawns
                 $this->_pieces[$color]['P'][] =
                     array($square, 'P');
@@ -989,6 +1019,84 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
             break;
         }
         return true;
+    }
+
+    /**
+     * Determine whether we can add a piece to the board legally
+     *
+     * A piece can be added if it meets any of these conditions in this order:
+     * 
+     *  1. it is one of the existing pieces, and has not already been placed
+     *     on the enemy side
+     *  2. it can be created from a promoted pawn
+     *  3. it can be placed from captured enemy pieces
+     *  4. the enemy piece can be "captured" (is not present on the board)
+     * @param P|Q|R|N $piece
+     * @return false|string either the name of the piece to add this as, or false if no room
+     */
+    function _canAddPiece($piece, $color)
+    {
+        $enemy = $color == 'W' ? 'B' : 'W';
+        $possible = array(
+            'P' => 8,
+            'Q' => 1,
+            'R' => 2,
+            'N' => 2,
+            'B' => 2,
+        );
+        // determine if the enemy has captured any of our pieces and placed them
+        $total = count($this->_pieces[$enemy][$piece]) - $possible[$piece];
+        if ($total < 0) {
+            // we only care about captured pieces that have been placed
+            $total = 0;
+        }
+        // add the number of these pieces the enemy has captured
+        $total += $this->_captured[$enemy][$piece];
+        // add the number of this piece (not promoted pawns) we have on the board
+        $total += count($this->_pieces[$color][$piece]);
+        if ($total < $possible[$piece]) {
+            // can add it as a normal piece
+            return array($piece, 1);
+        }
+        
+        // try promotion next
+        if ($piece != 'P') {
+            do {
+                // only non-pawns can be promoted to a pawn
+                // extract the number of placed captured pawns on the enemy's side
+                $ptotal = count($this->_pieces[$enemy]['P']) - 8;
+                if ($ptotal < 0) {
+                    $ptotal = 0;
+                }
+                $ptotal += count($this->_pieces[$color]['P']) +
+                    $this->_captured[$enemy]['P'];
+                if ($ptotal == 8) {
+                    // no space available for promoted pawns
+                    break;
+                }
+                // add it as a pawn
+                return array('P', 1);
+            } while (false);
+        }
+        if ($this->_captured[$color][$piece]) {
+            // determine whether we have captured any enemy pieces of this type
+            $total += $this->_captured[$color][$piece];
+            if ($total < $possible[$piece] * 2) {
+                // allowed, through placement move
+                return array($piece, 2);
+            }
+        }
+        if (count($this->_pieces[$color][$piece]) + $this->_captured[$enemy][$piece] ==
+              2 * $possible[$piece]) {
+            // full - we've captured/placed all enemy pieces and promoted
+            // all pawns as well
+            return false;
+        }
+        if (count($this->_pieces[$enemy][$piece]) < $possible[$piece]) {
+            // simulate a capture followed by placement
+            return array($piece, 3);
+        }
+        return false;
     }
 
     /**
