@@ -14,7 +14,7 @@ $board->_moveAlgebraic('f1', 'e4');
 $board->_moveAlgebraic('g1', 'e5');
 $err = $board->_validMove($board->_parseMove('O-O'));
 $phpunit->assertTrue($err, 'should work');
-$board->_BCastleK = false;
+$board->_WCastleK = false;
 $err = $board->_validMove($board->_parseMove('O-O'));
 $phpunit->assertErrors(array(
     array('package' => 'PEAR_Error', 'message' => 'Can\'t castle kingside, either the king or rook has moved'),
@@ -25,7 +25,7 @@ $board->_moveAlgebraic('c1', 'e5');
 $board->_moveAlgebraic('b1', 'e3');
 $err = $board->_validMove($board->_parseMove('O-O-O'));
 $phpunit->assertTrue($err, 'should work');
-$board->_BCastleQ = false;
+$board->_WCastleQ = false;
 $err = $board->_validMove($board->_parseMove('O-O-O'));
 $phpunit->assertErrors(array(
     array('package' => 'PEAR_Error', 'message' => 'Can\'t castle queenside, either the king or rook has moved'),
