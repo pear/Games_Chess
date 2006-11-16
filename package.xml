@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE package SYSTEM "http://pear.php.net/dtd/package-1.0">
-<package version="1.0">
-  <name>Games_Chess</name>
-  <summary>Construct and validate a logical chess game, does not display</summary>
-  <description>The logic of handling a chessboard and parsing standard
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.5.0a2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
+http://pear.php.net/dtd/tasks-1.0.xsd
+http://pear.php.net/dtd/package-2.0
+http://pear.php.net/dtd/package-2.0.xsd">
+ <name>Games_Chess</name>
+ <channel>pear.php.net</channel>
+ <summary>Construct and validate a logical chess game, does not display</summary>
+ <description>The logic of handling a chessboard and parsing standard
 FEN (Farnsworth-Edwards Notation) for describing a position as well as SAN
 (Standard Algebraic Notation) for describing individual moves is handled.  This
 class can be used as a backend driver for playing chess, or for validating
@@ -11,223 +14,824 @@ and/or creating PGN files using the File_ChessPGN package.
 
 Although this package is alpha, it is fully unit-tested.  The code works, but
 the API is fluid, and may change dramatically as it is put into use and better
-ways are found to use it.  When the API stabilizes, the stability will increase.</description>
-  <maintainers>
-    <maintainer>
-      <user>cellog</user>
-      <name>Greg Beaver</name>
-      <email>cellog@php.net</email>
-      <role>lead</role>
-    </maintainer>
-  </maintainers>
+ways are found to use it.  When the API stabilizes, the stability will increase.
+ </description>
+ <lead>
+  <name>Greg Beaver</name>
+  <user>cellog</user>
+  <email>cellog@php.net</email>
+  <active>yes</active>
+ </lead>
+ <date>2006-11-15</date>
+ <time>23:42:10</time>
+ <version>
+  <release>0.9.2</release>
+  <api>0.9.1</api>
+ </version>
+ <stability>
+  <release>alpha</release>
+  <api>alpha</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP License</license>
+ <notes>convert all unit tests to .phpt format
+ </notes>
+ <contents>
+  <dir baseinstalldir="Games" name="/">
+   <dir name="Chess">
+    <file name="Crazyhouse.php" role="php" />
+    <file name="Losers.php" role="php" />
+    <file name="Standard.php" role="php" />
+   </dir> <!-- /Chess -->
+   <dir name="examples">
+    <dir name="images">
+     <dir name="dark">
+      <file name="b.gif" role="doc" />
+      <file name="blank.gif" role="doc" />
+      <file name="k.gif" role="doc" />
+      <file name="n.gif" role="doc" />
+      <file name="p.gif" role="doc" />
+      <file name="q.gif" role="doc" />
+      <file name="r.gif" role="doc" />
+     </dir> <!-- /examples/images/dark -->
+     <file name="B.gif" role="doc" />
+     <file name="blank.gif" role="doc" />
+     <file name="K.gif" role="doc" />
+     <file name="N.gif" role="doc" />
+     <file name="P.gif" role="doc" />
+     <file name="Q.gif" role="doc" />
+     <file name="R.gif" role="doc" />
+    </dir> <!-- /examples/images -->
+    <file name="HTMLChess.php" role="doc" />
+   </dir> <!-- /examples -->
+   <dir name="tests">
+    <dir name="Games_Chess">
+     <dir name="addPiece">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_addbishopb.phpt" role="test" />
+      <file name="test_addbishopw.phpt" role="test" />
+      <file name="test_addknightb.phpt" role="test" />
+      <file name="test_addknightw.phpt" role="test" />
+      <file name="test_addpawnsb.phpt" role="test" />
+      <file name="test_addpawnsw.phpt" role="test" />
+      <file name="test_addqueenb.phpt" role="test" />
+      <file name="test_addqueenw.phpt" role="test" />
+      <file name="test_addrookb.phpt" role="test" />
+      <file name="test_addrookw.phpt" role="test" />
+      <file name="test_invalid_dupepiece.phpt" role="test" />
+      <file name="test_invalid_toomanyb.phpt" role="test" />
+      <file name="test_invalid_toomanyw.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/addPiece -->
+     <dir name="convertSquareToSAN">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalidcastle.phpt" role="test" />
+      <file name="test_invalid_from.phpt" role="test" />
+      <file name="test_invalid_invalidmove.phpt" role="test" />
+      <file name="test_invalid_nopiece.phpt" role="test" />
+      <file name="test_invalid_promote.phpt" role="test" />
+      <file name="test_invalid_to.phpt" role="test" />
+      <file name="test_invalid_wrongcolor.phpt" role="test" />
+      <file name="test_validbishopmoves.phpt" role="test" />
+      <file name="test_validkingmoves.phpt" role="test" />
+      <file name="test_validknightmoves.phpt" role="test" />
+      <file name="test_validpawnmoves.phpt" role="test" />
+      <file name="test_validpromote.phpt" role="test" />
+      <file name="test_validqueenmoves.phpt" role="test" />
+      <file name="test_validrookmoves.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/convertSquareToSAN -->
+     <dir name="getAllPieceLocations">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_invalid1.phpt" role="test" />
+      <file name="test_validb.phpt" role="test" />
+      <file name="test_validw.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getAllPieceLocations -->
+     <dir name="getAllPieceSquares">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_none_of_colorb.phpt" role="test" />
+      <file name="test_none_of_colorw.phpt" role="test" />
+      <file name="test_valid_empty.phpt" role="test" />
+      <file name="test_valid_excludeb.phpt" role="test" />
+      <file name="test_valid_excludew.phpt" role="test" />
+      <file name="test_valid_pieceb.phpt" role="test" />
+      <file name="test_valid_piecesb.phpt" role="test" />
+      <file name="test_valid_piecesw.phpt" role="test" />
+      <file name="test_valid_pieces_inpawnb.phpt" role="test" />
+      <file name="test_valid_pieces_inpawnw.phpt" role="test" />
+      <file name="test_valid_piecew.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getAllPieceSquares -->
+     <dir name="getCastleSquares">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_black.phpt" role="test" />
+      <file name="test_white.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getCastleSquares -->
+     <dir name="getDiagonalColor">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_color.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getDiagonalColor -->
+     <dir name="getDiagonals">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_valid_a1.phpt" role="test" />
+      <file name="test_valid_a8.phpt" role="test" />
+      <file name="test_valid_e4.phpt" role="test" />
+      <file name="test_valid_h1.phpt" role="test" />
+      <file name="test_valid_h8.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getDiagonals -->
+     <dir name="getKingSquares">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_a1.phpt" role="test" />
+      <file name="test_a8.phpt" role="test" />
+      <file name="test_e4.phpt" role="test" />
+      <file name="test_h1.phpt" role="test" />
+      <file name="test_h8.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getKingSquares -->
+     <dir name="getKnightSquares">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_a1.phpt" role="test" />
+      <file name="test_a8.phpt" role="test" />
+      <file name="test_e4.phpt" role="test" />
+      <file name="test_h1.phpt" role="test" />
+      <file name="test_h8.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getKnightSquares -->
+     <dir name="getMoveList">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_check.phpt" role="test" />
+      <file name="test_checkmate.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getMoveList -->
+     <dir name="getPathToKing">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_bishopcheck1.phpt" role="test" />
+      <file name="test_bishopcheck2.phpt" role="test" />
+      <file name="test_bishopcheck3.phpt" role="test" />
+      <file name="test_bishopcheck4.phpt" role="test" />
+      <file name="test_knightcheck.phpt" role="test" />
+      <file name="test_pawncheck1.phpt" role="test" />
+      <file name="test_pawncheck2.phpt" role="test" />
+      <file name="test_queencheck1.phpt" role="test" />
+      <file name="test_queencheck2.phpt" role="test" />
+      <file name="test_queencheck3.phpt" role="test" />
+      <file name="test_queencheck4.phpt" role="test" />
+      <file name="test_queencheck5.phpt" role="test" />
+      <file name="test_queencheck6.phpt" role="test" />
+      <file name="test_queencheck7.phpt" role="test" />
+      <file name="test_queencheck8.phpt" role="test" />
+      <file name="test_rookcheck1.phpt" role="test" />
+      <file name="test_rookcheck2.phpt" role="test" />
+      <file name="test_rookcheck3.phpt" role="test" />
+      <file name="test_rookcheck4.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPathToKing -->
+     <dir name="getPieceTypes">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPieceTypes -->
+     <dir name="getPossibleBishopMoves">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid_color.phpt" role="test" />
+      <file name="test_invalid_square.phpt" role="test" />
+      <file name="test_valid_b1.phpt" role="test" />
+      <file name="test_valid_b2.phpt" role="test" />
+      <file name="test_valid_b3.phpt" role="test" />
+      <file name="test_valid_w1.phpt" role="test" />
+      <file name="test_valid_w2.phpt" role="test" />
+      <file name="test_valid_w3.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPossibleBishopMoves -->
+     <dir name="getPossibleChecks">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_other.phpt" role="test" />
+      <file name="test_starting.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPossibleChecks -->
+     <dir name="getPossibleKingMoves">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid_color.phpt" role="test" />
+      <file name="test_invalid_square.phpt" role="test" />
+      <file name="test_valid_b1.phpt" role="test" />
+      <file name="test_valid_b2.phpt" role="test" />
+      <file name="test_valid_b3.phpt" role="test" />
+      <file name="test_valid_w1.phpt" role="test" />
+      <file name="test_valid_w2.phpt" role="test" />
+      <file name="test_valid_w3.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPossibleKingMoves -->
+     <dir name="getPossibleKnightMoves">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid_color.phpt" role="test" />
+      <file name="test_invalid_square.phpt" role="test" />
+      <file name="test_valid_b1.phpt" role="test" />
+      <file name="test_valid_b2.phpt" role="test" />
+      <file name="test_valid_b3.phpt" role="test" />
+      <file name="test_valid_w1.phpt" role="test" />
+      <file name="test_valid_w2.phpt" role="test" />
+      <file name="test_valid_w3.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPossibleKnightMoves -->
+     <dir name="getPossibleMoves">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid_color.phpt" role="test" />
+      <file name="test_invalid_piece.phpt" role="test" />
+      <file name="test_invalid_square.phpt" role="test" />
+      <file name="test_valid_B.phpt" role="test" />
+      <file name="test_valid_K.phpt" role="test" />
+      <file name="test_valid_N.phpt" role="test" />
+      <file name="test_valid_P.phpt" role="test" />
+      <file name="test_valid_Q.phpt" role="test" />
+      <file name="test_valid_R.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPossibleMoves -->
+     <dir name="getPossiblePawnMoves">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid_color.phpt" role="test" />
+      <file name="test_invalid_square.phpt" role="test" />
+      <file name="test_valid_b1.phpt" role="test" />
+      <file name="test_valid_b2.phpt" role="test" />
+      <file name="test_valid_b3.phpt" role="test" />
+      <file name="test_valid_b4.phpt" role="test" />
+      <file name="test_valid_b5.phpt" role="test" />
+      <file name="test_valid_b6.phpt" role="test" />
+      <file name="test_valid_b7.phpt" role="test" />
+      <file name="test_valid_b8.phpt" role="test" />
+      <file name="test_valid_b9.phpt" role="test" />
+      <file name="test_valid_b10.phpt" role="test" />
+      <file name="test_valid_w1.phpt" role="test" />
+      <file name="test_valid_w2.phpt" role="test" />
+      <file name="test_valid_w3.phpt" role="test" />
+      <file name="test_valid_w4.phpt" role="test" />
+      <file name="test_valid_w5.phpt" role="test" />
+      <file name="test_valid_w6.phpt" role="test" />
+      <file name="test_valid_w7.phpt" role="test" />
+      <file name="test_valid_w8.phpt" role="test" />
+      <file name="test_valid_w9.phpt" role="test" />
+      <file name="test_valid_w10.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPossiblePawnMoves -->
+     <dir name="getPossibleQueenMoves">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid_color.phpt" role="test" />
+      <file name="test_invalid_square.phpt" role="test" />
+      <file name="test_valid_b1.phpt" role="test" />
+      <file name="test_valid_b2.phpt" role="test" />
+      <file name="test_valid_b3.phpt" role="test" />
+      <file name="test_valid_w1.phpt" role="test" />
+      <file name="test_valid_w2.phpt" role="test" />
+      <file name="test_valid_w3.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPossibleQueenMoves -->
+     <dir name="getPossibleRookMoves">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid_color.phpt" role="test" />
+      <file name="test_invalid_square.phpt" role="test" />
+      <file name="test_valid_b1.phpt" role="test" />
+      <file name="test_valid_b2.phpt" role="test" />
+      <file name="test_valid_b3.phpt" role="test" />
+      <file name="test_valid_w1.phpt" role="test" />
+      <file name="test_valid_w2.phpt" role="test" />
+      <file name="test_valid_w3.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getPossibleRookMoves -->
+     <dir name="getRookSquares">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_a1.phpt" role="test" />
+      <file name="test_a8.phpt" role="test" />
+      <file name="test_e4.phpt" role="test" />
+      <file name="test_h1.phpt" role="test" />
+      <file name="test_h8.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getRookSquares -->
+     <dir name="getSquareFromParsedMove">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_ambiguous1.phpt" role="test" />
+      <file name="test_ambiguous2.phpt" role="test" />
+      <file name="test_ambiguous3.phpt" role="test" />
+      <file name="test_getking.phpt" role="test" />
+      <file name="test_getsimple.phpt" role="test" />
+      <file name="test_invalid_ambiguous1.phpt" role="test" />
+      <file name="test_invalid_ambiguous2.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/getSquareFromParsedMove -->
+     <dir name="inBasicDraw">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_kingsonly.phpt" role="test" />
+      <file name="test_kkb.phpt" role="test" />
+      <file name="test_kkbb_invalid.phpt" role="test" />
+      <file name="test_kkbb_valid.phpt" role="test" />
+      <file name="test_kkn.phpt" role="test" />
+      <file name="test_notdraw1.phpt" role="test" />
+      <file name="test_notdraw2.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/inBasicDraw -->
+     <dir name="inCheck">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_doublecheck.phpt" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_invalidcastle.phpt" role="test" />
+      <file name="test_other.phpt" role="test" />
+      <file name="test_starting.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/inCheck -->
+     <dir name="inCheckMate">
+      <file name="setup.php.inc" role="test" />
+      <file name="test1.phpt" role="test" />
+      <file name="test_bug7565.phpt" role="test" />
+      <file name="test_doublecheck.phpt" role="test" />
+      <file name="test_interposingpiece.phpt" role="test" />
+      <file name="test_kingcanmove.phpt" role="test" />
+      <file name="test_smotheredmate.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/inCheckMate -->
+     <dir name="inStaleMate">
+      <file name="setup.php.inc" role="test" />
+      <file name="test1.phpt" role="test" />
+      <file name="test2.phpt" role="test" />
+      <file name="test_notstalemate.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/inStaleMate -->
+     <dir name="interposeOrCapture">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_knightcheck_capture_impossible.phpt" role="test" />
+      <file name="test_knightcheck_capture_possible.phpt" role="test" />
+      <file name="test_piececheck_capture_impossible.phpt" role="test" />
+      <file name="test_piececheck_capture_possible.phpt" role="test" />
+      <file name="test_piececheck_interpose_possible.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/interposeOrCapture -->
+     <dir name="moveAlgebraic">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_capture.phpt" role="test" />
+      <file name="test_simple.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/moveAlgebraic -->
+     <dir name="movePiece">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_pawn.phpt" role="test" />
+      <file name="test_piece.phpt" role="test" />
+      <file name="test_promotedpiece.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/movePiece -->
+     <dir name="moveSAN">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_castlekb.phpt" role="test" />
+      <file name="test_castlekw.phpt" role="test" />
+      <file name="test_castleqb.phpt" role="test" />
+      <file name="test_castleqw.phpt" role="test" />
+      <file name="test_invalidpawnmove.phpt" role="test" />
+      <file name="test_invalidpiecemove.phpt" role="test" />
+      <file name="test_moveking.phpt" role="test" />
+      <file name="test_moverook.phpt" role="test" />
+      <file name="test_pawncapture1.phpt" role="test" />
+      <file name="test_pawncapture2.phpt" role="test" />
+      <file name="test_pawnmove1.phpt" role="test" />
+      <file name="test_pawnmove2.phpt" role="test" />
+      <file name="test_piececapture1.phpt" role="test" />
+      <file name="test_piecemove1.phpt" role="test" />
+      <file name="test_piecemove2.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/moveSAN -->
+     <dir name="parseFen">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid1.phpt" role="test" />
+      <file name="test_invalid2.phpt" role="test" />
+      <file name="test_invalid3.phpt" role="test" />
+      <file name="test_invalid4.phpt" role="test" />
+      <file name="test_invalid5.phpt" role="test" />
+      <file name="test_invalid6.phpt" role="test" />
+      <file name="test_invalid7.phpt" role="test" />
+      <file name="test_invalid8.phpt" role="test" />
+      <file name="test_invalid9.phpt" role="test" />
+      <file name="test_invalid10.phpt" role="test" />
+      <file name="test_invalid11.phpt" role="test" />
+      <file name="test_invalid12.phpt" role="test" />
+      <file name="test_invalid13.phpt" role="test" />
+      <file name="test_valid1.phpt" role="test" />
+      <file name="test_valid2.phpt" role="test" />
+      <file name="test_valid_fenboard1.phpt" role="test" />
+      <file name="test_valid_fenboard2.phpt" role="test" />
+      <file name="test_valid_fenboard3.phpt" role="test" />
+      <file name="test_valid_fenboard4.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/parseFen -->
+     <dir name="parseMove">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_castle.phpt" role="test" />
+      <file name="test_pawnmove_invalid1.phpt" role="test" />
+      <file name="test_pawnmove_invalid2.phpt" role="test" />
+      <file name="test_pawnmove_invalid3.phpt" role="test" />
+      <file name="test_pawnmove_invalid4.phpt" role="test" />
+      <file name="test_pawnmove_invalid5.phpt" role="test" />
+      <file name="test_pawnmove_invalid6.phpt" role="test" />
+      <file name="test_pawnmove_invalid7.phpt" role="test" />
+      <file name="test_pawnmove_valid1.phpt" role="test" />
+      <file name="test_pawnmove_valid_capture.phpt" role="test" />
+      <file name="test_pawnmove_valid_capturepromote.phpt" role="test" />
+      <file name="test_pawnmove_valid_promote.phpt" role="test" />
+      <file name="test_piecemove_invalid1.phpt" role="test" />
+      <file name="test_piecemove_invalid2.phpt" role="test" />
+      <file name="test_piecemove_invalid3.phpt" role="test" />
+      <file name="test_piecemove_invalid4.phpt" role="test" />
+      <file name="test_piecemove_valid.phpt" role="test" />
+      <file name="test_piecemove_valid_capture.phpt" role="test" />
+      <file name="test_piecemove_valid_disambiguate.phpt" role="test" />
+      <file name="test_placement.phpt" role="test" />
+      <file name="test_placepawn_backrank.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/parseMove -->
+     <dir name="promotionbug">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_promotebb.phpt" role="test" />
+      <file name="test_promotebn.phpt" role="test" />
+      <file name="test_promotebq.phpt" role="test" />
+      <file name="test_promotebr.phpt" role="test" />
+      <file name="test_promotewb.phpt" role="test" />
+      <file name="test_promotewn.phpt" role="test" />
+      <file name="test_promotewq.phpt" role="test" />
+      <file name="test_promotewr.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/promotionbug -->
+     <dir name="squareToPiece">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_pawn.phpt" role="test" />
+      <file name="test_pawn_promote.phpt" role="test" />
+      <file name="test_piece.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/squareToPiece -->
+     <dir name="validMove">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_castlebk.phpt" role="test" />
+      <file name="test_castlebq.phpt" role="test" />
+      <file name="test_castlewk.phpt" role="test" />
+      <file name="test_castlewq.phpt" role="test" />
+      <file name="test_invalid_castleb1.phpt" role="test" />
+      <file name="test_invalid_castleb2.phpt" role="test" />
+      <file name="test_invalid_castlew1.phpt" role="test" />
+      <file name="test_invalid_castlew2.phpt" role="test" />
+      <file name="test_invalid_pawn1.phpt" role="test" />
+      <file name="test_invalid_pawn2.phpt" role="test" />
+      <file name="test_invalid_piece1.phpt" role="test" />
+      <file name="test_invalid_piece2.phpt" role="test" />
+      <file name="test_invalid_piece3.phpt" role="test" />
+      <file name="test_pawn1.phpt" role="test" />
+      <file name="test_pawn2.phpt" role="test" />
+      <file name="test_pawn_ep.phpt" role="test" />
+      <file name="test_piece1.phpt" role="test" />
+      <file name="test_piece2.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/validMove -->
+     <file name="setup.php.inc" role="test" />
+     <file name="test_bug2018.phpt" role="test" />
+     <file name="test_bugdxc3.phpt" role="test" />
+     <file name="test_bug_en_passant.phpt" role="test" />
+    </dir> <!-- /tests/Games_Chess -->
+    <dir name="Games_Chess_Crazyhouse">
+     <dir name="addPiece">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_addbishopb.phpt" role="test" />
+      <file name="test_addbishopw.phpt" role="test" />
+      <file name="test_addknightb.phpt" role="test" />
+      <file name="test_addknightw.phpt" role="test" />
+      <file name="test_addpawnsb.phpt" role="test" />
+      <file name="test_addpawnsw.phpt" role="test" />
+      <file name="test_addqueenb.phpt" role="test" />
+      <file name="test_addqueenw.phpt" role="test" />
+      <file name="test_addrookb.phpt" role="test" />
+      <file name="test_addrookw.phpt" role="test" />
+      <file name="test_invalid_dupepiece.phpt" role="test" />
+      <file name="test_invalid_toomany_b.phpt" role="test" />
+      <file name="test_invalid_toomany_w.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/addPiece -->
+     <dir name="getAllPieceSquares">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_excludeb.phpt" role="test" />
+      <file name="test_excludew.phpt" role="test" />
+      <file name="test_noneofcolorb.phpt" role="test" />
+      <file name="test_noneofcolorw.phpt" role="test" />
+      <file name="test_pieceb.phpt" role="test" />
+      <file name="test_piecesb.phpt" role="test" />
+      <file name="test_piecesw.phpt" role="test" />
+      <file name="test_pieces_in_pawn_b.phpt" role="test" />
+      <file name="test_pieces_in_pawn_w.phpt" role="test" />
+      <file name="test_piecew.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/getAllPieceSquares -->
+     <dir name="getPossibleChecks">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_other.phpt" role="test" />
+      <file name="test_starting.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/getPossibleChecks -->
+     <dir name="getSquareFromParsedMove">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_getambiguous1.phpt" role="test" />
+      <file name="test_getambiguous2.phpt" role="test" />
+      <file name="test_getambiguous3.phpt" role="test" />
+      <file name="test_getambiguous4.phpt" role="test" />
+      <file name="test_getking.phpt" role="test" />
+      <file name="test_getsimple.phpt" role="test" />
+      <file name="test_invalid_getambiguous.phpt" role="test" />
+      <file name="test_invalid_king.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/getSquareFromParsedMove -->
+     <dir name="inCheck">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_doublecheck.phpt" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_other.phpt" role="test" />
+      <file name="test_starting.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/inCheck -->
+     <dir name="moveSAN">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_castlekb.phpt" role="test" />
+      <file name="test_castlekw.phpt" role="test" />
+      <file name="test_castleqb.phpt" role="test" />
+      <file name="test_castleqw.phpt" role="test" />
+      <file name="test_invalid_pawnmove.phpt" role="test" />
+      <file name="test_invalid_piecemove.phpt" role="test" />
+      <file name="test_moveking.phpt" role="test" />
+      <file name="test_moverook.phpt" role="test" />
+      <file name="test_pawnmove1.phpt" role="test" />
+      <file name="test_pawnmove2.phpt" role="test" />
+      <file name="test_pawnmove3.phpt" role="test" />
+      <file name="test_pawnmove4.phpt" role="test" />
+      <file name="test_piecemove1.phpt" role="test" />
+      <file name="test_piecemove2.phpt" role="test" />
+      <file name="test_piecemove3.phpt" role="test" />
+      <file name="test_placepiece.phpt" role="test" />
+      <file name="test_placepiece_invalidsquare.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/moveSAN -->
+     <dir name="squareToPiece">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_pawn.phpt" role="test" />
+      <file name="test_piece.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/squareToPiece -->
+     <dir name="validMove">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_castleb_k.phpt" role="test" />
+      <file name="test_castleb_q.phpt" role="test" />
+      <file name="test_castlew_k.phpt" role="test" />
+      <file name="test_castlew_q.phpt" role="test" />
+      <file name="test_invalid_castleb1.phpt" role="test" />
+      <file name="test_invalid_castleb2.phpt" role="test" />
+      <file name="test_invalid_castlew1.phpt" role="test" />
+      <file name="test_invalid_castlew2.phpt" role="test" />
+      <file name="test_invalid_pawnmove1.phpt" role="test" />
+      <file name="test_invalid_pawnmove2.phpt" role="test" />
+      <file name="test_invalid_piecemove1.phpt" role="test" />
+      <file name="test_invalid_piecemove2.phpt" role="test" />
+      <file name="test_invalid_piecemove3.phpt" role="test" />
+      <file name="test_invalid_placement_1.phpt" role="test" />
+      <file name="test_invalid_placement_2.phpt" role="test" />
+      <file name="test_pawnmove1.phpt" role="test" />
+      <file name="test_pawnmove2.phpt" role="test" />
+      <file name="test_pawnmove_ep.phpt" role="test" />
+      <file name="test_piecemove1.phpt" role="test" />
+      <file name="test_piecemove2.phpt" role="test" />
+      <file name="test_placement.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/validMove -->
+    </dir> <!-- /tests/Games_Chess_Crazyhouse -->
+    <dir name="Games_Chess_Losers">
+     <dir name="capturePossible">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_b1.phpt" role="test" />
+      <file name="test_b2.phpt" role="test" />
+      <file name="test_invalid_b1.phpt" role="test" />
+      <file name="test_invalid_b2.phpt" role="test" />
+      <file name="test_invalid_b3.phpt" role="test" />
+      <file name="test_invalid_bcastle.phpt" role="test" />
+      <file name="test_invalid_w1.phpt" role="test" />
+      <file name="test_invalid_w2.phpt" role="test" />
+      <file name="test_invalid_w3.phpt" role="test" />
+      <file name="test_invalid_wcastle.phpt" role="test" />
+      <file name="test_w1.phpt" role="test" />
+      <file name="test_w2.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Losers/capturePossible -->
+     <dir name="gameOver">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_black_checkmated.phpt" role="test" />
+      <file name="test_black_draw.phpt" role="test" />
+      <file name="test_black_nopieces.phpt" role="test" />
+      <file name="test_invalid_piecesleft.phpt" role="test" />
+      <file name="test_white_checkmated.phpt" role="test" />
+      <file name="test_white_draw.phpt" role="test" />
+      <file name="test_white_nopieces.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Losers/gameOver -->
+     <dir name="validMove">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_invalid_castleb1.phpt" role="test" />
+      <file name="test_invalid_castleb2.phpt" role="test" />
+      <file name="test_invalid_castlew1.phpt" role="test" />
+      <file name="test_invalid_castlew2.phpt" role="test" />
+      <file name="test_invalid_must_capture_w.phpt" role="test" />
+      <file name="test_invalid_pawnmove1.phpt" role="test" />
+      <file name="test_invalid_pawnmove2.phpt" role="test" />
+      <file name="test_invalid_piecemove1.phpt" role="test" />
+      <file name="test_invalid_piecemove2.phpt" role="test" />
+      <file name="test_invalid_piecemove3.phpt" role="test" />
+      <file name="test_valid_castleb_k.phpt" role="test" />
+      <file name="test_valid_castleb_q.phpt" role="test" />
+      <file name="test_valid_castlew_k.phpt" role="test" />
+      <file name="test_valid_castlew_q.phpt" role="test" />
+      <file name="test_valid_pawnmove1.phpt" role="test" />
+      <file name="test_valid_pawnmove2.phpt" role="test" />
+      <file name="test_valid_pawnmove_ep.phpt" role="test" />
+      <file name="test_valid_piecemove1.phpt" role="test" />
+      <file name="test_valid_piecemove2.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Losers/validMove -->
+    </dir> <!-- /tests/Games_Chess_Losers -->
+    <file name="phpt_test.php.inc" role="test" />
+   </dir> <!-- /tests -->
+   <file name="Chess.php" role="php" />
+   <file name="LICENSE" role="data" />
+  </dir> <!-- / -->
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.2.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.3</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <phprelease />
+ <changelog>
   <release>
-    <version>0.9.1</version>
-    <date>2006-10-03</date>
-    <license>PHP License</license>
-    <state>alpha</state>
-    <notes>fix Bug #7565: should be checkmate but isnt showing as such</notes>
-    <deps>
-      <dep type="php" rel="ge" version="4.2.0" optional="no"/>
-    </deps>
-    <filelist>
-      <dir baseinstalldir="Games" name="/">
-       <dir name="Chess">
-        <file role="php" name="Crazyhouse.php"/>
-        <file role="php" name="Losers.php"/>
-        <file role="php" name="Player.php"/>
-        <file role="php" name="Result.php"/>
-        <file role="php" name="Standard.php"/>
-       </dir> <!-- Chess -->
-       <dir name="examples">
-        <file role="doc" name="HTMLChess.php"/>
-        <dir name="images">
-         <file role="doc" name="B.gif"/>
-         <file role="doc" name="blank.gif"/>
-         <file role="doc" name="K.gif"/>
-         <file role="doc" name="N.gif"/>
-         <file role="doc" name="P.gif"/>
-         <file role="doc" name="Q.gif"/>
-         <file role="doc" name="R.gif"/>
-         <dir name="dark">
-          <file role="doc" name="b.gif"/>
-          <file role="doc" name="blank.gif"/>
-          <file role="doc" name="k.gif"/>
-          <file role="doc" name="n.gif"/>
-          <file role="doc" name="p.gif"/>
-          <file role="doc" name="q.gif"/>
-          <file role="doc" name="r.gif"/>
-         </dir> <!-- examples/images/dark -->
-        </dir> <!-- examples/images -->
-       </dir> <!-- examples -->
-       <dir name="tests">
-        <file role="test" name="Games_Chess_Crazyhouse_TestCase_addPiece.php"/>
-        <file role="test" name="Games_Chess_Crazyhouse_TestCase_getAllPieceSquares.php"/>
-        <file role="test" name="Games_Chess_Crazyhouse_TestCase_getPossibleChecks.php"/>
-        <file role="test" name="Games_Chess_Crazyhouse_TestCase_getSquareFromParsedMove.php"/>
-        <file role="test" name="Games_Chess_Crazyhouse_TestCase_inCheck.php"/>
-        <file role="test" name="Games_Chess_Crazyhouse_TestCase_moveSAN.php"/>
-        <file role="test" name="Games_Chess_Crazyhouse_TestCase_squareToPiece.php"/>
-        <file role="test" name="Games_Chess_Crazyhouse_TestCase_validMove.php"/>
-        <file role="test" name="Games_Chess_Losers_TestCase_capturePossible.php"/>
-        <file role="test" name="Games_Chess_Losers_TestCase_gameOver.php"/>
-        <file role="test" name="Games_Chess_Losers_TestCase_validMove.php"/>
-        <file role="test" name="Games_Chess_TestCase_addPiece.php"/>
-        <file role="test" name="Games_Chess_TestCase_bugdxc3.php"/>
-        <file role="test" name="Games_Chess_TestCase_bugEnPassant.php"/>
-        <file role="test" name="Games_Chess_TestCase_bugpromotion.php"/>
-        <file role="test" name="Games_Chess_TestCase_bug2018.php"/>
-        <file role="test" name="Games_Chess_TestCase_convertSquareToSAN.php"/>
-        <file role="test" name="Games_Chess_TestCase_getAllPieceLocations.php"/>
-        <file role="test" name="Games_Chess_TestCase_getAllPieceSquares.php"/>
-        <file role="test" name="Games_Chess_TestCase_getCastleSquares.php"/>
-        <file role="test" name="Games_Chess_TestCase_getDiagonal.php"/>
-        <file role="test" name="Games_Chess_TestCase_getDiagonalColor.php"/>
-        <file role="test" name="Games_Chess_TestCase_getKingSquares.php"/>
-        <file role="test" name="Games_Chess_TestCase_getKnightSquares.php"/>
-        <file role="test" name="Games_Chess_TestCase_getMoveList.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPathToKing.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPieceTypes.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPossibleBishopMoves.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPossibleChecks.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPossibleKingMoves.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPossibleKnightMoves.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPossibleMoves.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPossiblePawnMoves.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPossibleQueenMoves.php"/>
-        <file role="test" name="Games_Chess_TestCase_getPossibleRookMoves.php"/>
-        <file role="test" name="Games_Chess_TestCase_getRookSquares.php"/>
-        <file role="test" name="Games_Chess_TestCase_getSquareFromParsedMove.php"/>
-        <file role="test" name="Games_Chess_TestCase_inBasicDraw.php"/>
-        <file role="test" name="Games_Chess_TestCase_inCheck.php"/>
-        <file role="test" name="Games_Chess_TestCase_inCheckMate.php"/>
-        <file role="test" name="Games_Chess_TestCase_inStaleMate.php"/>
-        <file role="test" name="Games_Chess_TestCase_interposeOrCapture.php"/>
-        <file role="test" name="Games_Chess_TestCase_moveAlgebraic.php"/>
-        <file role="test" name="Games_Chess_TestCase_movePiece.php"/>
-        <file role="test" name="Games_Chess_TestCase_moveSAN.php"/>
-        <file role="test" name="Games_Chess_TestCase_parseFen.php"/>
-        <file role="test" name="Games_Chess_TestCase_parseMove.php"/>
-        <file role="test" name="Games_Chess_TestCase_squareToPiece.php"/>
-        <file role="test" name="Games_Chess_TestCase_validMove.php"/>
-        <file role="test" name="HTML_TestListener.php"/>
-        <file role="test" name="stylesheet.css"/>
-        <file role="test" name="testsuite.php"/>
-        <file role="test" name="TestUnit.php"/>
-       </dir> <!-- tests -->
-       <file role="php" name="Chess.php"/>
-       <file role="data" name="LICENSE"/>
-      </dir> <!-- / -->
-    </filelist>
+   <version>
+    <release>0.9.2</release>
+    <api>0.9.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-11-15</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>convert all unit tests to .phpt format
+   </notes>
   </release>
-  <changelog>
-    <release>
-      <version>0.1</version>
-      <date>2003-10-08</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>Initial test release</notes>
-    </release>
-    <release>
-      <version>0.2</version>
-      <date>2003-10-08</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>Fixed a few bugs:
+  <release>
+   <version>
+    <release>0.9.1</release>
+    <api>0.9.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-10-03</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>fix Bug #7565: should be checkmate but isnt showing as such</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.0</release>
+    <api>0.9.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2005-03-12</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Add factory method, return state from startTransaction</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8.2</release>
+    <api>0.8.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-07-10</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Add test cases for Crazyhouse, fix hidden bug:
+placement of pieces on back ranks is legal, but was not allowed</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8.1</release>
+    <api>0.8.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-07-10</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Fix 2 bugs: draw is not allowed except by stalemate, and pawn placement on the
+first or last ranks is not allowed (#1838, #1839)</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8.0</release>
+    <api>0.8.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-07-09</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Add &quot;Crazyhouse variant&quot;</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.7.1</release>
+    <api>0.7.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-04-12</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Add the ability to retrieve the move list with check/checkmate annotations</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.7.0</release>
+    <api>0.7.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-04-09</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>PHP 5 compatibility
 
-- 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Nc3 Bb4 5. 
-a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare('d2', 'c3')
-- en passant didn't actually delete the captured pawn</notes>
-    </release>
-    <release>
-      <version>0.3</version>
-      <date>2003-10-09</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>Fixed a few bugs:
+- Castling is now possible by moving the king to the destination square</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.6alpha</release>
+    <api>0.6alpha</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-12-28</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>bugfix release
+
+- fixed #158: total screwup in example if SAN entered in FEN box</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5alpha</release>
+    <api>0.5alpha</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-10-26</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Added new module for Loser&apos;s chess (ICC wild 16)
+
+- added gameOver() method, returns color of winner, or D for draw, or false</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.4alpha</release>
+    <api>0.4alpha</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-10-26</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Added new module for Loser&apos;s chess (ICC wild 16)
+
+- added gameOver() method, returns color of winner, or D for draw, or false</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.3</release>
+    <api>0.3</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-10-09</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Fixed a few bugs:
 
 - example works in Mozilla now
 - promotion was endless loop in example
-- promotion didn't change the pawn to the promoted piece</notes>
-    </release>
-    <release>
-      <version>0.4alpha</version>
-      <date>2003-10-26</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>Added new module for Loser's chess (ICC wild 16)
+- promotion didn&apos;t change the pawn to the promoted piece</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.2</release>
+    <api>0.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-10-08</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Fixed a few bugs:
 
-- added gameOver() method, returns color of winner, or D for draw, or false</notes>
-    </release>
-    <release>
-      <version>0.5alpha</version>
-      <date>2003-10-26</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>Added new module for Loser's chess (ICC wild 16)
-
-- added gameOver() method, returns color of winner, or D for draw, or false</notes>
-    </release>
-    <release>
-      <version>0.6alpha</version>
-      <date>2003-12-28</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>bugfix release
-
-- fixed #158: total screwup in example if SAN entered in FEN box</notes>
-    </release>
-    <release>
-      <version>0.7.0</version>
-      <date>2004-04-09</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>PHP 5 compatibility
-
-- Castling is now possible by moving the king to the destination square</notes>
-    </release>
-    <release>
-      <version>0.7.1</version>
-      <date>2004-04-12</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>Add the ability to retrieve the move list with check/checkmate annotations</notes>
-    </release>
-    <release>
-      <version>0.8.0</version>
-      <date>2004-07-09</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>Add &quot;Crazyhouse variant&quot;</notes>
-    </release>
-    <release>
-      <version>0.8.1</version>
-      <date>2004-07-10</date>
-      <license>PHP License</license>
-      <state>alpha</state>
-      <notes>Fix 2 bugs: draw is not allowed except by stalemate, and pawn placement on the
-first or last ranks is not allowed (#1838, #1839)</notes>
-    </release>
-    <release>
-     <version>0.8.2</version>
-     <date>2004-07-10</date>
-     <license>PHP License</license>
-     <state>alpha</state>
-     <notes>Add test cases for Crazyhouse, fix hidden bug:
-placement of pieces on back ranks is legal, but was not allowed</notes>
-    </release>
-    <release>
-     <version>0.9.0</version>
-     <date>2005-03-12</date>
-     <license>PHP License</license>
-     <state>alpha</state>
-     <notes>Add factory method, return state from startTransaction</notes>
-    </release>
-    <release>
-     <version>0.9.1</version>
-     <date>2006-10-03</date>
-     <license>PHP License</license>
-     <state>alpha</state>
-     <notes>fix Bug #7565: should be checkmate but isnt showing as such</notes>
-    </release>
-  </changelog>
+- 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Nc3 Bb4 5. 
+a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare(&apos;d2&apos;, &apos;c3&apos;)
+- en passant didn&apos;t actually delete the captured pawn</notes>
+  </release>
+  <release>
+   <version>
+    <release>0.1</release>
+    <api>0.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-10-08</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>Initial test release</notes>
+  </release>
+ </changelog>
 </package>
