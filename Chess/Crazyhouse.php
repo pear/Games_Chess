@@ -108,6 +108,25 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
     function blankBoard()
     {
         Games_Chess::blankBoard();
+        $this->_captured =
+        array(
+            'W' =>
+                array(
+                    'P' => 0,
+                    'B' => 0,
+                    'N' => 0,
+                    'Q' => 0,
+                    'R' => 0,
+                ),
+            'B' =>
+                array(
+                    'P' => 0,
+                    'B' => 0,
+                    'N' => 0,
+                    'Q' => 0,
+                    'R' => 0,
+                )
+        );
         $this->_pieces =
         array(
             'W' =>
@@ -761,7 +780,19 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
                 $allmoves = $this->getPossibleMoves($name, $value, $color);
                 foreach($squares as $square) {
                     if (in_array($square, $allmoves)) {
-                        return true;
+                        // try the move, see if we're still in check
+                        // if so, then the piece is pinned and cannot move
+                        $this->startTransaction();
+                        $this->_move = $color;
+                        PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
+                        $ret = $this->moveSquare($value, $square);
+                        PEAR::popErrorHandling(PEAR_ERROR_RETURN);
+                        $this->_move = $color;
+                        $stillchecked = $this->inCheck($color);
+                        $this->rollbackTransaction();
+                        if (!$stillchecked) {
+                            return true;
+                        }
                     }
                 }
             }

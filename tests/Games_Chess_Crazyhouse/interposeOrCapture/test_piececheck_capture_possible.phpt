@@ -1,5 +1,5 @@
 --TEST--
-Games_Chess_Crazyhouse->_interposeOrCapture() piece check, capture possible
+Games_Chess->_interposeOrCapture() piece check, capture possible
 --SKIPIF--
 --FILE--
 <?php
