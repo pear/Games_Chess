@@ -179,6 +179,25 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
 'a2' => 'WP0', 'b2' => 'WP1', 'c2' => 'WP2', 'd2' => 'WP3', 'e2' => 'WP4', 'f2' => 'WP5', 'g2' => 'WP6', 'h2' => 'WP7',
 'a1' => 'WR0', 'b1' => 'WN0', 'c1' => 'WB0', 'd1' => 'WQ0', 'e1' => 'WK0', 'f1' => 'WB1', 'g1' => 'WN1', 'h1' => 'WR1',
         );
+        $this->_captured =
+        array(
+            'W' =>
+                array(
+                    'P' => 0,
+                    'B' => 0,
+                    'N' => 0,
+                    'Q' => 0,
+                    'R' => 0,
+                ),
+            'B' =>
+                array(
+                    'P' => 0,
+                    'B' => 0,
+                    'N' => 0,
+                    'Q' => 0,
+                    'R' => 0,
+                )
+        );
         $this->_pieces =
         array(
             'W' =>
