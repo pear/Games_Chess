@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.5.0a2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0
-http://pear.php.net/dtd/tasks-1.0.xsd
-http://pear.php.net/dtd/package-2.0
-http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.5.0a2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Games_Chess</name>
  <channel>pear.php.net</channel>
  <summary>Construct and validate a logical chess game, does not display</summary>
@@ -10,12 +7,8 @@ http://pear.php.net/dtd/package-2.0.xsd">
 FEN (Forsyth-Edwards Notation) for describing a position as well as SAN
 (Standard Algebraic Notation) for describing individual moves is handled.  This
 class can be used as a backend driver for playing chess, or for validating
-and/or creating PGN files using the File_ChessPGN package.
-
-Although this package is alpha, it is fully unit-tested.  The code works, but
-the API is fluid, and may change dramatically as it is put into use and better
-ways are found to use it.  When the API stabilizes, the stability will increase.
- </description>
+and/or creating PGN files using the File_ChessPGN package (when it is completed).
+</description>
  <lead>
   <name>Greg Beaver</name>
   <user>cellog</user>
@@ -23,19 +16,17 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
   <active>yes</active>
  </lead>
  <date>2006-11-16</date>
- <time>23:42:10</time>
+ <time>23:43:26</time>
  <version>
-  <release>0.9.2</release>
-  <api>0.9.1</api>
+  <release>1.0.0RC1</release>
+  <api>1.0.0</api>
  </version>
  <stability>
-  <release>alpha</release>
-  <api>alpha</api>
+  <release>beta</release>
+  <api>stable</api>
  </stability>
- <license uri="http://www.php.net/license">PHP License</license>
- <notes>
-  fix bugs in Crazyhouse discovered in unit testing
- </notes>
+ <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+ <notes>fix bugs in Crazyhouse discovered in unit testing</notes>
  <contents>
   <dir baseinstalldir="Games" name="/">
    <dir name="Chess">
@@ -474,9 +465,20 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file name="test_addrookb.phpt" role="test" />
       <file name="test_addrookw.phpt" role="test" />
       <file name="test_invalid_dupepiece.phpt" role="test" />
+      <file name="test_invalid_toomany2.phpt" role="test" />
+      <file name="test_invalid_toomany3.phpt" role="test" />
+      <file name="test_invalid_toomany4.phpt" role="test" />
+      <file name="test_invalid_toomany5.phpt" role="test" />
+      <file name="test_invalid_toomany6.phpt" role="test" />
       <file name="test_invalid_toomany_b.phpt" role="test" />
       <file name="test_invalid_toomany_w.phpt" role="test" />
      </dir> <!-- /tests/Games_Chess_Crazyhouse/addPiece -->
+     <dir name="getAllPieceLocations">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_other.phpt" role="test" />
+      <file name="test_starting.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/getAllPieceLocations -->
      <dir name="getAllPieceSquares">
       <file name="setup.php.inc" role="test" />
       <file name="test_empty.phpt" role="test" />
@@ -491,6 +493,21 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file name="test_pieces_in_pawn_w.phpt" role="test" />
       <file name="test_piecew.phpt" role="test" />
      </dir> <!-- /tests/Games_Chess_Crazyhouse/getAllPieceSquares -->
+     <dir name="getKing">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/getKing -->
+     <dir name="getPiece">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/getPiece -->
+     <dir name="getPieceTypes">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_captured.phpt" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_promoted.phpt" role="test" />
+      <file name="test_starting.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/getPieceTypes -->
      <dir name="getPossibleChecks">
       <file name="setup.php.inc" role="test" />
       <file name="test_empty.phpt" role="test" />
@@ -515,6 +532,43 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file name="test_other.phpt" role="test" />
       <file name="test_starting.phpt" role="test" />
      </dir> <!-- /tests/Games_Chess_Crazyhouse/inCheck -->
+     <dir name="interposeOrCapture">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_knightcheck_capture_impossible.phpt" role="test" />
+      <file name="test_knightcheck_capture_possible.phpt" role="test" />
+      <file name="test_piececheck_capture_impossible.phpt" role="test" />
+      <file name="test_piececheck_capture_possible.phpt" role="test" />
+      <file name="test_piececheck_interpose_possible.phpt" role="test" />
+      <file name="test_piececheck_interpose_with_captured_possible.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/interposeOrCapture -->
+     <dir name="isBishop">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/isBishop -->
+     <dir name="isKing">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/isKing -->
+     <dir name="isKnight">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/isKnight -->
+     <dir name="isPawn">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/isPawn -->
+     <dir name="isQueen">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/isQueen -->
+     <dir name="isRook">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/isRook -->
+     <dir name="movePiece">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/movePiece -->
      <dir name="moveSAN">
       <file name="setup.php.inc" role="test" />
       <file name="test_castlekb.phpt" role="test" />
@@ -535,12 +589,28 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
       <file name="test_placepiece.phpt" role="test" />
       <file name="test_placepiece_invalidsquare.phpt" role="test" />
      </dir> <!-- /tests/Games_Chess_Crazyhouse/moveSAN -->
+     <dir name="renderFen">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_complex.phpt" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_starting.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/renderFen -->
      <dir name="squareToPiece">
       <file name="setup.php.inc" role="test" />
       <file name="test_empty.phpt" role="test" />
       <file name="test_pawn.phpt" role="test" />
       <file name="test_piece.phpt" role="test" />
      </dir> <!-- /tests/Games_Chess_Crazyhouse/squareToPiece -->
+     <dir name="takePiece">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/takePiece -->
+     <dir name="toArray">
+      <file name="setup.php.inc" role="test" />
+      <file name="test_complex.phpt" role="test" />
+      <file name="test_empty.phpt" role="test" />
+      <file name="test_starting.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess_Crazyhouse/toArray -->
      <dir name="validMove">
       <file name="setup.php.inc" role="test" />
       <file name="test_castleb_k.phpt" role="test" />
@@ -618,7 +688,7 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
     <file name="phpt_test.php.inc" role="test" />
    </dir> <!-- /tests -->
    <file name="Chess.php" role="php" />
-   <file name="LICENSE" role="data" />
+   <file name="LICENSE" role="doc" />
   </dir> <!-- / -->
  </contents>
  <dependencies>
@@ -635,18 +705,16 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
  <changelog>
   <release>
    <version>
-    <release>0.9.2</release>
-    <api>0.9.1</api>
+    <release>1.0.0RC1</release>
+    <api>1.0.0</api>
    </version>
    <stability>
-    <release>alpha</release>
-    <api>alpha</api>
+    <release>beta</release>
+    <api>stable</api>
    </stability>
    <date>2006-11-16</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>
-    fix bugs in Crazyhouse discovered in unit testing
-   </notes>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>fix bugs in Crazyhouse discovered in unit testing</notes>
   </release>
   <release>
    <version>
@@ -659,11 +727,9 @@ ways are found to use it.  When the API stabilizes, the stability will increase.
    </stability>
    <date>2006-11-15</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>
-    fix Bug #7565: should be checkmate but isnt showing as such
-    convert all unit tests to .phpt format
-    allow placement move to interpose in a check for Crazyhouse variant
-   </notes>
+   <notes>fix Bug #7565: should be checkmate but isnt showing as such
+convert all unit tests to .phpt format
+allow placement move to interpose in a check for Crazyhouse variant</notes>
   </release>
   <release>
    <version>
