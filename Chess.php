@@ -21,7 +21,7 @@
  * The Games_Chess Package
  *
  * The logic of handling a chessboard and parsing standard
- * FEN (Farnsworth-Edwards Notation) for describing a position as well as SAN
+ * FEN (Forsyth-Edwards Notation) for describing a position as well as SAN
  * (Standard Algebraic Notation) for describing individual moves is handled.  This
  * class can be used as a backend driver for playing chess, or for validating
  * and/or creating PGN files using the File_ChessPGN package.
@@ -992,7 +992,7 @@ class Games_Chess {
     }
     
     /**
-     * Parse a Farnsworth-Edwards Notation (FEN) chessboard position string, and
+     * Parse a Forsyth-Edwards Notation (FEN) chessboard position string, and
      * set up the chessboard with this position
      * @param string
      * @access private

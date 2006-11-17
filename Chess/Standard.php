@@ -301,7 +301,7 @@ class Games_Chess_Standard extends Games_Chess {
     }
     
     /**
-     * Render the current board position into Farnsworth-Edwards Notation
+     * Render the current board position into Forsyth-Edwards Notation
      *
      * This method only renders the board contents, not the castling and other
      * information

@@ -7,7 +7,7 @@ http://pear.php.net/dtd/package-2.0.xsd">
  <channel>pear.php.net</channel>
  <summary>Construct and validate a logical chess game, does not display</summary>
  <description>The logic of handling a chessboard and parsing standard
-FEN (Farnsworth-Edwards Notation) for describing a position as well as SAN
+FEN (Forsyth-Edwards Notation) for describing a position as well as SAN
 (Standard Algebraic Notation) for describing individual moves is handled.  This
 class can be used as a backend driver for playing chess, or for validating
 and/or creating PGN files using the File_ChessPGN package.

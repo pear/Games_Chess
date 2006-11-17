@@ -895,7 +895,7 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
     }
 
     /**
-     * Render the current board position into Farnsworth-Edwards Notation
+     * Render the current board position into Forsyth-Edwards Notation
      *
      * This method only renders the board contents, not the castling and other
      * information
