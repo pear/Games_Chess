@@ -17,7 +17,7 @@ $phpunit->assertEquals('a1', $board->_pieces['W']['N'][0],
     'first knight changed, should not change');
 $phpunit->assertEquals('g1', $board->_pieces['W']['N'][1],
     'second knight changed, should not change');
-$phpunit->assertEquals('h1', $board->_pieces['W']['N'][2],
+$phpunit->assertEquals(array('h1','N'), $board->_pieces['W']['P'][0],
     'incorrect knight setup');
 echo 'tests done';
 ?>

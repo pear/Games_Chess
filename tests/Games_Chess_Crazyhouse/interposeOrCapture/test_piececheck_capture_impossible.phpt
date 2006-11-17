@@ -8,7 +8,7 @@ $board->addPiece('W', 'K', 'e4');
 $board->addPiece('B', 'B', 'c2');
 $board->addPiece('W', 'Q', 'h1');
 $phpunit->assertFalse($board->_interposeOrCapture(
-    $board->_getPathToKing('b1', 'e4'), 'W'),1);
+    $board->_getPathToKing('h1', 'e4'), 'W'),1);
 echo 'tests done';
 ?>
 --EXPECT--

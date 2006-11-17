@@ -6,19 +6,19 @@ Games_Chess_Crazyhouse->addPiece() add black rook
 require_once dirname(__FILE__) . '/setup.php.inc';
 $board->addPiece('B', 'R', 'a1');
 $phpunit->assertEquals('a1', $board->_pieces['B']['R'][0],
-    'incorrect knight setup');
+    'incorrect rook setup');
 $board->addPiece('B', 'R', 'g1');
 $phpunit->assertEquals('a1', $board->_pieces['B']['R'][0],
-    'first knight changed, should not change');
+    'first rook changed, should not change');
 $phpunit->assertEquals('g1', $board->_pieces['B']['R'][1],
-    'incorrect knight setup');
+    'incorrect rook setup');
 $board->addPiece('B', 'R', 'h1');
 $phpunit->assertEquals('a1', $board->_pieces['B']['R'][0],
-    'first knight changed, should not change');
+    'first rook changed, should not change');
 $phpunit->assertEquals('g1', $board->_pieces['B']['R'][1],
-    'second knight changed, should not change');
-$phpunit->assertEquals('h1', $board->_pieces['B']['R'][2],
-    'incorrect knight setup');
+    'second rook changed, should not change');
+$phpunit->assertEquals(array('h1','R'), $board->_pieces['B']['P'][0],
+    'incorrect rook setup');
 echo 'tests done';
 ?>
 --EXPECT--

@@ -10,15 +10,8 @@ $phpunit->assertEquals('a1', $board->_pieces['W']['Q'][0],
 $board->addPiece('W', 'Q', 'g1');
 $phpunit->assertEquals('a1', $board->_pieces['W']['Q'][0],
     'first knight changed, should not change');
-$phpunit->assertEquals('g1', $board->_pieces['W']['Q'][1],
-    'incorrect knight setup');
-$board->addPiece('W', 'Q', 'h1');
-$phpunit->assertEquals('a1', $board->_pieces['W']['Q'][0],
-    'first knight changed, should not change');
-$phpunit->assertEquals('g1', $board->_pieces['W']['Q'][1],
-    'second knight changed, should not change');
-$phpunit->assertEquals('h1', $board->_pieces['W']['Q'][2],
-    'incorrect knight setup');
+$phpunit->assertEquals(array('g1','Q'), $board->_pieces['W']['P'][0],
+    'second queen changed, should not change');
 echo 'tests done';
 ?>
 --EXPECT--

@@ -6,19 +6,12 @@ Games_Chess_Crazyhouse->addPiece() add black quuen
 require_once dirname(__FILE__) . '/setup.php.inc';
 $board->addPiece('B', 'Q', 'a1');
 $phpunit->assertEquals('a1', $board->_pieces['B']['Q'][0],
-    'incorrect knight setup');
+    'incorrect queen setup');
 $board->addPiece('B', 'Q', 'g1');
 $phpunit->assertEquals('a1', $board->_pieces['B']['Q'][0],
-    'first knight changed, should not change');
-$phpunit->assertEquals('g1', $board->_pieces['B']['Q'][1],
-    'incorrect knight setup');
-$board->addPiece('B', 'Q', 'h1');
-$phpunit->assertEquals('a1', $board->_pieces['B']['Q'][0],
-    'first knight changed, should not change');
-$phpunit->assertEquals('g1', $board->_pieces['B']['Q'][1],
-    'second knight changed, should not change');
-$phpunit->assertEquals('h1', $board->_pieces['B']['Q'][2],
-    'incorrect knight setup');
+    'first queen changed, should not change');
+$phpunit->assertEquals(array('g1','Q'), $board->_pieces['B']['P'][0],
+    'second queen changed, should not change');
 echo 'tests done';
 ?>
 --EXPECT--

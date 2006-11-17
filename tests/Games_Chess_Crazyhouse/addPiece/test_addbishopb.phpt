@@ -17,7 +17,7 @@ $phpunit->assertEquals('a1', $board->_pieces['B']['B'][0],
     'first bishop changed, should not change');
 $phpunit->assertEquals('g1', $board->_pieces['B']['B'][1],
     'first bishop changed, should not change');
-$phpunit->assertEquals('h1', $board->_pieces['B']['B'][2],
+$phpunit->assertEquals(array('h1','B'), $board->_pieces['B']['P'][0],
     'incorrect bishop setup');
 echo 'tests done';
 ?>

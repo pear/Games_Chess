@@ -8,7 +8,7 @@ $board->addPiece('B', 'N', 'h5');
 $board->addPiece('B', 'N', 'a5');
 $board->addPiece('B', 'N', 'g4');
 $phpunit->assertEquals(array('h5', 'a5'), $board->_getAllPieceSquares('N', 'B', 'g4'), 'white');
-$phpunit->assertEquals(array('h5', 'g4'), $board->_getAllPieceSquares('N', 'B', 'a5'), 'white');
+$phpunit->assertEquals(array('g4', 'h5'), $board->_getAllPieceSquares('N', 'B', 'a5'), 'white');
 echo 'tests done';
 ?>
 --EXPECT--
