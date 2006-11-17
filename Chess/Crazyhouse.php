@@ -661,6 +661,9 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      */
     function _isKnight($piece)
     {
+        if (!isset($this->_pieces[$piece{0}][$piece{1}][$piece{2}])) {
+            return false;
+        }
         return $piece{1} == 'N' ||
             ($piece{1} == 'P' &&
                 $this->_pieces[$piece{0}][$piece{1}][$piece{2}][1] == 'N');
@@ -677,6 +680,9 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      */
     function isKing($piecename)
     {
+        if ($piecename{2} != '0') {
+            return false;
+        }
         return $piecename{1} == 'K';
     }
 
@@ -691,6 +697,9 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      */
     function _isQueen($piece)
     {
+        if (!isset($this->_pieces[$piece{0}][$piece{1}][$piece{2}])) {
+            return false;
+        }
         return $piece{1} == 'Q' ||
             ($piece{1} == 'P' &&
                 $this->_pieces[$piece{0}][$piece{1}][$piece{2}][1] == 'Q');
@@ -706,6 +715,9 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      */
     function isBishop($piece)
     {
+        if (!isset($this->_pieces[$piece{0}][$piece{1}][$piece{2}])) {
+            return false;
+        }
         return $piece{1} == 'B' ||
             ($piece{1} == 'P' &&
                 $this->_pieces[$piece{0}][$piece{1}][$piece{2}][1] == 'B');
@@ -721,6 +733,9 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      */
     function isRook($piece)
     {
+        if (!isset($this->_pieces[$piece{0}][$piece{1}][$piece{2}])) {
+            return false;
+        }
         return $piece{1} == 'R' ||
             ($piece{1} == 'P' &&
                 $this->_pieces[$piece{0}][$piece{1}][$piece{2}][1] == 'R');
@@ -736,6 +751,9 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
      */
     function isPawn($piece)
     {
+        if (!isset($this->_pieces[$piece{0}][$piece{1}][$piece{2}])) {
+            return false;
+        }
         return $piece{1} == 'P' &&
                 $this->_pieces[$piece{0}][$piece{1}][$piece{2}][1] == 'P';
     }
