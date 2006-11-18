@@ -7,16 +7,15 @@
 FEN (Forsyth-Edwards Notation) for describing a position as well as SAN
 (Standard Algebraic Notation) for describing individual moves is handled.  This
 class can be used as a backend driver for playing chess, or for validating
-and/or creating PGN files using the File_ChessPGN package (when it is completed).
-</description>
+and/or creating PGN files using the File_ChessPGN package (when it is completed).</description>
  <lead>
   <name>Greg Beaver</name>
   <user>cellog</user>
   <email>cellog@php.net</email>
   <active>yes</active>
  </lead>
- <date>2006-11-16</date>
- <time>23:43:26</time>
+ <date>2006-11-17</date>
+ <time>18:12:21</time>
  <version>
   <release>1.0.0RC1</release>
   <api>1.0.0</api>
@@ -712,7 +711,7 @@ and/or creating PGN files using the File_ChessPGN package (when it is completed)
     <release>beta</release>
     <api>stable</api>
    </stability>
-   <date>2006-11-16</date>
+   <date>2006-11-17</date>
    <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
    <notes>fix bugs in Crazyhouse discovered in unit testing</notes>
   </release>
