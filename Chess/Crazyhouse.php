@@ -821,6 +821,9 @@ class Games_Chess_Crazyhouse extends Games_Chess_Standard {
                         // if so, then the piece is pinned and cannot move
                         $this->startTransaction();
                         $this->_move = $color;
+                        if (!class_exists('PEAR')) {
+                            require_once 'PEAR.php';
+                        }
                         PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
                         $ret = $this->moveSquare($value, $square);
                         PEAR::popErrorHandling(PEAR_ERROR_RETURN);

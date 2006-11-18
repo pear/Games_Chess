@@ -567,6 +567,9 @@ class Games_Chess {
         foreach ($moves as $escape) {
             $this->startTransaction();
             $this->_move = $color;
+            if (!class_exists('PEAR')) {
+                require_once 'PEAR.php';
+            }
             PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
             $this->moveSquare($king, $escape);
             PEAR::popErrorHandling();
@@ -614,6 +617,9 @@ class Games_Chess {
                 foreach($canmove as $move) {
                     $this->startTransaction();
                     $this->_move = $color;
+                    if (!class_exists('PEAR')) {
+                        require_once 'PEAR.php';
+                    }
                     PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
                     $err = $this->moveSquare($a, $move);
                     PEAR::popErrorHandling();
@@ -1027,6 +1033,9 @@ class Games_Chess {
                 case "B" :
                 case "N" :
                 case "P" :
+                    if (!class_exists('PEAR')) {
+                        require_once 'PEAR.php';
+                    }
                     PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
                     $err = $this->addPiece('W', $c, $loc);
                     PEAR::popErrorHandling();
@@ -1045,6 +1054,9 @@ class Games_Chess {
                 case "b" :
                 case "n" :
                 case "p" :
+                    if (!class_exists('PEAR')) {
+                        require_once 'PEAR.php';
+                    }
                     PEAR::pushErrorHandling(PEAR_ERROR_RETURN);
                     $err = $this->addPiece('B', strtoupper($c), $loc);
                     PEAR::popErrorHandling();
