@@ -28,16 +28,16 @@ $packagexml = &PEAR_PackageFileManager2::importOptions(dirname(__FILE__) . DIREC
       'changelogoldtonew' => false,
       'baseinstalldir' => 'Games',
       'simpleoutput' => true));
-$packagexml->setNotes('fix bugs in Crazyhouse discovered in unit testing');
+$packagexml->setNotes('No changes since RC1, add unit test for repetition draw');
 $packagexml->addIgnore(array('package.php','*.tgz','package.xml'));
 $packagexml->setPackageType('php');
 $packagexml->addRelease();
 $packagexml->clearDeps();
 $packagexml->setChannel('pear.php.net');
 $packagexml->setLicense('PHP License 3.01', 'http://www.php.net/license/3_01.txt');
-$packagexml->setReleaseVersion('1.0.0RC1');
+$packagexml->setReleaseVersion('1.0.0');
 $packagexml->setAPIVersion('1.0.0');
-$packagexml->setReleaseStability('beta');
+$packagexml->setReleaseStability('stable');
 $packagexml->setAPIStability('stable');
 $packagexml->setPhpDep('4.2.0');
 $packagexml->setPearinstallerDep('1.4.3');

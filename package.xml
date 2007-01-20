@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.5.0a2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.5.0RC3" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Games_Chess</name>
  <channel>pear.php.net</channel>
  <summary>Construct and validate a logical chess game, does not display</summary>
@@ -14,18 +14,18 @@ and/or creating PGN files using the File_ChessPGN package (when it is completed)
   <email>cellog@php.net</email>
   <active>yes</active>
  </lead>
- <date>2006-11-17</date>
- <time>18:12:21</time>
+ <date>2007-01-19</date>
+ <time>22:08:07</time>
  <version>
-  <release>1.0.0RC1</release>
+  <release>1.0.0</release>
   <api>1.0.0</api>
  </version>
  <stability>
-  <release>beta</release>
+  <release>stable</release>
   <api>stable</api>
  </stability>
  <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
- <notes>fix bugs in Crazyhouse discovered in unit testing</notes>
+ <notes>No changes since RC1, add unit test for repetition draw</notes>
  <contents>
   <dir baseinstalldir="Games" name="/">
    <dir name="Chess">
@@ -317,6 +317,10 @@ and/or creating PGN files using the File_ChessPGN package (when it is completed)
       <file name="test_kingcanmove.phpt" role="test" />
       <file name="test_smotheredmate.phpt" role="test" />
      </dir> <!-- /tests/Games_Chess/inCheckMate -->
+     <dir name="inRepetitionDraw">
+      <file name="setup.php.inc" role="test" />
+      <file name="test.phpt" role="test" />
+     </dir> <!-- /tests/Games_Chess/inRepetitionDraw -->
      <dir name="inStaleMate">
       <file name="setup.php.inc" role="test" />
       <file name="test1.phpt" role="test" />
@@ -702,6 +706,19 @@ and/or creating PGN files using the File_ChessPGN package (when it is completed)
  </dependencies>
  <phprelease />
  <changelog>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-01-19</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>No changes since RC1, add unit test for repetition draw</notes>
+  </release>
   <release>
    <version>
     <release>1.0.0RC1</release>
