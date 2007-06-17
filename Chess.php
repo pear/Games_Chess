@@ -924,7 +924,7 @@ class Games_Chess {
             return array(GAMES_CHESS_CASTLE => 'Q');
         }
         // pawn moves
-        if (preg_match('/^P?(([a-h])([1-8])?(x))?([a-h][1-8])(=([QRNB]))?$/', $move, $match)) {
+        if (preg_match('/^P?(([a-h])([1-8])?(x))?([a-h][1-8])(=?([QRNB]))?$/', $move, $match)) {
             if ($match[2]) {
                 $takesfrom = $match[2]{0};
             } else {

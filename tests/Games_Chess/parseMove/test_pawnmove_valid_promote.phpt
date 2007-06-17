@@ -13,7 +13,25 @@ $phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
         'promote' => 'Q',
         'piece' => 'P',
     )), $ret, 'incorrect parsing');
+$ret = $board->_parseMove('a1Q');
+$phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
+        'takesfrom' => '',
+        'takes' => '',
+        'disambiguate' => '',
+        'square' => 'a1',
+        'promote' => 'Q',
+        'piece' => 'P',
+    )), $ret, 'incorrect parsing');
 $ret = $board->_parseMove('h8=Q');
+$phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
+        'takesfrom' => '',
+        'takes' => '',
+        'disambiguate' => '',
+        'square' => 'h8',
+        'promote' => 'Q',
+        'piece' => 'P',
+    )), $ret, 'incorrect parsing');
+$ret = $board->_parseMove('h8Q');
 $phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
         'takesfrom' => '',
         'takes' => '',
@@ -31,7 +49,25 @@ $phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
         'promote' => 'Q',
         'piece' => 'P',
     )), $ret, 'incorrect parsing');
+$ret = $board->_parseMove('Pa1Q');
+$phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
+        'takesfrom' => '',
+        'takes' => '',
+        'disambiguate' => '',
+        'square' => 'a1',
+        'promote' => 'Q',
+        'piece' => 'P',
+    )), $ret, 'incorrect parsing');
 $ret = $board->_parseMove('Ph8=Q');
+$phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
+        'takesfrom' => '',
+        'takes' => '',
+        'disambiguate' => '',
+        'square' => 'h8',
+        'promote' => 'Q',
+        'piece' => 'P',
+    )), $ret, 'incorrect parsing');
+$ret = $board->_parseMove('Ph8Q');
 $phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
         'takesfrom' => '',
         'takes' => '',

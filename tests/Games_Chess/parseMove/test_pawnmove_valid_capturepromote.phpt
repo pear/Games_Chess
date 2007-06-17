@@ -13,7 +13,25 @@ $phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
         'promote' => 'R',
         'piece' => 'P',
     )), $ret, 'incorrect parsing');
+$ret = $board->_parseMove('axb8R');
+$phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
+        'takesfrom' => 'a',
+        'takes' => 'x',
+        'disambiguate' => '',
+        'square' => 'b8',
+        'promote' => 'R',
+        'piece' => 'P',
+    )), $ret, 'incorrect parsing');
 $ret = $board->_parseMove('Paxb8=R');
+$phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
+        'takesfrom' => 'a',
+        'takes' => 'x',
+        'disambiguate' => '',
+        'square' => 'b8',
+        'promote' => 'R',
+        'piece' => 'P',
+    )), $ret, 'incorrect parsing');
+$ret = $board->_parseMove('Paxb8R');
 $phpunit->assertEquals(array(GAMES_CHESS_PAWNMOVE => array(
         'takesfrom' => 'a',
         'takes' => 'x',
