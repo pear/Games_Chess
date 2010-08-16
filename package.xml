@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<package packagerversion="1.6.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+<package packagerversion="1.9.1" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
  <name>Games_Chess</name>
  <channel>pear.php.net</channel>
  <summary>Construct and validate a logical chess game, does not display</summary>
@@ -14,10 +14,10 @@ and/or creating PGN files using the File_ChessPGN package (when it is completed)
   <email>cellog@php.net</email>
   <active>yes</active>
  </lead>
- <date>2007-06-17</date>
- <time>00:45:21</time>
+ <date>2010-08-16</date>
+ <time>22:29:03</time>
  <version>
-  <release>1.0.1</release>
+  <release>1.0.2</release>
   <api>1.0.0</api>
  </version>
  <stability>
@@ -25,674 +25,537 @@ and/or creating PGN files using the File_ChessPGN package (when it is completed)
   <api>stable</api>
  </stability>
  <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
- <notes>* fix Bug #10912: gxh8Q recognized as invalid</notes>
+ <notes>
+Fixed unit tests / dir layout
+ </notes>
  <contents>
-  <dir baseinstalldir="Games" name="/">
-   <dir name="Chess">
-    <file name="Crazyhouse.php" role="php" />
-    <file name="Losers.php" role="php" />
-    <file name="Standard.php" role="php" />
-   </dir> <!-- /Chess -->
-   <dir name="examples">
-    <dir name="images">
-     <dir name="dark">
-      <file name="b.gif" role="doc" />
-      <file name="blank.gif" role="doc" />
-      <file name="k.gif" role="doc" />
-      <file name="n.gif" role="doc" />
-      <file name="p.gif" role="doc" />
-      <file name="q.gif" role="doc" />
-      <file name="r.gif" role="doc" />
-     </dir> <!-- /examples/images/dark -->
-     <file name="B.gif" role="doc" />
-     <file name="blank.gif" role="doc" />
-     <file name="K.gif" role="doc" />
-     <file name="N.gif" role="doc" />
-     <file name="P.gif" role="doc" />
-     <file name="Q.gif" role="doc" />
-     <file name="R.gif" role="doc" />
-    </dir> <!-- /examples/images -->
-    <file name="HTMLChess.php" role="doc" />
-   </dir> <!-- /examples -->
-   <dir name="tests">
-    <dir name="Games_Chess">
-     <dir name="addPiece">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_addbishopb.phpt" role="test" />
-      <file name="test_addbishopw.phpt" role="test" />
-      <file name="test_addknightb.phpt" role="test" />
-      <file name="test_addknightw.phpt" role="test" />
-      <file name="test_addpawnsb.phpt" role="test" />
-      <file name="test_addpawnsw.phpt" role="test" />
-      <file name="test_addqueenb.phpt" role="test" />
-      <file name="test_addqueenw.phpt" role="test" />
-      <file name="test_addrookb.phpt" role="test" />
-      <file name="test_addrookw.phpt" role="test" />
-      <file name="test_invalid_dupepiece.phpt" role="test" />
-      <file name="test_invalid_toomanyb.phpt" role="test" />
-      <file name="test_invalid_toomanyw.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/addPiece -->
-     <dir name="convertSquareToSAN">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalidcastle.phpt" role="test" />
-      <file name="test_invalid_from.phpt" role="test" />
-      <file name="test_invalid_invalidmove.phpt" role="test" />
-      <file name="test_invalid_nopiece.phpt" role="test" />
-      <file name="test_invalid_promote.phpt" role="test" />
-      <file name="test_invalid_to.phpt" role="test" />
-      <file name="test_invalid_wrongcolor.phpt" role="test" />
-      <file name="test_validbishopmoves.phpt" role="test" />
-      <file name="test_validkingmoves.phpt" role="test" />
-      <file name="test_validknightmoves.phpt" role="test" />
-      <file name="test_validpawnmoves.phpt" role="test" />
-      <file name="test_validpromote.phpt" role="test" />
-      <file name="test_validqueenmoves.phpt" role="test" />
-      <file name="test_validrookmoves.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/convertSquareToSAN -->
-     <dir name="getAllPieceLocations">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_invalid1.phpt" role="test" />
-      <file name="test_validb.phpt" role="test" />
-      <file name="test_validw.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getAllPieceLocations -->
-     <dir name="getAllPieceSquares">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_none_of_colorb.phpt" role="test" />
-      <file name="test_none_of_colorw.phpt" role="test" />
-      <file name="test_valid_empty.phpt" role="test" />
-      <file name="test_valid_excludeb.phpt" role="test" />
-      <file name="test_valid_excludew.phpt" role="test" />
-      <file name="test_valid_pieceb.phpt" role="test" />
-      <file name="test_valid_piecesb.phpt" role="test" />
-      <file name="test_valid_piecesw.phpt" role="test" />
-      <file name="test_valid_pieces_inpawnb.phpt" role="test" />
-      <file name="test_valid_pieces_inpawnw.phpt" role="test" />
-      <file name="test_valid_piecew.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getAllPieceSquares -->
-     <dir name="getCastleSquares">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_black.phpt" role="test" />
-      <file name="test_white.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getCastleSquares -->
-     <dir name="getDiagonalColor">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_color.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getDiagonalColor -->
-     <dir name="getDiagonals">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_valid_a1.phpt" role="test" />
-      <file name="test_valid_a8.phpt" role="test" />
-      <file name="test_valid_e4.phpt" role="test" />
-      <file name="test_valid_h1.phpt" role="test" />
-      <file name="test_valid_h8.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getDiagonals -->
-     <dir name="getKingSquares">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_a1.phpt" role="test" />
-      <file name="test_a8.phpt" role="test" />
-      <file name="test_e4.phpt" role="test" />
-      <file name="test_h1.phpt" role="test" />
-      <file name="test_h8.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getKingSquares -->
-     <dir name="getKnightSquares">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_a1.phpt" role="test" />
-      <file name="test_a8.phpt" role="test" />
-      <file name="test_e4.phpt" role="test" />
-      <file name="test_h1.phpt" role="test" />
-      <file name="test_h8.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getKnightSquares -->
-     <dir name="getMoveList">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_check.phpt" role="test" />
-      <file name="test_checkmate.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getMoveList -->
-     <dir name="getPathToKing">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_bishopcheck1.phpt" role="test" />
-      <file name="test_bishopcheck2.phpt" role="test" />
-      <file name="test_bishopcheck3.phpt" role="test" />
-      <file name="test_bishopcheck4.phpt" role="test" />
-      <file name="test_knightcheck.phpt" role="test" />
-      <file name="test_pawncheck1.phpt" role="test" />
-      <file name="test_pawncheck2.phpt" role="test" />
-      <file name="test_queencheck1.phpt" role="test" />
-      <file name="test_queencheck2.phpt" role="test" />
-      <file name="test_queencheck3.phpt" role="test" />
-      <file name="test_queencheck4.phpt" role="test" />
-      <file name="test_queencheck5.phpt" role="test" />
-      <file name="test_queencheck6.phpt" role="test" />
-      <file name="test_queencheck7.phpt" role="test" />
-      <file name="test_queencheck8.phpt" role="test" />
-      <file name="test_rookcheck1.phpt" role="test" />
-      <file name="test_rookcheck2.phpt" role="test" />
-      <file name="test_rookcheck3.phpt" role="test" />
-      <file name="test_rookcheck4.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPathToKing -->
-     <dir name="getPieceTypes">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPieceTypes -->
-     <dir name="getPossibleBishopMoves">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid_color.phpt" role="test" />
-      <file name="test_invalid_square.phpt" role="test" />
-      <file name="test_valid_b1.phpt" role="test" />
-      <file name="test_valid_b2.phpt" role="test" />
-      <file name="test_valid_b3.phpt" role="test" />
-      <file name="test_valid_w1.phpt" role="test" />
-      <file name="test_valid_w2.phpt" role="test" />
-      <file name="test_valid_w3.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPossibleBishopMoves -->
-     <dir name="getPossibleChecks">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_other.phpt" role="test" />
-      <file name="test_starting.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPossibleChecks -->
-     <dir name="getPossibleKingMoves">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid_color.phpt" role="test" />
-      <file name="test_invalid_square.phpt" role="test" />
-      <file name="test_valid_b1.phpt" role="test" />
-      <file name="test_valid_b2.phpt" role="test" />
-      <file name="test_valid_b3.phpt" role="test" />
-      <file name="test_valid_w1.phpt" role="test" />
-      <file name="test_valid_w2.phpt" role="test" />
-      <file name="test_valid_w3.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPossibleKingMoves -->
-     <dir name="getPossibleKnightMoves">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid_color.phpt" role="test" />
-      <file name="test_invalid_square.phpt" role="test" />
-      <file name="test_valid_b1.phpt" role="test" />
-      <file name="test_valid_b2.phpt" role="test" />
-      <file name="test_valid_b3.phpt" role="test" />
-      <file name="test_valid_w1.phpt" role="test" />
-      <file name="test_valid_w2.phpt" role="test" />
-      <file name="test_valid_w3.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPossibleKnightMoves -->
-     <dir name="getPossibleMoves">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid_color.phpt" role="test" />
-      <file name="test_invalid_piece.phpt" role="test" />
-      <file name="test_invalid_square.phpt" role="test" />
-      <file name="test_valid_B.phpt" role="test" />
-      <file name="test_valid_K.phpt" role="test" />
-      <file name="test_valid_N.phpt" role="test" />
-      <file name="test_valid_P.phpt" role="test" />
-      <file name="test_valid_Q.phpt" role="test" />
-      <file name="test_valid_R.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPossibleMoves -->
-     <dir name="getPossiblePawnMoves">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid_color.phpt" role="test" />
-      <file name="test_invalid_square.phpt" role="test" />
-      <file name="test_valid_b1.phpt" role="test" />
-      <file name="test_valid_b2.phpt" role="test" />
-      <file name="test_valid_b3.phpt" role="test" />
-      <file name="test_valid_b4.phpt" role="test" />
-      <file name="test_valid_b5.phpt" role="test" />
-      <file name="test_valid_b6.phpt" role="test" />
-      <file name="test_valid_b7.phpt" role="test" />
-      <file name="test_valid_b8.phpt" role="test" />
-      <file name="test_valid_b9.phpt" role="test" />
-      <file name="test_valid_b10.phpt" role="test" />
-      <file name="test_valid_w1.phpt" role="test" />
-      <file name="test_valid_w2.phpt" role="test" />
-      <file name="test_valid_w3.phpt" role="test" />
-      <file name="test_valid_w4.phpt" role="test" />
-      <file name="test_valid_w5.phpt" role="test" />
-      <file name="test_valid_w6.phpt" role="test" />
-      <file name="test_valid_w7.phpt" role="test" />
-      <file name="test_valid_w8.phpt" role="test" />
-      <file name="test_valid_w9.phpt" role="test" />
-      <file name="test_valid_w10.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPossiblePawnMoves -->
-     <dir name="getPossibleQueenMoves">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid_color.phpt" role="test" />
-      <file name="test_invalid_square.phpt" role="test" />
-      <file name="test_valid_b1.phpt" role="test" />
-      <file name="test_valid_b2.phpt" role="test" />
-      <file name="test_valid_b3.phpt" role="test" />
-      <file name="test_valid_w1.phpt" role="test" />
-      <file name="test_valid_w2.phpt" role="test" />
-      <file name="test_valid_w3.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPossibleQueenMoves -->
-     <dir name="getPossibleRookMoves">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid_color.phpt" role="test" />
-      <file name="test_invalid_square.phpt" role="test" />
-      <file name="test_valid_b1.phpt" role="test" />
-      <file name="test_valid_b2.phpt" role="test" />
-      <file name="test_valid_b3.phpt" role="test" />
-      <file name="test_valid_w1.phpt" role="test" />
-      <file name="test_valid_w2.phpt" role="test" />
-      <file name="test_valid_w3.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getPossibleRookMoves -->
-     <dir name="getRookSquares">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_a1.phpt" role="test" />
-      <file name="test_a8.phpt" role="test" />
-      <file name="test_e4.phpt" role="test" />
-      <file name="test_h1.phpt" role="test" />
-      <file name="test_h8.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getRookSquares -->
-     <dir name="getSquareFromParsedMove">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_ambiguous1.phpt" role="test" />
-      <file name="test_ambiguous2.phpt" role="test" />
-      <file name="test_ambiguous3.phpt" role="test" />
-      <file name="test_getking.phpt" role="test" />
-      <file name="test_getsimple.phpt" role="test" />
-      <file name="test_invalid_ambiguous1.phpt" role="test" />
-      <file name="test_invalid_ambiguous2.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/getSquareFromParsedMove -->
-     <dir name="inBasicDraw">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_kingsonly.phpt" role="test" />
-      <file name="test_kkb.phpt" role="test" />
-      <file name="test_kkbb_invalid.phpt" role="test" />
-      <file name="test_kkbb_valid.phpt" role="test" />
-      <file name="test_kkn.phpt" role="test" />
-      <file name="test_notdraw1.phpt" role="test" />
-      <file name="test_notdraw2.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/inBasicDraw -->
-     <dir name="inCheck">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_doublecheck.phpt" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_invalidcastle.phpt" role="test" />
-      <file name="test_other.phpt" role="test" />
-      <file name="test_starting.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/inCheck -->
-     <dir name="inCheckMate">
-      <file name="setup.php.inc" role="test" />
-      <file name="test1.phpt" role="test" />
-      <file name="test_bug7565.phpt" role="test" />
-      <file name="test_doublecheck.phpt" role="test" />
-      <file name="test_interposingpiece.phpt" role="test" />
-      <file name="test_kingcanmove.phpt" role="test" />
-      <file name="test_smotheredmate.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/inCheckMate -->
-     <dir name="inRepetitionDraw">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/inRepetitionDraw -->
-     <dir name="inStaleMate">
-      <file name="setup.php.inc" role="test" />
-      <file name="test1.phpt" role="test" />
-      <file name="test2.phpt" role="test" />
-      <file name="test_notstalemate.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/inStaleMate -->
-     <dir name="interposeOrCapture">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_knightcheck_capture_impossible.phpt" role="test" />
-      <file name="test_knightcheck_capture_possible.phpt" role="test" />
-      <file name="test_piececheck_capture_impossible.phpt" role="test" />
-      <file name="test_piececheck_capture_possible.phpt" role="test" />
-      <file name="test_piececheck_interpose_possible.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/interposeOrCapture -->
-     <dir name="moveAlgebraic">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_capture.phpt" role="test" />
-      <file name="test_simple.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/moveAlgebraic -->
-     <dir name="movePiece">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_pawn.phpt" role="test" />
-      <file name="test_piece.phpt" role="test" />
-      <file name="test_promotedpiece.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/movePiece -->
-     <dir name="moveSAN">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_castlekb.phpt" role="test" />
-      <file name="test_castlekw.phpt" role="test" />
-      <file name="test_castleqb.phpt" role="test" />
-      <file name="test_castleqw.phpt" role="test" />
-      <file name="test_invalidpawnmove.phpt" role="test" />
-      <file name="test_invalidpiecemove.phpt" role="test" />
-      <file name="test_moveking.phpt" role="test" />
-      <file name="test_moverook.phpt" role="test" />
-      <file name="test_pawncapture1.phpt" role="test" />
-      <file name="test_pawncapture2.phpt" role="test" />
-      <file name="test_pawnmove1.phpt" role="test" />
-      <file name="test_pawnmove2.phpt" role="test" />
-      <file name="test_piececapture1.phpt" role="test" />
-      <file name="test_piecemove1.phpt" role="test" />
-      <file name="test_piecemove2.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/moveSAN -->
-     <dir name="parseFen">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid1.phpt" role="test" />
-      <file name="test_invalid2.phpt" role="test" />
-      <file name="test_invalid3.phpt" role="test" />
-      <file name="test_invalid4.phpt" role="test" />
-      <file name="test_invalid5.phpt" role="test" />
-      <file name="test_invalid6.phpt" role="test" />
-      <file name="test_invalid7.phpt" role="test" />
-      <file name="test_invalid8.phpt" role="test" />
-      <file name="test_invalid9.phpt" role="test" />
-      <file name="test_invalid10.phpt" role="test" />
-      <file name="test_invalid11.phpt" role="test" />
-      <file name="test_invalid12.phpt" role="test" />
-      <file name="test_invalid13.phpt" role="test" />
-      <file name="test_valid1.phpt" role="test" />
-      <file name="test_valid2.phpt" role="test" />
-      <file name="test_valid_fenboard1.phpt" role="test" />
-      <file name="test_valid_fenboard2.phpt" role="test" />
-      <file name="test_valid_fenboard3.phpt" role="test" />
-      <file name="test_valid_fenboard4.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/parseFen -->
-     <dir name="parseMove">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_castle.phpt" role="test" />
-      <file name="test_pawnmove_invalid1.phpt" role="test" />
-      <file name="test_pawnmove_invalid2.phpt" role="test" />
-      <file name="test_pawnmove_invalid3.phpt" role="test" />
-      <file name="test_pawnmove_invalid4.phpt" role="test" />
-      <file name="test_pawnmove_invalid5.phpt" role="test" />
-      <file name="test_pawnmove_invalid6.phpt" role="test" />
-      <file name="test_pawnmove_invalid7.phpt" role="test" />
-      <file name="test_pawnmove_valid1.phpt" role="test" />
-      <file name="test_pawnmove_valid_capture.phpt" role="test" />
-      <file name="test_pawnmove_valid_capturepromote.phpt" role="test" />
-      <file name="test_pawnmove_valid_promote.phpt" role="test" />
-      <file name="test_piecemove_invalid1.phpt" role="test" />
-      <file name="test_piecemove_invalid2.phpt" role="test" />
-      <file name="test_piecemove_invalid3.phpt" role="test" />
-      <file name="test_piecemove_invalid4.phpt" role="test" />
-      <file name="test_piecemove_valid.phpt" role="test" />
-      <file name="test_piecemove_valid_capture.phpt" role="test" />
-      <file name="test_piecemove_valid_disambiguate.phpt" role="test" />
-      <file name="test_placement.phpt" role="test" />
-      <file name="test_placepawn_backrank.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/parseMove -->
-     <dir name="promotionbug">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_promotebb.phpt" role="test" />
-      <file name="test_promotebn.phpt" role="test" />
-      <file name="test_promotebq.phpt" role="test" />
-      <file name="test_promotebr.phpt" role="test" />
-      <file name="test_promotewb.phpt" role="test" />
-      <file name="test_promotewn.phpt" role="test" />
-      <file name="test_promotewq.phpt" role="test" />
-      <file name="test_promotewr.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/promotionbug -->
-     <dir name="squareToPiece">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_pawn.phpt" role="test" />
-      <file name="test_pawn_promote.phpt" role="test" />
-      <file name="test_piece.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/squareToPiece -->
-     <dir name="validMove">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_castlebk.phpt" role="test" />
-      <file name="test_castlebq.phpt" role="test" />
-      <file name="test_castlewk.phpt" role="test" />
-      <file name="test_castlewq.phpt" role="test" />
-      <file name="test_invalid_castleb1.phpt" role="test" />
-      <file name="test_invalid_castleb2.phpt" role="test" />
-      <file name="test_invalid_castlew1.phpt" role="test" />
-      <file name="test_invalid_castlew2.phpt" role="test" />
-      <file name="test_invalid_pawn1.phpt" role="test" />
-      <file name="test_invalid_pawn2.phpt" role="test" />
-      <file name="test_invalid_piece1.phpt" role="test" />
-      <file name="test_invalid_piece2.phpt" role="test" />
-      <file name="test_invalid_piece3.phpt" role="test" />
-      <file name="test_pawn1.phpt" role="test" />
-      <file name="test_pawn2.phpt" role="test" />
-      <file name="test_pawn_ep.phpt" role="test" />
-      <file name="test_piece1.phpt" role="test" />
-      <file name="test_piece2.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess/validMove -->
-     <file name="setup.php.inc" role="test" />
-     <file name="test_bug2018.phpt" role="test" />
-     <file name="test_bugdxc3.phpt" role="test" />
-     <file name="test_bug_en_passant.phpt" role="test" />
-    </dir> <!-- /tests/Games_Chess -->
-    <dir name="Games_Chess_Crazyhouse">
-     <dir name="addPiece">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_addbishopb.phpt" role="test" />
-      <file name="test_addbishopw.phpt" role="test" />
-      <file name="test_addknightb.phpt" role="test" />
-      <file name="test_addknightw.phpt" role="test" />
-      <file name="test_addpawnsb.phpt" role="test" />
-      <file name="test_addpawnsw.phpt" role="test" />
-      <file name="test_addqueenb.phpt" role="test" />
-      <file name="test_addqueenw.phpt" role="test" />
-      <file name="test_addrookb.phpt" role="test" />
-      <file name="test_addrookw.phpt" role="test" />
-      <file name="test_invalid_dupepiece.phpt" role="test" />
-      <file name="test_invalid_toomany2.phpt" role="test" />
-      <file name="test_invalid_toomany3.phpt" role="test" />
-      <file name="test_invalid_toomany4.phpt" role="test" />
-      <file name="test_invalid_toomany5.phpt" role="test" />
-      <file name="test_invalid_toomany6.phpt" role="test" />
-      <file name="test_invalid_toomany_b.phpt" role="test" />
-      <file name="test_invalid_toomany_w.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/addPiece -->
-     <dir name="getAllPieceLocations">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_other.phpt" role="test" />
-      <file name="test_starting.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/getAllPieceLocations -->
-     <dir name="getAllPieceSquares">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_excludeb.phpt" role="test" />
-      <file name="test_excludew.phpt" role="test" />
-      <file name="test_noneofcolorb.phpt" role="test" />
-      <file name="test_noneofcolorw.phpt" role="test" />
-      <file name="test_pieceb.phpt" role="test" />
-      <file name="test_piecesb.phpt" role="test" />
-      <file name="test_piecesw.phpt" role="test" />
-      <file name="test_pieces_in_pawn_b.phpt" role="test" />
-      <file name="test_pieces_in_pawn_w.phpt" role="test" />
-      <file name="test_piecew.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/getAllPieceSquares -->
-     <dir name="getKing">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/getKing -->
-     <dir name="getPiece">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/getPiece -->
-     <dir name="getPieceTypes">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_captured.phpt" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_promoted.phpt" role="test" />
-      <file name="test_starting.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/getPieceTypes -->
-     <dir name="getPossibleChecks">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_other.phpt" role="test" />
-      <file name="test_starting.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/getPossibleChecks -->
-     <dir name="getSquareFromParsedMove">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_getambiguous1.phpt" role="test" />
-      <file name="test_getambiguous2.phpt" role="test" />
-      <file name="test_getambiguous3.phpt" role="test" />
-      <file name="test_getambiguous4.phpt" role="test" />
-      <file name="test_getking.phpt" role="test" />
-      <file name="test_getsimple.phpt" role="test" />
-      <file name="test_invalid_getambiguous.phpt" role="test" />
-      <file name="test_invalid_king.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/getSquareFromParsedMove -->
-     <dir name="inCheck">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_doublecheck.phpt" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_other.phpt" role="test" />
-      <file name="test_starting.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/inCheck -->
-     <dir name="interposeOrCapture">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_knightcheck_capture_impossible.phpt" role="test" />
-      <file name="test_knightcheck_capture_possible.phpt" role="test" />
-      <file name="test_piececheck_capture_impossible.phpt" role="test" />
-      <file name="test_piececheck_capture_possible.phpt" role="test" />
-      <file name="test_piececheck_interpose_possible.phpt" role="test" />
-      <file name="test_piececheck_interpose_with_captured_possible.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/interposeOrCapture -->
-     <dir name="isBishop">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/isBishop -->
-     <dir name="isKing">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/isKing -->
-     <dir name="isKnight">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/isKnight -->
-     <dir name="isPawn">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/isPawn -->
-     <dir name="isQueen">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/isQueen -->
-     <dir name="isRook">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/isRook -->
-     <dir name="movePiece">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/movePiece -->
-     <dir name="moveSAN">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_castlekb.phpt" role="test" />
-      <file name="test_castlekw.phpt" role="test" />
-      <file name="test_castleqb.phpt" role="test" />
-      <file name="test_castleqw.phpt" role="test" />
-      <file name="test_invalid_pawnmove.phpt" role="test" />
-      <file name="test_invalid_piecemove.phpt" role="test" />
-      <file name="test_moveking.phpt" role="test" />
-      <file name="test_moverook.phpt" role="test" />
-      <file name="test_pawnmove1.phpt" role="test" />
-      <file name="test_pawnmove2.phpt" role="test" />
-      <file name="test_pawnmove3.phpt" role="test" />
-      <file name="test_pawnmove4.phpt" role="test" />
-      <file name="test_piecemove1.phpt" role="test" />
-      <file name="test_piecemove2.phpt" role="test" />
-      <file name="test_piecemove3.phpt" role="test" />
-      <file name="test_placepiece.phpt" role="test" />
-      <file name="test_placepiece_invalidsquare.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/moveSAN -->
-     <dir name="renderFen">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_complex.phpt" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_starting.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/renderFen -->
-     <dir name="squareToPiece">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_pawn.phpt" role="test" />
-      <file name="test_piece.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/squareToPiece -->
-     <dir name="takePiece">
-      <file name="setup.php.inc" role="test" />
-      <file name="test.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/takePiece -->
-     <dir name="toArray">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_complex.phpt" role="test" />
-      <file name="test_empty.phpt" role="test" />
-      <file name="test_starting.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/toArray -->
-     <dir name="validMove">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_castleb_k.phpt" role="test" />
-      <file name="test_castleb_q.phpt" role="test" />
-      <file name="test_castlew_k.phpt" role="test" />
-      <file name="test_castlew_q.phpt" role="test" />
-      <file name="test_invalid_castleb1.phpt" role="test" />
-      <file name="test_invalid_castleb2.phpt" role="test" />
-      <file name="test_invalid_castlew1.phpt" role="test" />
-      <file name="test_invalid_castlew2.phpt" role="test" />
-      <file name="test_invalid_pawnmove1.phpt" role="test" />
-      <file name="test_invalid_pawnmove2.phpt" role="test" />
-      <file name="test_invalid_piecemove1.phpt" role="test" />
-      <file name="test_invalid_piecemove2.phpt" role="test" />
-      <file name="test_invalid_piecemove3.phpt" role="test" />
-      <file name="test_invalid_placement_1.phpt" role="test" />
-      <file name="test_invalid_placement_2.phpt" role="test" />
-      <file name="test_pawnmove1.phpt" role="test" />
-      <file name="test_pawnmove2.phpt" role="test" />
-      <file name="test_pawnmove_ep.phpt" role="test" />
-      <file name="test_piecemove1.phpt" role="test" />
-      <file name="test_piecemove2.phpt" role="test" />
-      <file name="test_placement.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Crazyhouse/validMove -->
-    </dir> <!-- /tests/Games_Chess_Crazyhouse -->
-    <dir name="Games_Chess_Losers">
-     <dir name="capturePossible">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_b1.phpt" role="test" />
-      <file name="test_b2.phpt" role="test" />
-      <file name="test_invalid_b1.phpt" role="test" />
-      <file name="test_invalid_b2.phpt" role="test" />
-      <file name="test_invalid_b3.phpt" role="test" />
-      <file name="test_invalid_bcastle.phpt" role="test" />
-      <file name="test_invalid_w1.phpt" role="test" />
-      <file name="test_invalid_w2.phpt" role="test" />
-      <file name="test_invalid_w3.phpt" role="test" />
-      <file name="test_invalid_wcastle.phpt" role="test" />
-      <file name="test_w1.phpt" role="test" />
-      <file name="test_w2.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Losers/capturePossible -->
-     <dir name="gameOver">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_black_checkmated.phpt" role="test" />
-      <file name="test_black_draw.phpt" role="test" />
-      <file name="test_black_nopieces.phpt" role="test" />
-      <file name="test_invalid_piecesleft.phpt" role="test" />
-      <file name="test_white_checkmated.phpt" role="test" />
-      <file name="test_white_draw.phpt" role="test" />
-      <file name="test_white_nopieces.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Losers/gameOver -->
-     <dir name="validMove">
-      <file name="setup.php.inc" role="test" />
-      <file name="test_invalid_castleb1.phpt" role="test" />
-      <file name="test_invalid_castleb2.phpt" role="test" />
-      <file name="test_invalid_castlew1.phpt" role="test" />
-      <file name="test_invalid_castlew2.phpt" role="test" />
-      <file name="test_invalid_must_capture_w.phpt" role="test" />
-      <file name="test_invalid_pawnmove1.phpt" role="test" />
-      <file name="test_invalid_pawnmove2.phpt" role="test" />
-      <file name="test_invalid_piecemove1.phpt" role="test" />
-      <file name="test_invalid_piecemove2.phpt" role="test" />
-      <file name="test_invalid_piecemove3.phpt" role="test" />
-      <file name="test_valid_castleb_k.phpt" role="test" />
-      <file name="test_valid_castleb_q.phpt" role="test" />
-      <file name="test_valid_castlew_k.phpt" role="test" />
-      <file name="test_valid_castlew_q.phpt" role="test" />
-      <file name="test_valid_pawnmove1.phpt" role="test" />
-      <file name="test_valid_pawnmove2.phpt" role="test" />
-      <file name="test_valid_pawnmove_ep.phpt" role="test" />
-      <file name="test_valid_piecemove1.phpt" role="test" />
-      <file name="test_valid_piecemove2.phpt" role="test" />
-     </dir> <!-- /tests/Games_Chess_Losers/validMove -->
-    </dir> <!-- /tests/Games_Chess_Losers -->
-    <file name="phpt_test.php.inc" role="test" />
-   </dir> <!-- /tests -->
-   <file name="Chess.php" role="php" />
-   <file name="LICENSE" role="doc" />
-  </dir> <!-- / -->
+  <dir baseinstalldir="/" name="/">
+   <file baseinstalldir="/" md5sum="4e3f1c21328221daf4ebed8f5b79b671" name="examples/HTMLChess.php" role="doc" />
+   <file baseinstalldir="/" md5sum="a847ef7d029f5f9c608fa5166268437d" name="examples/images/B.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="c9ee061f36289f8faca053b5d9064562" name="examples/images/blank.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="41b6871dd5591a3ecb235fc6720a1818" name="examples/images/K.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="1713880fd9cbc1b5c28ebfc049c47c1f" name="examples/images/N.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="e8dde345f489a7d3c5a76f018a94ba00" name="examples/images/P.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="3334b0e912084403dcf79fee727e62ca" name="examples/images/Q.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="f63487caff4a223b13fdab4384270b53" name="examples/images/R.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="8f9dd9b5e11b0d99673c3a08b26cab17" name="examples/images/dark/b.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="c9ee061f36289f8faca053b5d9064562" name="examples/images/dark/blank.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="ab32ae187ffe55910de5adaf895bcba4" name="examples/images/dark/k.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="e3dd0206913f96a83771b5c40bdfe0fd" name="examples/images/dark/n.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="f43c43879224759e27d4283c0eb9c5ff" name="examples/images/dark/p.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="a5ab27171a3346b17ff59e05876234b4" name="examples/images/dark/q.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="ab04b1a7cbdbf94a25d2f1e778963225" name="examples/images/dark/r.gif" role="doc" />
+   <file baseinstalldir="/" md5sum="2a28b33a6f273031341855ad19e0b9b2" name="Games/Chess.php" role="php" />
+   <file baseinstalldir="/" md5sum="485f0ba2be2a276858de27dbb4b8be5f" name="Games/Chess/Crazyhouse.php" role="php" />
+   <file baseinstalldir="/" md5sum="b5955b68fa190919d2961f67b529e3ef" name="Games/Chess/Losers.php" role="php" />
+   <file baseinstalldir="/" md5sum="b7a66a1821c5eba1a0c74d6ec021ae37" name="Games/Chess/Standard.php" role="php" />
+   <file baseinstalldir="/" md5sum="a4be2b5082e436b8600632c3a89aa5d8" name="tests/phpt_test.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="0fd713ca153d246014c3681d8aba5c07" name="tests/Games_Chess/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="bcc70a64ad199403eae8f20938c74499" name="tests/Games_Chess/test_bug2018.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="bf9dbd4ebd2bdfed87a6bf65a4e82f1f" name="tests/Games_Chess/test_bugdxc3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7767dfa8629714ff043ab051b8f090fe" name="tests/Games_Chess/test_bug_en_passant.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/addPiece/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="40ae31e416c7c84fdce9964181c00c8a" name="tests/Games_Chess/addPiece/test_addbishopb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c0d3a467c4b40fd72a118ec8b1f67518" name="tests/Games_Chess/addPiece/test_addbishopw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8b7fa20e336a45deebef3592a53a27be" name="tests/Games_Chess/addPiece/test_addknightb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1581f98a62e5bc0aa97e7fc8077d2cb9" name="tests/Games_Chess/addPiece/test_addknightw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="bec4334dc2e17727b23bd1c7ec880074" name="tests/Games_Chess/addPiece/test_addpawnsb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c1f79ca105070664461fdc3e0e9c22c9" name="tests/Games_Chess/addPiece/test_addpawnsw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5bade247969bff47c4804e7bee79c70" name="tests/Games_Chess/addPiece/test_addqueenb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b04b523c79d2956061c5d12ff8a34615" name="tests/Games_Chess/addPiece/test_addqueenw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b7a25ed1459766006c3d428d0c5f61d8" name="tests/Games_Chess/addPiece/test_addrookb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="49788d326d121b666da24e7604ff3a31" name="tests/Games_Chess/addPiece/test_addrookw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="39569ff599aa798438a85f36b1c2f5d1" name="tests/Games_Chess/addPiece/test_invalid_dupepiece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2185d88f737e18b4c356bc2f257a4a5a" name="tests/Games_Chess/addPiece/test_invalid_toomanyb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="630458a1b84e8521a382af56b72981b9" name="tests/Games_Chess/addPiece/test_invalid_toomanyw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/convertSquareToSAN/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="8b7329e973345598d76945ce042d2dea" name="tests/Games_Chess/convertSquareToSAN/test_invalidcastle.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6b8c1329888fb13ca2b61c88b10c2b47" name="tests/Games_Chess/convertSquareToSAN/test_invalid_from.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5680ccf1d8662a2dc3751b7a7710399d" name="tests/Games_Chess/convertSquareToSAN/test_invalid_invalidmove.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="06e73b016dcdfed17b818567b14492bf" name="tests/Games_Chess/convertSquareToSAN/test_invalid_nopiece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8983f0c69f9d3523a4a39d9a062cbf98" name="tests/Games_Chess/convertSquareToSAN/test_invalid_promote.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b2e7bc0ebaf00e2d46ff902e3a781493" name="tests/Games_Chess/convertSquareToSAN/test_invalid_to.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c687a907c33c7d54c5220cdb16024519" name="tests/Games_Chess/convertSquareToSAN/test_invalid_wrongcolor.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="306c06f676c1b8708a3bf5d0d96d1c4c" name="tests/Games_Chess/convertSquareToSAN/test_validbishopmoves.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4cf7e0d4103c18d9948bd29d5c2040b3" name="tests/Games_Chess/convertSquareToSAN/test_validkingmoves.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="07d992cf3d9f0e1ece297b40697b5c72" name="tests/Games_Chess/convertSquareToSAN/test_validknightmoves.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="af825b1cd3a2d5f24c1770a6f49f0e33" name="tests/Games_Chess/convertSquareToSAN/test_validpawnmoves.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a4871908c19423643f1de42dd97ffbb2" name="tests/Games_Chess/convertSquareToSAN/test_validpromote.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="99ba94ff48b0a13fe10944b9ec5a8f66" name="tests/Games_Chess/convertSquareToSAN/test_validqueenmoves.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="044eb9e7f6eb473f96463ed9ce00fca9" name="tests/Games_Chess/convertSquareToSAN/test_validrookmoves.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getAllPieceLocations/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="ae97bb2b76f4ac2c27f8018bc49eb773" name="tests/Games_Chess/getAllPieceLocations/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="097029ccffc270d2e50e288fc0b7f5c8" name="tests/Games_Chess/getAllPieceLocations/test_invalid1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="297826086a002d49ade3aed76db45cbf" name="tests/Games_Chess/getAllPieceLocations/test_validb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f69a64f55200fb4489724ecbdc610a92" name="tests/Games_Chess/getAllPieceLocations/test_validw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getAllPieceSquares/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="9c0337e696f64226c09c24ffdc77f80e" name="tests/Games_Chess/getAllPieceSquares/test_none_of_colorb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="69eb07ef1d1627c7ad5c4255f6cf2522" name="tests/Games_Chess/getAllPieceSquares/test_none_of_colorw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5090a0db8d0f7815265c1e6ea97bb603" name="tests/Games_Chess/getAllPieceSquares/test_valid_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b5fb2ff275f521fe592fb4fdb9438776" name="tests/Games_Chess/getAllPieceSquares/test_valid_excludeb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5568d83a41d080ee7c73b8310ae9ebf3" name="tests/Games_Chess/getAllPieceSquares/test_valid_excludew.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f7219a948cc19e5b8916eb7c4fdd2203" name="tests/Games_Chess/getAllPieceSquares/test_valid_pieceb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="af04ebbb90fabf509ccf355fcc20fe5f" name="tests/Games_Chess/getAllPieceSquares/test_valid_piecesb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="52844403540062299169ad45a6d18871" name="tests/Games_Chess/getAllPieceSquares/test_valid_piecesw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="50386a869c697e82de8f96cd67b001e9" name="tests/Games_Chess/getAllPieceSquares/test_valid_pieces_inpawnb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8b0f293d1bc81bc3ce4c65517342d90d" name="tests/Games_Chess/getAllPieceSquares/test_valid_pieces_inpawnw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="250c13dfbe734d77a2c065a349a581ff" name="tests/Games_Chess/getAllPieceSquares/test_valid_piecew.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6d4044943794fce0f304bb9d44c82c7e" name="tests/Games_Chess/getCastleSquares/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="f4e9cf7ab151c84b174b9f94ed44cffa" name="tests/Games_Chess/getCastleSquares/test_black.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8100194a95fe0a1fa8f49bda979997b2" name="tests/Games_Chess/getCastleSquares/test_white.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getDiagonalColor/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="a3f3200da949dbe610a2a3d59c5fcc99" name="tests/Games_Chess/getDiagonalColor/test_color.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d1015e47e48ae121340940b2c476cec7" name="tests/Games_Chess/getDiagonals/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="6cb49b07614c5fa8e2540db1d0b86135" name="tests/Games_Chess/getDiagonals/test_valid_a1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9153888d14b8e4f96b0457dcc1c16324" name="tests/Games_Chess/getDiagonals/test_valid_a8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c2f5ba895cae1f3fa0f23a0bd00ad9a8" name="tests/Games_Chess/getDiagonals/test_valid_e4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="74b061740d44d3b9bc78b1ca6acb6f2c" name="tests/Games_Chess/getDiagonals/test_valid_h1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="db0e3a7d8fa41b79f5fc091ed66d39a1" name="tests/Games_Chess/getDiagonals/test_valid_h8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d1015e47e48ae121340940b2c476cec7" name="tests/Games_Chess/getKingSquares/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="d7810bd52e7339462626cc69f484f5b6" name="tests/Games_Chess/getKingSquares/test_a1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="371c37f9f106e2492c857119da2a8639" name="tests/Games_Chess/getKingSquares/test_a8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="eb088872e6b5250501b59763bbdcd12e" name="tests/Games_Chess/getKingSquares/test_e4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c020a8526c4d45e0bdd3f3277161c821" name="tests/Games_Chess/getKingSquares/test_h1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6c6ab2feb4de579fdca39063ef423ec3" name="tests/Games_Chess/getKingSquares/test_h8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d1015e47e48ae121340940b2c476cec7" name="tests/Games_Chess/getKnightSquares/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="fb09ce9b32998803a4e0cf26d7f8c3f0" name="tests/Games_Chess/getKnightSquares/test_a1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2239afaa54cd380104dfb63122ae51f2" name="tests/Games_Chess/getKnightSquares/test_a8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ef326126b33f6a99cfc96b27a234c44b" name="tests/Games_Chess/getKnightSquares/test_e4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9deb3824b07e87cfefbe9df89b9409a0" name="tests/Games_Chess/getKnightSquares/test_h1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="32dfedf69dd8cd951706d28633c09b83" name="tests/Games_Chess/getKnightSquares/test_h8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getMoveList/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="95c93bde166e0445ffe0de7662a90ad2" name="tests/Games_Chess/getMoveList/test_check.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6e0a664832ae41e639c2575e60a19537" name="tests/Games_Chess/getMoveList/test_checkmate.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPathToKing/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="a8f3c4947ee21e100b0c608240959916" name="tests/Games_Chess/getPathToKing/test_bishopcheck1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1e46c3f564d47bc192688a90a6b6e0ef" name="tests/Games_Chess/getPathToKing/test_bishopcheck2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f537e313367d0bb7158a1995d8e605d5" name="tests/Games_Chess/getPathToKing/test_bishopcheck3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="87395fac585744c8fbd3772f25051560" name="tests/Games_Chess/getPathToKing/test_bishopcheck4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2258bb819b4a9159388e23fa5d16efb5" name="tests/Games_Chess/getPathToKing/test_knightcheck.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f974cfa4c3dbc1e46421bb2e50782203" name="tests/Games_Chess/getPathToKing/test_pawncheck1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="76cbb52106b23d487a629c34e8e6f9ce" name="tests/Games_Chess/getPathToKing/test_pawncheck2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e23d11ad7cc643f14d531cf4b7a76610" name="tests/Games_Chess/getPathToKing/test_queencheck1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="88fd00c48f4d7b4a0651f028dc381f91" name="tests/Games_Chess/getPathToKing/test_queencheck2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="eb822711c4e156b491eb5eaf2932da90" name="tests/Games_Chess/getPathToKing/test_queencheck3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="516d99d029c95765bf00c1f45b206c41" name="tests/Games_Chess/getPathToKing/test_queencheck4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f9c683d8c92b05e72950ba43389876b5" name="tests/Games_Chess/getPathToKing/test_queencheck5.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ddb56d9fa040d4fe4484dcca60312f26" name="tests/Games_Chess/getPathToKing/test_queencheck6.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f73fd6e942cc634d62d0a4a429813bd5" name="tests/Games_Chess/getPathToKing/test_queencheck7.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ae2ef616bd8882dfbb7ea4e0349a0762" name="tests/Games_Chess/getPathToKing/test_queencheck8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e6f79825f26f411ede7948acc027d902" name="tests/Games_Chess/getPathToKing/test_rookcheck1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="11206fdd0911cc7d9274e4e171e5c701" name="tests/Games_Chess/getPathToKing/test_rookcheck2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="99c6a9f174707f3d9bf95fce09679279" name="tests/Games_Chess/getPathToKing/test_rookcheck3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="acf4c599c083c4c51ec257791c586a15" name="tests/Games_Chess/getPathToKing/test_rookcheck4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPieceTypes/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="6ee7e233432932553f9ff81891c6bf6d" name="tests/Games_Chess/getPieceTypes/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPossibleBishopMoves/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="114829225dd27a3151e9508b73b718d1" name="tests/Games_Chess/getPossibleBishopMoves/test_invalid_color.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a3a58da6e79f614b4eaaccb3cf021ad4" name="tests/Games_Chess/getPossibleBishopMoves/test_invalid_square.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8fa3e4e999c59c4f1b0b713861d4a7a6" name="tests/Games_Chess/getPossibleBishopMoves/test_valid_b1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="36df3d0e2df018935d7723c3ec4fefa4" name="tests/Games_Chess/getPossibleBishopMoves/test_valid_b2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e513e521fe0cea2e10cb219e8d3da74a" name="tests/Games_Chess/getPossibleBishopMoves/test_valid_b3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a54468bf936f7f1670e5e4c1142a693e" name="tests/Games_Chess/getPossibleBishopMoves/test_valid_w1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="65056c9aa39fe266cc471e7edd5f6620" name="tests/Games_Chess/getPossibleBishopMoves/test_valid_w2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2dbc95f8a830ed1af3171f591553d863" name="tests/Games_Chess/getPossibleBishopMoves/test_valid_w3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPossibleChecks/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="44b5b6f4ea0dcd71f83c0ab62c16090e" name="tests/Games_Chess/getPossibleChecks/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2e735431ac91f682985ee7dbe159763c" name="tests/Games_Chess/getPossibleChecks/test_other.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="be118fb2e729872c2a4cf320db28f4b6" name="tests/Games_Chess/getPossibleChecks/test_starting.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPossibleKingMoves/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="f05e303c2e4a3824a3405479776fc8fb" name="tests/Games_Chess/getPossibleKingMoves/test_invalid_color.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="fe45affde4e6748f799cd292c8cce044" name="tests/Games_Chess/getPossibleKingMoves/test_invalid_square.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b928d28e6f91c811c5e4aa8aa00b741c" name="tests/Games_Chess/getPossibleKingMoves/test_valid_b1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1783215689a1bfa40b31acb45d9fb030" name="tests/Games_Chess/getPossibleKingMoves/test_valid_b2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2509a38f0c4dc65206529dbd62e8a6fe" name="tests/Games_Chess/getPossibleKingMoves/test_valid_b3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="14532706d1f1f1941b06cbcdd3279fd8" name="tests/Games_Chess/getPossibleKingMoves/test_valid_w1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ea364dbdc1d943cfa61a854c8bda31b3" name="tests/Games_Chess/getPossibleKingMoves/test_valid_w2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3f52eee76f27c09a5a0498e8b2b79337" name="tests/Games_Chess/getPossibleKingMoves/test_valid_w3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPossibleKnightMoves/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="b32bd4684d8de7940d74563d1359d148" name="tests/Games_Chess/getPossibleKnightMoves/test_invalid_color.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="522664365ed38099b5abcc120174d6c1" name="tests/Games_Chess/getPossibleKnightMoves/test_invalid_square.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5d5da40bf97e22cea9b955b468209d25" name="tests/Games_Chess/getPossibleKnightMoves/test_valid_b1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8510572f05689240b96dd38576d025bf" name="tests/Games_Chess/getPossibleKnightMoves/test_valid_b2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="003e0cdf520b255cf0998ec7e3455641" name="tests/Games_Chess/getPossibleKnightMoves/test_valid_b3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="598fc52d6af849609dfebb913a5f0df7" name="tests/Games_Chess/getPossibleKnightMoves/test_valid_w1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="267405a30f562c0e458a7868ea527166" name="tests/Games_Chess/getPossibleKnightMoves/test_valid_w2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="21e8d9bfc72d1647565e00bf6f0e7b6e" name="tests/Games_Chess/getPossibleKnightMoves/test_valid_w3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPossibleMoves/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="55d0a9291dfd963a84984aecd0367d01" name="tests/Games_Chess/getPossibleMoves/test_invalid_color.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="83afd25db4f5c5ba671291b24c96a6f0" name="tests/Games_Chess/getPossibleMoves/test_invalid_piece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0d94e29d4582dfc4704bd7edf0ec6b45" name="tests/Games_Chess/getPossibleMoves/test_invalid_square.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d8aca30d6ee09166350b5f68516dab3c" name="tests/Games_Chess/getPossibleMoves/test_valid_B.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9f830643828569d92b4114c4a657830e" name="tests/Games_Chess/getPossibleMoves/test_valid_K.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ff57c6a5c64fb6398899d02c224c24e4" name="tests/Games_Chess/getPossibleMoves/test_valid_N.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ce092e589c842826d6134fdce5f78659" name="tests/Games_Chess/getPossibleMoves/test_valid_P.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a30545ab97dd74fcd6292f3f2fc0f263" name="tests/Games_Chess/getPossibleMoves/test_valid_Q.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9d8d31ab50e3edce14c126e884c2cc0d" name="tests/Games_Chess/getPossibleMoves/test_valid_R.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPossiblePawnMoves/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="c9a1a63cc428c5f2d4df75521268949f" name="tests/Games_Chess/getPossiblePawnMoves/test_invalid_color.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8e98fcd91461a1fb2c6c85cf0833ab6b" name="tests/Games_Chess/getPossiblePawnMoves/test_invalid_square.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6007d961e636529c5c2c563b067ab3d3" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="bfb60165dcf9521ff2fd67d059e188bc" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ef08bf484c3a7092ae9999b33e128f64" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f4497ecf95cc2bd48162164051a2bc52" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3e94576339e0b1ccd6f6b2d6338766d1" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b5.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c64b092f39fd2daab1adc78d34598217" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b6.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2c73b383e97b237f57c81c0fe8df46a4" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b7.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0d391204c7d0255cb8110c6f2b911d4d" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4e8baf7f6d1de2ef97109968559dec37" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b9.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1fd57ff66f6e397ffd744fd8711908bb" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_b10.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="01113e408e96970183b156d098ed5e04" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c828314eb3461b0eeca2957da14ac3c7" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="861a3c9dd2d32b1ed89579075d5ddd71" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a55afbc59e72b1924f7722853a089151" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6666ef8f0c21cf55d73d61d16dfdbc56" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w5.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="411fc3296465c2b9b75ba370a5322bd2" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w6.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ca876fc849cacd6f5b48d8043ecc96eb" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w7.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0b36c0c6d0e9c1396ff51b437b8fd9b9" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="06c163ba0d03b0eef679b4093dd34449" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w9.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="941363853cc1b5e491c176c93ea9964c" name="tests/Games_Chess/getPossiblePawnMoves/test_valid_w10.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPossibleQueenMoves/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="cd88b4fe9cd408d5f20d98addf813235" name="tests/Games_Chess/getPossibleQueenMoves/test_invalid_color.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4b002f1e2bad0184c41dfb1c6149f6c3" name="tests/Games_Chess/getPossibleQueenMoves/test_invalid_square.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3813171361ccde9c4d40c7bcda8a77cb" name="tests/Games_Chess/getPossibleQueenMoves/test_valid_b1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c21e6a4d2edefa104f60dc3aab38cfd8" name="tests/Games_Chess/getPossibleQueenMoves/test_valid_b2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8fae4e1f2033fd702bb84a98eae60c93" name="tests/Games_Chess/getPossibleQueenMoves/test_valid_b3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="66d57dce8f8e2e9b0323acb2dd529fcc" name="tests/Games_Chess/getPossibleQueenMoves/test_valid_w1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3efe2c594bb1cbb257dc3ba863eb555d" name="tests/Games_Chess/getPossibleQueenMoves/test_valid_w2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0e93737bee01e25408f34ea19103d986" name="tests/Games_Chess/getPossibleQueenMoves/test_valid_w3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getPossibleRookMoves/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="84afa95740bbd8f57f489ecc2fbc888e" name="tests/Games_Chess/getPossibleRookMoves/test_invalid_color.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8cb240fa427d72356556be83832d7d67" name="tests/Games_Chess/getPossibleRookMoves/test_invalid_square.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="72f8e2830955c96314be40c6542d1830" name="tests/Games_Chess/getPossibleRookMoves/test_valid_b1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6115ffdc389aee6ae0b446edf7f64d66" name="tests/Games_Chess/getPossibleRookMoves/test_valid_b2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7437adc2f074c393d9be3dd5b777b356" name="tests/Games_Chess/getPossibleRookMoves/test_valid_b3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="11f3b7582716defdf2013608619a4462" name="tests/Games_Chess/getPossibleRookMoves/test_valid_w1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e179954122ffce5bfab26e1c44abb2d6" name="tests/Games_Chess/getPossibleRookMoves/test_valid_w2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1e30bf2cb726d28fb40899258f7de906" name="tests/Games_Chess/getPossibleRookMoves/test_valid_w3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d1015e47e48ae121340940b2c476cec7" name="tests/Games_Chess/getRookSquares/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="5f08d56562d683ee7e66333c19bf8d04" name="tests/Games_Chess/getRookSquares/test_a1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a8db9c91dedfe9a9ff6861dd8ff0f5bd" name="tests/Games_Chess/getRookSquares/test_a8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="38728834df5f4ad015b20dd7ca252152" name="tests/Games_Chess/getRookSquares/test_e4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e42818d2a719390a4a7e4e522ce1e4bd" name="tests/Games_Chess/getRookSquares/test_h1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6b16a6d247c6a9d023becda24714d52b" name="tests/Games_Chess/getRookSquares/test_h8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/getSquareFromParsedMove/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="3db1338854500ca9b5815a9d9706dbf3" name="tests/Games_Chess/getSquareFromParsedMove/test_ambiguous1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a28e50f2e1daa43c7ef1bd2bd96bbd0d" name="tests/Games_Chess/getSquareFromParsedMove/test_ambiguous2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="317c033217bcdb41d9564e0e6cd48896" name="tests/Games_Chess/getSquareFromParsedMove/test_ambiguous3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="80e71443a2c57890ad7c069a346d40d0" name="tests/Games_Chess/getSquareFromParsedMove/test_getking.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8b321dd13616c35c090893ad3659d3db" name="tests/Games_Chess/getSquareFromParsedMove/test_getsimple.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="331cb5b6a8d23453637003f6348ca9ab" name="tests/Games_Chess/getSquareFromParsedMove/test_invalid_ambiguous1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="995d376ad1d436d49229749e1a381508" name="tests/Games_Chess/getSquareFromParsedMove/test_invalid_ambiguous2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/inBasicDraw/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="cd3fbb5416d2d20497682a9417681b2f" name="tests/Games_Chess/inBasicDraw/test_kingsonly.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c043b06662e6789463d26a9035b597d5" name="tests/Games_Chess/inBasicDraw/test_kkb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="74f5b16553d98f2d68c1aac8f001605b" name="tests/Games_Chess/inBasicDraw/test_kkbb_invalid.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3aff9a9287219d916b329f7ca92287ff" name="tests/Games_Chess/inBasicDraw/test_kkbb_valid.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7ea9cbf7ebafee7b530a436bb9f7cf96" name="tests/Games_Chess/inBasicDraw/test_kkn.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="484a801c3dee37f8c1657f2664312ffa" name="tests/Games_Chess/inBasicDraw/test_notdraw1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d3babfb81138a44cd5693e29fdd31622" name="tests/Games_Chess/inBasicDraw/test_notdraw2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/inCheck/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="718f4aee7b51551ba94b0474c3c51f80" name="tests/Games_Chess/inCheck/test_doublecheck.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="533c8cbd70898f688d5e0cb37fefae14" name="tests/Games_Chess/inCheck/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8b7329e973345598d76945ce042d2dea" name="tests/Games_Chess/inCheck/test_invalidcastle.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4d8cd598e83f49ef2b72da7dfe69b90c" name="tests/Games_Chess/inCheck/test_other.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="623d0cc3aac346e7e518de79d6ac2df9" name="tests/Games_Chess/inCheck/test_starting.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/inCheckMate/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="3007a31f92be7ed4862c8ef110224f81" name="tests/Games_Chess/inCheckMate/test1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1cb47fb397a732a13cef69228b4dfc9b" name="tests/Games_Chess/inCheckMate/test_bug7565.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7b4c0be065b2f1873cb0ec0c0de6529f" name="tests/Games_Chess/inCheckMate/test_doublecheck.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="863908dc7353ea9c1c9aa8f90ca0ed08" name="tests/Games_Chess/inCheckMate/test_interposingpiece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="39540a726260f753dc6760ee7f63c43b" name="tests/Games_Chess/inCheckMate/test_kingcanmove.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a90641d62370d68942f2eb359a4cfb93" name="tests/Games_Chess/inCheckMate/test_smotheredmate.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/inRepetitionDraw/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="ee8fd30d0a06ff70c87d351dddf0b15d" name="tests/Games_Chess/inRepetitionDraw/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/inStaleMate/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="3ec4c8c267ad192b967f089e4fbcad47" name="tests/Games_Chess/inStaleMate/test1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="93e342ed3e18a9a1e7d55ea8cf39ca67" name="tests/Games_Chess/inStaleMate/test2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2610e1d4e79bb388cf8bd22c9263e6bf" name="tests/Games_Chess/inStaleMate/test_notstalemate.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/interposeOrCapture/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="c9cb634c45ebffacee29546dbcbeadad" name="tests/Games_Chess/interposeOrCapture/test_knightcheck_capture_impossible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9ad394541a7ab4436acc3d280cf63f6b" name="tests/Games_Chess/interposeOrCapture/test_knightcheck_capture_possible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f0660e8fb1d970814f8f9898bd829989" name="tests/Games_Chess/interposeOrCapture/test_piececheck_capture_impossible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="458cb0692d0c88127e0c297f664f074e" name="tests/Games_Chess/interposeOrCapture/test_piececheck_capture_possible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f2b26ed77aa788d468e3a70ca43524d7" name="tests/Games_Chess/interposeOrCapture/test_piececheck_interpose_possible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/moveAlgebraic/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="6b1e73be1f585a6a143d63ac57966a42" name="tests/Games_Chess/moveAlgebraic/test_capture.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8623bcceb79be13f239ef22deb6ec081" name="tests/Games_Chess/moveAlgebraic/test_simple.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/movePiece/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="77c78e62b4421b685e07563e35e58f5c" name="tests/Games_Chess/movePiece/test_pawn.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a6cb9a0fc261c67c7b9becc9556ac7d6" name="tests/Games_Chess/movePiece/test_piece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3febb23923f49f314cdd0b974dfd0e84" name="tests/Games_Chess/movePiece/test_promotedpiece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cc6dd6e31dd80929ca169ed1f2919c00" name="tests/Games_Chess/moveSAN/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="0fbe6322d372d5c1ed28db920cc19ba8" name="tests/Games_Chess/moveSAN/test_castlekb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d37ce12eb1327572d5136a5aac1b3274" name="tests/Games_Chess/moveSAN/test_castlekw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8a5a0b8f08bfca0f5ff7e4b7f69cc738" name="tests/Games_Chess/moveSAN/test_castleqb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="12dd8acb60f1932296eb42e910b0f3fe" name="tests/Games_Chess/moveSAN/test_castleqw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9d31e38efbaa325bcaaf808bd1f68b98" name="tests/Games_Chess/moveSAN/test_invalidpawnmove.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b026952a943461aaa28a78894c18f864" name="tests/Games_Chess/moveSAN/test_invalidpiecemove.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="92f985cf7f8136422952a2f8a63f6ad2" name="tests/Games_Chess/moveSAN/test_moveking.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="09c2048420bd25b624cd34bd51125b8e" name="tests/Games_Chess/moveSAN/test_moverook.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6cb4cc9d74cf6d4a5b1bf00b3351e89f" name="tests/Games_Chess/moveSAN/test_pawncapture1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e5bb81a2bc180736e1980d31f0025054" name="tests/Games_Chess/moveSAN/test_pawncapture2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1ca369abed177f30c1c5b5aeaef76fe7" name="tests/Games_Chess/moveSAN/test_pawnmove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7bbebe4528baa64484d5334037e66754" name="tests/Games_Chess/moveSAN/test_pawnmove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1f879f898e33a32dd72227f76ebc1485" name="tests/Games_Chess/moveSAN/test_piececapture1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3348e1c04deb7349376c4f9447f7b04e" name="tests/Games_Chess/moveSAN/test_piecemove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5e6753f66bebbbe528d7ce7074ec1fa7" name="tests/Games_Chess/moveSAN/test_piecemove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="de9e7d4aa6b7da2a2208f10907366e40" name="tests/Games_Chess/parseFen/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="6c0c4895d6f5045b1eed2f9417c7d0d3" name="tests/Games_Chess/parseFen/test_invalid1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ae092cd1afb921be1000d8c2b9391689" name="tests/Games_Chess/parseFen/test_invalid2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5de75c7aa71bc5ba8e5d9a183eb4828f" name="tests/Games_Chess/parseFen/test_invalid3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="39a776e97ddc8515170d31c9b6ddbc03" name="tests/Games_Chess/parseFen/test_invalid4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1ead5a69c510fef91bef6bebaca55e88" name="tests/Games_Chess/parseFen/test_invalid5.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1158cadb75297b637a0f6fcf5a66da01" name="tests/Games_Chess/parseFen/test_invalid6.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="919efe7f78f893f8228da39f4ecff53b" name="tests/Games_Chess/parseFen/test_invalid7.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="bfa5d761c2fa8f447eb304d32e58ce3a" name="tests/Games_Chess/parseFen/test_invalid8.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4aeeee4c14598d58a088389e62f30abe" name="tests/Games_Chess/parseFen/test_invalid9.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c18549dd7d11a8d94dec90eecc5bca55" name="tests/Games_Chess/parseFen/test_invalid10.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="068a2a416cbea7cca0d22f8df0052f9a" name="tests/Games_Chess/parseFen/test_invalid11.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9b566dbb07f64cffbb7ad982d9886ea1" name="tests/Games_Chess/parseFen/test_invalid12.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5b58154f24510bc86fe3a604612c7dd9" name="tests/Games_Chess/parseFen/test_invalid13.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="80fa5dad80cf76a2242935b12dfc5a90" name="tests/Games_Chess/parseFen/test_valid1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="42584a3ad86478cc3342a75253192272" name="tests/Games_Chess/parseFen/test_valid2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a21587fb4ed2073a1f0e3ead6c758c94" name="tests/Games_Chess/parseFen/test_valid_fenboard1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4766aa7d6f73825f64ac1b6aab04e466" name="tests/Games_Chess/parseFen/test_valid_fenboard2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c5438073a95a9c71d4474ed12cdb9252" name="tests/Games_Chess/parseFen/test_valid_fenboard3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c931d9c4fb229c91cbacc4e9c5587107" name="tests/Games_Chess/parseFen/test_valid_fenboard4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4881600e4c8415f7d76b9378315361d8" name="tests/Games_Chess/parseMove/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="6c074194e8de0bc2bde97600d8a0862a" name="tests/Games_Chess/parseMove/test_castle.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b616d9b7da04b6c8e08b18eb15977cda" name="tests/Games_Chess/parseMove/test_pawnmove_invalid1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5b5b3ae6f9b1cf5b62a385307ef697c9" name="tests/Games_Chess/parseMove/test_pawnmove_invalid2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0d834f671772cb14f57f2699d3db64e6" name="tests/Games_Chess/parseMove/test_pawnmove_invalid3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e73f38125e4ddac7664c462807b8d90e" name="tests/Games_Chess/parseMove/test_pawnmove_invalid4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f72f0724f169e066f5a517f94a99c70c" name="tests/Games_Chess/parseMove/test_pawnmove_invalid5.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4f98156d639bd4d60b98cd6a3fe3c894" name="tests/Games_Chess/parseMove/test_pawnmove_invalid6.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="be3c1fcfc33618c8384d482d12788ce6" name="tests/Games_Chess/parseMove/test_pawnmove_invalid7.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e3303f469ec9e76815edf03b74f07fbb" name="tests/Games_Chess/parseMove/test_pawnmove_valid1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="38813ea0fa81f8d591bbe5dae2484535" name="tests/Games_Chess/parseMove/test_pawnmove_valid_capture.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c9f17e0c1f9ebce7ef870c2d8a178706" name="tests/Games_Chess/parseMove/test_pawnmove_valid_capturepromote.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8e99a5942e90b904af81693bc841931a" name="tests/Games_Chess/parseMove/test_pawnmove_valid_promote.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2faec743f2c53d427a47ac5b3b13138c" name="tests/Games_Chess/parseMove/test_piecemove_invalid1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b3d3a3ecabd33addc7bdb5b3620d3125" name="tests/Games_Chess/parseMove/test_piecemove_invalid2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2235f8d1d8f5e0b2868720c4c0647b0e" name="tests/Games_Chess/parseMove/test_piecemove_invalid3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="00c7cb9cbe8b01637268e7e1084dbc59" name="tests/Games_Chess/parseMove/test_piecemove_invalid4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3a92b51466c3ae48308d906867a6d31a" name="tests/Games_Chess/parseMove/test_piecemove_valid.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0922c9616739f2dfd102ac97afd521cc" name="tests/Games_Chess/parseMove/test_piecemove_valid_capture.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="458414ac3d5a7268d118bbf402f26cbf" name="tests/Games_Chess/parseMove/test_piecemove_valid_disambiguate.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a333884d3477ebda2c465e905042f4c8" name="tests/Games_Chess/parseMove/test_placement.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0e08d2f2369bde7c7ced09926d2ab74b" name="tests/Games_Chess/parseMove/test_placepawn_backrank.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4881600e4c8415f7d76b9378315361d8" name="tests/Games_Chess/promotionbug/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="474f58a924706928c5460a7fd2a1b02c" name="tests/Games_Chess/promotionbug/test_promotebb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="240ff7796e96bd0abd119cd7a38e39bf" name="tests/Games_Chess/promotionbug/test_promotebn.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="bf5439f12268ccb26709cf841eb2197c" name="tests/Games_Chess/promotionbug/test_promotebq.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a37f586be46e9f60f18562d27588cf83" name="tests/Games_Chess/promotionbug/test_promotebr.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="fc9ddc4866d32fdfee16edcc54352b29" name="tests/Games_Chess/promotionbug/test_promotewb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a564fde4528f696212a754ea1478aacd" name="tests/Games_Chess/promotionbug/test_promotewn.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d639bf230622470c03036ad79c0e9b7d" name="tests/Games_Chess/promotionbug/test_promotewq.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c682acbd5951d0d8cd2b29a3929d631e" name="tests/Games_Chess/promotionbug/test_promotewr.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4881600e4c8415f7d76b9378315361d8" name="tests/Games_Chess/squareToPiece/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="086123291795a59b3a51e759da24c893" name="tests/Games_Chess/squareToPiece/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d27e1add7b17e3ed32d4bad3c0df78fa" name="tests/Games_Chess/squareToPiece/test_pawn.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="435988b43a6e31a97f285e419a84c677" name="tests/Games_Chess/squareToPiece/test_pawn_promote.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="40b243ddfa6a12ef8491d71d6d919261" name="tests/Games_Chess/squareToPiece/test_piece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4881600e4c8415f7d76b9378315361d8" name="tests/Games_Chess/validMove/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="115666d8dbd909170afc45672168f35c" name="tests/Games_Chess/validMove/test_castlebk.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2e1549f7321be630b4a304e29440293b" name="tests/Games_Chess/validMove/test_castlebq.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b49879649d4373190aca3662ba5fbdfa" name="tests/Games_Chess/validMove/test_castlewk.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5f576dd5a9e34ec495f77f4932aee641" name="tests/Games_Chess/validMove/test_castlewq.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="fb6d1534a27c6d32b5e6c9a38d3b4cfb" name="tests/Games_Chess/validMove/test_invalid_castleb1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="fba52245afad988f4b3c85cfa267b028" name="tests/Games_Chess/validMove/test_invalid_castleb2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9438847283585fb5259b37697609b4ff" name="tests/Games_Chess/validMove/test_invalid_castlew1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3af1b6f7a06bf0df4c06e7690f682fef" name="tests/Games_Chess/validMove/test_invalid_castlew2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="bc8aed6ac0ef0c0cdb46d4acca71f3d9" name="tests/Games_Chess/validMove/test_invalid_pawn1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="64905eea07298ea0c00dceef41d7d65a" name="tests/Games_Chess/validMove/test_invalid_pawn2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="896fe04b27b957effb8625e812d5c88b" name="tests/Games_Chess/validMove/test_invalid_piece1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c7f5094fcf54466c4dd8c5c7fadefcc2" name="tests/Games_Chess/validMove/test_invalid_piece2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="27bcaef3630930ffc51cd37c98f9cbbb" name="tests/Games_Chess/validMove/test_invalid_piece3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="949596188b68514c265edf7b742a9c44" name="tests/Games_Chess/validMove/test_pawn1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c4dabb5cc86bf557485a25271c4cb445" name="tests/Games_Chess/validMove/test_pawn2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="118f283cde07af78a9b9b28e056af90b" name="tests/Games_Chess/validMove/test_pawn_ep.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ac579aa31081a9f53df2e0f557803586" name="tests/Games_Chess/validMove/test_piece1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ba4152908b725f28191b82e46b295a54" name="tests/Games_Chess/validMove/test_piece2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/addPiece/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="778d909ffd4e2dbbd7c9428e8062ec58" name="tests/Games_Chess_Crazyhouse/addPiece/test_addbishopb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1e87e22158c6c5a824ed86ae7551fa98" name="tests/Games_Chess_Crazyhouse/addPiece/test_addbishopw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ebec60e9405205407d4122e02ef1e3ac" name="tests/Games_Chess_Crazyhouse/addPiece/test_addknightb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ded85d6aba144fe4812dc7577af926b5" name="tests/Games_Chess_Crazyhouse/addPiece/test_addknightw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c627604dc6dfd800d67295ebf60a9c05" name="tests/Games_Chess_Crazyhouse/addPiece/test_addpawnsb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="53ab39ced8a531ab1a03db73418250c8" name="tests/Games_Chess_Crazyhouse/addPiece/test_addpawnsw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="dad0089988455e30b18f784a23ce8ac1" name="tests/Games_Chess_Crazyhouse/addPiece/test_addqueenb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="553a18307bae759c16af50720d2a3540" name="tests/Games_Chess_Crazyhouse/addPiece/test_addqueenw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f1919e237ec7267f56eaa7e4ba0a6164" name="tests/Games_Chess_Crazyhouse/addPiece/test_addrookb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="74d530968ec54763735bc23c1ca2ab10" name="tests/Games_Chess_Crazyhouse/addPiece/test_addrookw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7043fce17aaadac79f73de29a2c8ec98" name="tests/Games_Chess_Crazyhouse/addPiece/test_invalid_dupepiece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="672e80c674a17f26df38e83a30fc1a51" name="tests/Games_Chess_Crazyhouse/addPiece/test_invalid_toomany2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="542b1d937e84154706c51ce637dea4f3" name="tests/Games_Chess_Crazyhouse/addPiece/test_invalid_toomany3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="8c970f4c51f10ef7f74695cab55a208d" name="tests/Games_Chess_Crazyhouse/addPiece/test_invalid_toomany4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ca3a61cf7e1f7e3516de1ffd89ee473e" name="tests/Games_Chess_Crazyhouse/addPiece/test_invalid_toomany5.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c18f63c2c535df79f9e88f0af8865cd6" name="tests/Games_Chess_Crazyhouse/addPiece/test_invalid_toomany6.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="98d97caac6208bbccbfe846575affac6" name="tests/Games_Chess_Crazyhouse/addPiece/test_invalid_toomany_b.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="888684c51b06a33007fffa7e0e927a51" name="tests/Games_Chess_Crazyhouse/addPiece/test_invalid_toomany_w.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/getAllPieceLocations/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="7fe336000afac6f8fdcf2b4ab6a22aea" name="tests/Games_Chess_Crazyhouse/getAllPieceLocations/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="77582ed5e2140298ba7a58c140715df1" name="tests/Games_Chess_Crazyhouse/getAllPieceLocations/test_other.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4ba7d0120ff1d9beabbde2568f57e55b" name="tests/Games_Chess_Crazyhouse/getAllPieceLocations/test_starting.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="15a3117c5fc720b84b9d54d30907ac8a" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a2b616a88b25e9f6e532310d42ad7cd3" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_excludeb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="90cf6fdb5b97f54ea960da9be983be33" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_excludew.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="5b3fe1fa3c594b73db1e1b0d61ca14b1" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_noneofcolorb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0ef858695721096ccc742dc486121e52" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_noneofcolorw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0666abaf175701103c732f4d6077aec4" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_pieceb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="47739a77acb6659c1ece7d26c490ef3e" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_piecesb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cd4341846ee95bba660b13de6840acfa" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_piecesw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7096593c4e37d045dc7054172b4a476e" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_pieces_in_pawn_b.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="fb099e06c280566659d040ab68c2e21b" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_pieces_in_pawn_w.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e939f543a28b93169b7982318a436aac" name="tests/Games_Chess_Crazyhouse/getAllPieceSquares/test_piecew.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/getKing/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="b5106d4c50aa6f25a13ca155235304b9" name="tests/Games_Chess_Crazyhouse/getKing/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/getPiece/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="a7fb185c9ef013a34aacce9491edca4f" name="tests/Games_Chess_Crazyhouse/getPiece/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/getPieceTypes/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="e3dc900a220ab234f2442a3d318f6bd3" name="tests/Games_Chess_Crazyhouse/getPieceTypes/test_captured.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0dc030a6589aa9da7419da92d00724de" name="tests/Games_Chess_Crazyhouse/getPieceTypes/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="74d15d34eabc6675d8d91a7a62ac6dc7" name="tests/Games_Chess_Crazyhouse/getPieceTypes/test_promoted.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b8bfb205446e15e919bb44f01dba0e23" name="tests/Games_Chess_Crazyhouse/getPieceTypes/test_starting.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/getPossibleChecks/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="acb6ed7a4c4dc3e180b599ea1d7b5464" name="tests/Games_Chess_Crazyhouse/getPossibleChecks/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4668519f1a9b35bfa4de2a048436c005" name="tests/Games_Chess_Crazyhouse/getPossibleChecks/test_other.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="dd8801456a6414a34c1e4076cc9775fa" name="tests/Games_Chess_Crazyhouse/getPossibleChecks/test_starting.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="202d0adc710e8a5e3cae32b0ba4624f8" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/test_getambiguous1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="824728d836c846b1f11d8ff74c673334" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/test_getambiguous2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ab46707cfb4ce9526dfacec7a9594840" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/test_getambiguous3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="252b14db6c2b24923e2f49577ea4e821" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/test_getambiguous4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9dd8e80c7347ad669093fb5680038787" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/test_getking.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a646901cb32bc8f090e145cecfecba9e" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/test_getsimple.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="69f2a30870070ff52b4c44c9b1098459" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/test_invalid_getambiguous.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="069d6459c444a3da3cc57198c5348c1f" name="tests/Games_Chess_Crazyhouse/getSquareFromParsedMove/test_invalid_king.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/inCheck/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="0704f824500542289203abfb70681bd3" name="tests/Games_Chess_Crazyhouse/inCheck/test_doublecheck.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="64c5356be9a309601d42bb417e0b3bd8" name="tests/Games_Chess_Crazyhouse/inCheck/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="585716074fd62139749c167f5f5f517b" name="tests/Games_Chess_Crazyhouse/inCheck/test_other.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ae14e3c14103b0f53f1985bce156357f" name="tests/Games_Chess_Crazyhouse/inCheck/test_starting.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/interposeOrCapture/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="23e8afce1c15f1a12f026c908717a348" name="tests/Games_Chess_Crazyhouse/interposeOrCapture/test_knightcheck_capture_impossible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0c5ce9669dd709cd311184dfcfe1fb2a" name="tests/Games_Chess_Crazyhouse/interposeOrCapture/test_knightcheck_capture_possible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="aa81b1dcee66719f2a20672150d02513" name="tests/Games_Chess_Crazyhouse/interposeOrCapture/test_piececheck_capture_impossible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="89537282a06bfb3cf7bf5dc1b64dd530" name="tests/Games_Chess_Crazyhouse/interposeOrCapture/test_piececheck_capture_possible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f9ed07e1ced9e175891a7ed11e017015" name="tests/Games_Chess_Crazyhouse/interposeOrCapture/test_piececheck_interpose_possible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="3ba4f94139928fda3920e360d832467e" name="tests/Games_Chess_Crazyhouse/interposeOrCapture/test_piececheck_interpose_with_captured_possible.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/isBishop/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="92918812bfa1d224ebcea8e2b8d919a2" name="tests/Games_Chess_Crazyhouse/isBishop/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/isKing/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="8eb2ff4cb6bb6634484870a8cbd429c9" name="tests/Games_Chess_Crazyhouse/isKing/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/isKnight/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="aa030a46c5d5dd5c63ae63e3478ca3dc" name="tests/Games_Chess_Crazyhouse/isKnight/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/isPawn/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="947cc8f53751adb759328f8b9e90366a" name="tests/Games_Chess_Crazyhouse/isPawn/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/isQueen/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="39707f108beb721e970217b228346d2f" name="tests/Games_Chess_Crazyhouse/isQueen/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/isRook/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="5ebdb37ff90f7f2a01314b322a767990" name="tests/Games_Chess_Crazyhouse/isRook/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/movePiece/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="82a61af6ec068b653123208711cfb3d6" name="tests/Games_Chess_Crazyhouse/movePiece/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/moveSAN/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="1fc6037f5cc512d7fc9f073758ae376e" name="tests/Games_Chess_Crazyhouse/moveSAN/test_castlekb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b1066f582761c6d31b0f4c8ea1674590" name="tests/Games_Chess_Crazyhouse/moveSAN/test_castlekw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cde3098d4f2c9ffba083a4885c9dd292" name="tests/Games_Chess_Crazyhouse/moveSAN/test_castleqb.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="066f7ad634692d1283d0cca2fd2e99da" name="tests/Games_Chess_Crazyhouse/moveSAN/test_castleqw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ad043d2f613a3f0e9d33170dafe805bf" name="tests/Games_Chess_Crazyhouse/moveSAN/test_invalid_pawnmove.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="37a8821708e432c478941c035129344b" name="tests/Games_Chess_Crazyhouse/moveSAN/test_invalid_piecemove.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="882677f352c0c125ec1f3130e8a1c017" name="tests/Games_Chess_Crazyhouse/moveSAN/test_moveking.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2151f15c5e9cb627bbf476525da5f786" name="tests/Games_Chess_Crazyhouse/moveSAN/test_moverook.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a7a36db09ff9dfaa2b4062d773e430a8" name="tests/Games_Chess_Crazyhouse/moveSAN/test_pawnmove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="dfe725d7cd28acd546f7f609689ff5c3" name="tests/Games_Chess_Crazyhouse/moveSAN/test_pawnmove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4b0cac15ad958236bfc1ffde226c405b" name="tests/Games_Chess_Crazyhouse/moveSAN/test_pawnmove3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2ca1d91f6e9777d6e16a626ca4c92d7a" name="tests/Games_Chess_Crazyhouse/moveSAN/test_pawnmove4.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="af5c4f3d019aa94dc37f48d9d08fb2ad" name="tests/Games_Chess_Crazyhouse/moveSAN/test_piecemove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a6c17bd3ed1d141ad4bdd31183c1f447" name="tests/Games_Chess_Crazyhouse/moveSAN/test_piecemove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a5803674662ea404b514a8bbacabba94" name="tests/Games_Chess_Crazyhouse/moveSAN/test_piecemove3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f43c367c047bcfdc5cd6a1a4b8f522ba" name="tests/Games_Chess_Crazyhouse/moveSAN/test_placepiece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="bf44b65b204e1b95da10ef8171aaf297" name="tests/Games_Chess_Crazyhouse/moveSAN/test_placepiece_invalidsquare.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/renderFen/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="1fbd8b8d0e8b83443b46e1f9c0cff9f2" name="tests/Games_Chess_Crazyhouse/renderFen/test_complex.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4f85f550426b0b093347ad370876bcc3" name="tests/Games_Chess_Crazyhouse/renderFen/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6a390516fde54cd88fe333e607feeae6" name="tests/Games_Chess_Crazyhouse/renderFen/test_starting.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/squareToPiece/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="d6b6d45dada24f4b8055365c66c4abfd" name="tests/Games_Chess_Crazyhouse/squareToPiece/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e3bcfdfc9537d426a73c0b485c49ab72" name="tests/Games_Chess_Crazyhouse/squareToPiece/test_pawn.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="84f72df64c1296354c105e879c625138" name="tests/Games_Chess_Crazyhouse/squareToPiece/test_piece.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/takePiece/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="2d4bdce814c7c6feea8882a9f1f8508c" name="tests/Games_Chess_Crazyhouse/takePiece/test.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/toArray/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="94e4769bfa2009829560e425a6843c71" name="tests/Games_Chess_Crazyhouse/toArray/test_complex.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0408e4dfbc78a319fb10e5bbbaa6cd79" name="tests/Games_Chess_Crazyhouse/toArray/test_empty.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7b81f04b5cad44be646f7e462496390b" name="tests/Games_Chess_Crazyhouse/toArray/test_starting.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d5cbe050e104ff8ed530a0806cc6f8eb" name="tests/Games_Chess_Crazyhouse/validMove/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="df9fdd397cfb812f66fe9925ed1d7224" name="tests/Games_Chess_Crazyhouse/validMove/test_castleb_k.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e9395abbb3b4952ee889818b7671a9f2" name="tests/Games_Chess_Crazyhouse/validMove/test_castleb_q.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="e1963d85eee8850dc429ee3c60a0c2c7" name="tests/Games_Chess_Crazyhouse/validMove/test_castlew_k.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="68925c8d31ecba076c617c71d2ab9a5c" name="tests/Games_Chess_Crazyhouse/validMove/test_castlew_q.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2f74f9204347e6c5a36386894558062f" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_castleb1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a50a099c20c691112673cc324ccd380b" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_castleb2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0d513fb4037336d2a4ff99d92f98aa20" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_castlew1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="49f78e27e80fa6200ca49a0e3f9869e3" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_castlew2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7dffe9e84fe7d91e1ce2aa8d377b4975" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_pawnmove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="838f2e4b31f7c400d5895c2fcbbba0f9" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_pawnmove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a337ed19e111ec778afca44bc8435466" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_piecemove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="06cffa5d505a352edaff087276cad5dd" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_piecemove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a4ef3f2f28a1f6ddb6160492dbaf56de" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_piecemove3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="33bbb7d0fc75447e665d40560144ab61" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_placement_1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="53c53e2671db26a9c8b292008937b3a4" name="tests/Games_Chess_Crazyhouse/validMove/test_invalid_placement_2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ad6eb2b43e3c619e4967b636100db83a" name="tests/Games_Chess_Crazyhouse/validMove/test_pawnmove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="b388a69053cddbec519f322d98834d49" name="tests/Games_Chess_Crazyhouse/validMove/test_pawnmove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="118689e63ab581b64a517365c56e1e6a" name="tests/Games_Chess_Crazyhouse/validMove/test_pawnmove_ep.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c79cf008e9edd1a11e28e29c34fe8aa1" name="tests/Games_Chess_Crazyhouse/validMove/test_piecemove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c6959bed113acbb689a09a873cf9e940" name="tests/Games_Chess_Crazyhouse/validMove/test_piecemove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="feee0ad07da282f537f023fc0f2bd805" name="tests/Games_Chess_Crazyhouse/validMove/test_placement.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="65210ab23b65130457882c1d00333de9" name="tests/Games_Chess_Losers/capturePossible/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="a484b0e37ae95c3d3bcd12667c8d3d84" name="tests/Games_Chess_Losers/capturePossible/test_b1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="ace814aaf9d9807fd13de791394461e3" name="tests/Games_Chess_Losers/capturePossible/test_b2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a673d2239f4a1c4d8308ebaa93e9d4cb" name="tests/Games_Chess_Losers/capturePossible/test_invalid_b1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9b93679d3b4777598022a91a41a4a7df" name="tests/Games_Chess_Losers/capturePossible/test_invalid_b2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="2f358cc596c2dedd4b89c67622a99e45" name="tests/Games_Chess_Losers/capturePossible/test_invalid_b3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9eda9f484c67fe39ea3d58a5e2cc80a2" name="tests/Games_Chess_Losers/capturePossible/test_invalid_bcastle.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7ae06fb3030326573a49540ca0e86467" name="tests/Games_Chess_Losers/capturePossible/test_invalid_w1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0c008e061553198c1ff4055e607d5c7a" name="tests/Games_Chess_Losers/capturePossible/test_invalid_w2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="a6caab98c321d82790674a7e868ed501" name="tests/Games_Chess_Losers/capturePossible/test_invalid_w3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="395df09547c7afdbf9018777f36aee59" name="tests/Games_Chess_Losers/capturePossible/test_invalid_wcastle.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="67c82849922886a636a32f58f9effab7" name="tests/Games_Chess_Losers/capturePossible/test_w1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="214e7535b340d9a2c8ba1c95b96676de" name="tests/Games_Chess_Losers/capturePossible/test_w2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="65210ab23b65130457882c1d00333de9" name="tests/Games_Chess_Losers/gameOver/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="5686455774b1d214fa346a8cd5ecac48" name="tests/Games_Chess_Losers/gameOver/test_black_checkmated.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="57d720321f198d54554f8858bfd92e90" name="tests/Games_Chess_Losers/gameOver/test_black_draw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="88bde07c97fd7700ef4929bfd15ff7b1" name="tests/Games_Chess_Losers/gameOver/test_black_nopieces.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="987379aeeeacc15212a39e291374e49a" name="tests/Games_Chess_Losers/gameOver/test_invalid_piecesleft.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="9c0c392b5224e3b7ce6c336e7bddb735" name="tests/Games_Chess_Losers/gameOver/test_white_checkmated.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="22c1629842a7ff14eeb2b998dc07413b" name="tests/Games_Chess_Losers/gameOver/test_white_draw.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4f311f4b76561f794f9b52f94b54da12" name="tests/Games_Chess_Losers/gameOver/test_white_nopieces.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="65210ab23b65130457882c1d00333de9" name="tests/Games_Chess_Losers/validMove/setup.php.inc" role="test" />
+   <file baseinstalldir="/" md5sum="e9e0857378efe2f811c53765ba16900d" name="tests/Games_Chess_Losers/validMove/test_invalid_castleb1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="6b13945389d23f722e33599f855603fd" name="tests/Games_Chess_Losers/validMove/test_invalid_castleb2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="1f970b916b082e5463b0e46b7238c3ca" name="tests/Games_Chess_Losers/validMove/test_invalid_castlew1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f3aadc3ce6415b545449745d2a4402a8" name="tests/Games_Chess_Losers/validMove/test_invalid_castlew2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="43f48ff1c23e392d1422adc9e7628144" name="tests/Games_Chess_Losers/validMove/test_invalid_must_capture_w.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="93d2550ec85af3b1f0dd0b2521542aa2" name="tests/Games_Chess_Losers/validMove/test_invalid_pawnmove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="d820b30b9839d5bf8d95c5924bb80b81" name="tests/Games_Chess_Losers/validMove/test_invalid_pawnmove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="60d8b4e6830b1b3e204bbe1d574cda7e" name="tests/Games_Chess_Losers/validMove/test_invalid_piecemove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7a457af83ed9eb8edb1e4dcdcda243e0" name="tests/Games_Chess_Losers/validMove/test_invalid_piecemove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="855438bb46b38f9ea37224bea43bd370" name="tests/Games_Chess_Losers/validMove/test_invalid_piecemove3.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="fe3fc94b5bb320fa34813e2c46348f4d" name="tests/Games_Chess_Losers/validMove/test_valid_castleb_k.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="0c2158217c3c8c2e73de91212b5a7401" name="tests/Games_Chess_Losers/validMove/test_valid_castleb_q.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c9e7d13b5c5ba0dd9b7aaaf89185b49d" name="tests/Games_Chess_Losers/validMove/test_valid_castlew_k.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="c7d289e35735eb3cd8db96eb02d5813f" name="tests/Games_Chess_Losers/validMove/test_valid_castlew_q.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="f4a1bf020d821c08d2b9bd34876f61df" name="tests/Games_Chess_Losers/validMove/test_valid_pawnmove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="4d1f3314d7461e3bbab521695b78cb1b" name="tests/Games_Chess_Losers/validMove/test_valid_pawnmove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="36272b294135b5371fe6b0d9fcda6501" name="tests/Games_Chess_Losers/validMove/test_valid_pawnmove_ep.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="7917e70460262994fa3f9803d4917572" name="tests/Games_Chess_Losers/validMove/test_valid_piecemove1.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="afeb796b1c618809e5e436e23e46e845" name="tests/Games_Chess_Losers/validMove/test_valid_piecemove2.phpt" role="test" />
+   <file baseinstalldir="/" md5sum="cacd2e927c0792d3829a5f8851de5d5a" name="LICENSE" role="doc" />
+   <file baseinstalldir="/" md5sum="0c21d238b60769e9b33fa320d31c551b" name="package.php" role="php" />
+  </dir>
  </contents>
  <dependencies>
   <required>
@@ -708,201 +571,18 @@ and/or creating PGN files using the File_ChessPGN package (when it is completed)
  <changelog>
   <release>
    <version>
-    <release>1.0.1</release>
-    <api>1.0.0</api>
-   </version>
-   <stability>
-    <release>stable</release>
-    <api>stable</api>
-   </stability>
-   <date>2007-06-17</date>
-   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
-   <notes>* fix Bug #10912: gxh8Q recognized as invalid</notes>
-  </release>
-  <release>
-   <version>
-    <release>1.0.0</release>
-    <api>1.0.0</api>
-   </version>
-   <stability>
-    <release>stable</release>
-    <api>stable</api>
-   </stability>
-   <date>2007-06-17</date>
-   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
-   <notes>* fix Bug #10912: gxh8Q recognized as invalid</notes>
-  </release>
-  <release>
-   <version>
-    <release>1.0.0RC1</release>
-    <api>1.0.0</api>
-   </version>
-   <stability>
-    <release>beta</release>
-    <api>stable</api>
-   </stability>
-   <date>2006-11-17</date>
-   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
-   <notes>fix bugs in Crazyhouse discovered in unit testing</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.9.1</release>
-    <api>0.9.1</api>
+    <release>0.1</release>
+    <api>0.1</api>
    </version>
    <stability>
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2006-11-15</date>
+   <date>2003-10-08</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>fix Bug #7565: should be checkmate but isnt showing as such
-convert all unit tests to .phpt format
-allow placement move to interpose in a check for Crazyhouse variant</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.9.0</release>
-    <api>0.9.0</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2005-03-12</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Add factory method, return state from startTransaction</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.8.2</release>
-    <api>0.8.2</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2004-07-10</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Add test cases for Crazyhouse, fix hidden bug:
-placement of pieces on back ranks is legal, but was not allowed</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.8.1</release>
-    <api>0.8.1</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2004-07-10</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Fix 2 bugs: draw is not allowed except by stalemate, and pawn placement on the
-first or last ranks is not allowed (#1838, #1839)</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.8.0</release>
-    <api>0.8.0</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2004-07-09</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Add &quot;Crazyhouse variant&quot;</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.7.1</release>
-    <api>0.7.1</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2004-04-12</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Add the ability to retrieve the move list with check/checkmate annotations</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.7.0</release>
-    <api>0.7.0</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2004-04-09</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>PHP 5 compatibility
-
-- Castling is now possible by moving the king to the destination square</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.6alpha</release>
-    <api>0.6alpha</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2003-12-28</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>bugfix release
-
-- fixed #158: total screwup in example if SAN entered in FEN box</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.5alpha</release>
-    <api>0.5alpha</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2003-10-26</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Added new module for Loser&apos;s chess (ICC wild 16)
-
-- added gameOver() method, returns color of winner, or D for draw, or false</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.4alpha</release>
-    <api>0.4alpha</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2003-10-26</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Added new module for Loser&apos;s chess (ICC wild 16)
-
-- added gameOver() method, returns color of winner, or D for draw, or false</notes>
-  </release>
-  <release>
-   <version>
-    <release>0.3</release>
-    <api>0.3</api>
-   </version>
-   <stability>
-    <release>alpha</release>
-    <api>alpha</api>
-   </stability>
-   <date>2003-10-09</date>
-   <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Fixed a few bugs:
-
-- example works in Mozilla now
-- promotion was endless loop in example
-- promotion didn&apos;t change the pawn to the promoted piece</notes>
+   <notes>
+Initial test release
+   </notes>
   </release>
   <release>
    <version>
@@ -915,24 +595,254 @@ first or last ranks is not allowed (#1838, #1839)</notes>
    </stability>
    <date>2003-10-08</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Fixed a few bugs:
+   <notes>
+Fixed a few bugs:
 
 - 1. e4 e5 2. Nf3 Nc6 3. Bc4 Nf6 4. Nc3 Bb4 5. 
 a3 Bxc3 6. dxc3 was fine through moveSAN(), but not through moveSquare(&apos;d2&apos;, &apos;c3&apos;)
-- en passant didn&apos;t actually delete the captured pawn</notes>
+- en passant didn&apos;t actually delete the captured pawn
+   </notes>
   </release>
   <release>
    <version>
-    <release>0.1</release>
-    <api>0.1</api>
+    <release>0.3</release>
+    <api>0.3</api>
    </version>
    <stability>
     <release>alpha</release>
     <api>alpha</api>
    </stability>
-   <date>2003-10-08</date>
+   <date>2003-10-09</date>
    <license uri="http://www.php.net/license">PHP License</license>
-   <notes>Initial test release</notes>
+   <notes>
+Fixed a few bugs:
+
+- example works in Mozilla now
+- promotion was endless loop in example
+- promotion didn&apos;t change the pawn to the promoted piece
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.4alpha</release>
+    <api>0.4alpha</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-10-26</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Added new module for Loser&apos;s chess (ICC wild 16)
+
+- added gameOver() method, returns color of winner, or D for draw, or false
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.5alpha</release>
+    <api>0.5alpha</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-10-26</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Added new module for Loser&apos;s chess (ICC wild 16)
+
+- added gameOver() method, returns color of winner, or D for draw, or false
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.6alpha</release>
+    <api>0.6alpha</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2003-12-28</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+bugfix release
+
+- fixed #158: total screwup in example if SAN entered in FEN box
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.7.0</release>
+    <api>0.7.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-04-09</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+PHP 5 compatibility
+
+- Castling is now possible by moving the king to the destination square
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.7.1</release>
+    <api>0.7.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-04-12</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Add the ability to retrieve the move list with check/checkmate annotations
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8.0</release>
+    <api>0.8.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-07-09</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Add &quot;Crazyhouse variant&quot;
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8.1</release>
+    <api>0.8.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-07-10</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Fix 2 bugs: draw is not allowed except by stalemate, and pawn placement on the
+first or last ranks is not allowed (#1838, #1839)
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.8.2</release>
+    <api>0.8.2</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2004-07-10</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Add test cases for Crazyhouse, fix hidden bug:
+placement of pieces on back ranks is legal, but was not allowed
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.0</release>
+    <api>0.9.0</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2005-03-12</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+Add factory method, return state from startTransaction
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>0.9.1</release>
+    <api>0.9.1</api>
+   </version>
+   <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+   </stability>
+   <date>2006-11-15</date>
+   <license uri="http://www.php.net/license">PHP License</license>
+   <notes>
+fix Bug #7565: should be checkmate but isnt showing as such
+convert all unit tests to .phpt format
+allow placement move to interpose in a check for Crazyhouse variant
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0RC1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>beta</release>
+    <api>stable</api>
+   </stability>
+   <date>2006-11-17</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>
+fix bugs in Crazyhouse discovered in unit testing
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-06-17</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>
+* fix Bug #10912: gxh8Q recognized as invalid
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-06-17</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>
+* fix Bug #10912: gxh8Q recognized as invalid
+   </notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.2</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2010-08-16</date>
+   <license uri="http://www.php.net/license/3_01.txt">PHP License 3.01</license>
+   <notes>
+Fixed unit tests / dir layout
+   </notes>
   </release>
  </changelog>
 </package>
