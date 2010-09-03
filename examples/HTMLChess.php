@@ -43,7 +43,7 @@ function setup_game($session_id, $gamename)
         session_destroy();
     }
     session_name($session_id);
-    session_register($gamename);
+    $_SESSION[$gamename] = null;
 }
 
 /**
