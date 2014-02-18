@@ -1,0 +1,31 @@
+{
+    "authors": [
+        {
+            "email": "cellog@php.net",
+            "name": "Greg Beaver",
+            "role": "Lead"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Games": "./"
+        }
+    },
+    "description": "More info available on: http://pear.php.net/package/Games_Chess",
+    "include-path": [
+        "./"
+    ],
+    "license": "PHP License 3.01",
+    "name": "pear/games_chess",
+    "support": {
+        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Games_Chess",
+        "source": "https://github.com/pear/Games_Chess"
+    },
+    "type": "library",
+    "require": {
+        "pear/pear_exception": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
+}
